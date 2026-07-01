@@ -1,0 +1,282 @@
+.collaborator-scope-card-shell {
+  position: relative;
+}
+
+.collaborator-scope-create-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.collaborator-scope-card-shell--editing {
+  padding-right: 30px;
+}
+
+.collaborator-scope-card {
+  position: relative;
+  min-height: 64px;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  background: color-mix(in srgb, var(--surface-solid) 94%, rgba(255,255,255,0.7));
+  color: var(--text-soft);
+  font: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: 0 10px 24px rgba(28, 34, 48, 0.09);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+  width: 100%;
+  min-width: 0;
+  padding: 12px 14px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
+}
+
+.collaborator-scope-card:not(.collaborator-scope-card--create) {
+  padding-right: 68px;
+}
+
+.collaborator-scope-card[aria-disabled='true'] {
+  cursor: default;
+}
+
+.collaborator-scope-card--editing {
+  padding-right: 28px;
+}
+
+.collaborator-scope-card--special {
+  background: color-mix(in srgb, var(--surface-solid) 97%, rgba(255,255,255,0.8));
+}
+
+.collaborator-scope-card--aggregate {
+  background: color-mix(in srgb, var(--surface-solid) 97%, rgba(255,255,255,0.78));
+}
+
+.collaborator-scope-aggregate-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  color: color-mix(in srgb, var(--accent) 70%, var(--text-soft));
+  flex: 0 0 auto;
+}
+
+.collaborator-scope-aggregate-world-mark {
+  width: 14px;
+  height: 14px;
+  opacity: 0.96;
+  filter: drop-shadow(0 2px 6px color-mix(in srgb, var(--accent) 20%, transparent));
+}
+
+.collaborator-scope-card--aggregate.active .collaborator-scope-aggregate-world-mark {
+  opacity: 1;
+}
+
+.collaborator-scope-card--create {
+  border-style: dashed;
+  border-color: color-mix(in srgb, var(--border) 72%, transparent);
+}
+
+.collaborator-scope-create-shell--open .collaborator-scope-card--create {
+  border-radius: 16px 16px 12px 12px;
+  border-style: dashed;
+}
+
+.collaborator-scope-create-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  color: color-mix(in srgb, var(--accent) 56%, var(--text-soft) 44%);
+}
+
+.collaborator-scope-create-mark svg {
+  display: block;
+}
+
+.collaborator-scope-card-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: color-mix(in srgb, var(--accent) 58%, var(--text-soft) 42%);
+  width: auto;
+  height: auto;
+  background: transparent;
+  border: 0;
+}
+
+.collaborator-scope-card-badge .collaborator-sigil {
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.collaborator-scope-card-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.collaborator-scope-card strong {
+  font-size: 13px;
+  line-height: 1.22;
+  color: color-mix(in srgb, var(--text) 86%, var(--text-soft) 14%);
+  font-weight: 560;
+  letter-spacing: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.collaborator-scope-card--special strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.collaborator-scope-card-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  max-width: 100%;
+  font-size: 11px;
+  line-height: 1.35;
+  color: color-mix(in srgb, var(--text-muted) 88%, var(--text-soft) 12%);
+}
+
+.collaborator-scope-card-count {
+  position: absolute;
+  right: 13px;
+  bottom: 12px;
+  font-size: 11px;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  color: color-mix(in srgb, var(--text-soft) 88%, var(--text-muted));
+  white-space: nowrap;
+}
+
+.collaborator-scope-card-meta span:last-child {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.collaborator-scope-card:not(.collaborator-scope-card--create).active {
+  background: color-mix(in srgb, var(--accent-soft) 10%, var(--surface-solid));
+  border-color: color-mix(in srgb, var(--text-soft) 54%, var(--border) 46%);
+  box-shadow: 0 12px 28px rgba(28, 34, 48, 0.12);
+}
+
+.collaborator-scope-card.pinned {
+  background:
+    radial-gradient(circle at 18px 16px, color-mix(in srgb, var(--accent-soft) 56%, transparent), transparent 42px),
+    linear-gradient(180deg, color-mix(in srgb, var(--accent-soft) 18%, var(--surface-solid) 82%), color-mix(in srgb, var(--surface-solid) 92%, var(--accent-soft) 8%));
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--accent) 6%, transparent);
+}
+
+.collaborator-scope-card.pinned:not(.active) {
+  border-color: transparent;
+}
+
+.collaborator-scope-card--aggregate.active {
+  background: color-mix(in srgb, var(--surface-solid) 98%, rgba(255,255,255,0.84));
+}
+
+.collaborator-scope-card.active strong {
+  color: var(--text);
+  font-weight: 620;
+}
+
+.collaborator-scope-card-pin-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 13px;
+  height: 13px;
+  margin-left: -2px;
+  color: color-mix(in srgb, var(--accent) 72%, #d7b3ff 28%);
+  filter: drop-shadow(0 2px 5px color-mix(in srgb, var(--accent) 18%, transparent));
+  flex: 0 0 auto;
+}
+
+.app-shell:not(.world-switching) .collaborator-scope-drawer--open .collaborator-scope-card--aggregate.active .collaborator-scope-aggregate-world-mark {
+  animation: collaboratorScopeNorthStarBloom 0.32s var(--ease-out) both;
+}
+
+.app-shell:not(.world-switching) .collaborator-scope-drawer--open .collaborator-scope-card--aggregate .collaborator-scope-aggregate-world-mark.spinning {
+  animation: worldMarkSpin 0.36s var(--ease-out) both;
+}
+
+.collaborator-scope-card:hover,
+.collaborator-scope-card:focus-visible {
+  z-index: 1;
+  transform: translateY(-1px);
+  border-color: transparent;
+  outline: none;
+}
+
+.collaborator-scope-card--aggregate:hover,
+.collaborator-scope-card--aggregate:focus-visible {
+  border-color: color-mix(in srgb, var(--text-soft) 42%, var(--border-hover) 58%);
+}
+
+.collaborator-scope-card--create:hover,
+.collaborator-scope-card--create:focus-visible {
+  border-color: color-mix(in srgb, var(--accent) 18%, var(--border-hover));
+}
+
+.collaborator-scope-card[aria-disabled='true']:not(.active):hover,
+.collaborator-scope-card[aria-disabled='true']:not(.active):focus-visible {
+  transform: none;
+  border-color: transparent;
+}
+
+.collaborator-scope-card:active {
+  transform: translateY(0);
+}
+
+.collaborator-scope-card-pin {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(194, 92, 92, 0.08);
+  color: #b45f5f;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-50%);
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(194, 92, 92, 0.08);
+}
+
+.collaborator-scope-card-pin {
+  border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+  background: color-mix(in srgb, var(--surface-solid) 90%, rgba(255,255,255,0.46));
+  color: color-mix(in srgb, var(--text-soft) 78%, var(--accent) 22%);
+  box-shadow: 0 6px 14px color-mix(in srgb, var(--surface-deep) 10%, transparent);
+}
+
+.collaborator-scope-card-pin.active {
+  border-color: color-mix(in srgb, var(--accent) 46%, var(--border) 54%);
+  background: color-mix(in srgb, var(--accent-soft) 70%, var(--surface-solid) 30%);
+  color: color-mix(in srgb, var(--accent) 82%, var(--text) 18%);
+}
+
+.collaborator-scope-card-pin svg {
+  transform: rotate(-18deg);
+}
+
+.collaborator-scope-card-pin:hover,
+.collaborator-scope-card-pin:focus-visible {
+  background: color-mix(in srgb, var(--accent-soft) 58%, var(--surface-solid) 42%);
+  color: color-mix(in srgb, var(--accent) 82%, var(--text) 18%);
+  outline: none;
+}

@@ -1,0 +1,474 @@
+.collaborator-info-content .automation-rules-panel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.collaborator-info-content .automation-rules-panel .menu-section {
+  width: calc(100% + (var(--collaborator-info-content-gutter) * 2));
+  margin-left: calc(var(--collaborator-info-content-gutter) * -1);
+  margin-right: calc(var(--collaborator-info-content-gutter) * -1);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.collaborator-info-content .automation-rules-head-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.collaborator-info-content .automation-rules-head-section .menu-section-head {
+  margin: 0;
+  gap: 7px;
+}
+
+.collaborator-info-content .automation-rules-head-section .menu-section-kicker,
+.collaborator-info-content .automation-form-head .menu-section-kicker,
+.collaborator-info-content .automation-field > .ps-field-label,
+.collaborator-info-content .automation-rules-panel .automation-schedule-field > .ps-field-label {
+  color: var(--text-soft);
+  font-size: var(--type-label);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: none;
+}
+
+.collaborator-info-content .automation-rules-head-section .menu-section-note,
+.collaborator-info-content .automation-form-head .menu-section-note {
+  margin: 0;
+  color: rgba(108, 92, 80, 0.72);
+  font-size: var(--type-caption);
+  line-height: 1.55;
+}
+
+.collaborator-info-content .automation-rules-head-section .mcp-page-actions {
+  justify-content: flex-end;
+}
+
+.collaborator-info-content .automation-rules-head-actions {
+  justify-content: flex-end;
+}
+
+.collaborator-info-content .automation-rules-head-section .mcp-page-action-button {
+  width: auto;
+  min-width: 0;
+  height: 30px;
+  min-height: 30px;
+  gap: 5px;
+  padding: 0 10px;
+  border-radius: var(--radius-sm);
+  border-color: color-mix(in srgb, var(--border) 88%, var(--surface-solid) 12%);
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-deep) 34%, var(--surface-solid) 66%),
+      color-mix(in srgb, var(--surface) 80%, var(--surface-deep) 20%)
+    );
+  color: var(--text-soft);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--surface-deep) 52%, transparent),
+    0 2px 8px rgba(133, 112, 87, 0.03);
+}
+
+.collaborator-info-content .automation-rules-head-section .mcp-page-action-button span {
+  font-size: var(--type-caption);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.collaborator-info-content .automation-rules-help-toggle {
+  min-height: 30px;
+  padding: 0 9px;
+  border-radius: var(--radius-sm);
+  border-color: color-mix(in srgb, var(--border) 88%, var(--surface-solid) 12%);
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-deep) 34%, var(--surface-solid) 66%),
+      color-mix(in srgb, var(--surface) 80%, var(--surface-deep) 20%)
+    );
+  color: var(--text-soft);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--surface-deep) 52%, transparent),
+    0 2px 8px rgba(133, 112, 87, 0.03);
+}
+
+.collaborator-info-content .automation-rules-help-panel {
+  border-color: color-mix(in srgb, var(--border) 78%, var(--surface-solid) 22%);
+  border-radius: 16px;
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-deep) 26%, var(--surface-solid) 74%),
+      color-mix(in srgb, var(--surface) 82%, var(--surface-deep) 18%)
+    );
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--surface-deep) 48%, transparent),
+    0 8px 20px rgba(133, 112, 87, 0.04);
+}
+
+.collaborator-info-content .automation-rules-help-panel strong {
+  color: var(--text);
+}
+
+.collaborator-info-content .automation-rules-help-panel span {
+  color: rgba(108, 92, 80, 0.72);
+}
+
+.collaborator-info-content .automation-form-section:not(.automation-rules-head-section) {
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--border) 82%, var(--surface-solid) 18%);
+  border-radius: 18px;
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-solid) 88%, rgba(255,255,255,0.24)),
+      color-mix(in srgb, var(--surface) 82%, var(--surface-deep) 18%)
+    );
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--surface-deep) 58%, transparent),
+    0 10px 24px rgba(133, 112, 87, 0.045);
+}
+
+.collaborator-info-content .automation-form-section:not(.automation-rules-head-section) .automation-form-head {
+  padding: 14px 16px 12px;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 52%, transparent);
+}
+
+.collaborator-info-content .automation-settings-form {
+  gap: 0;
+}
+
+.collaborator-info-content .automation-rules-panel .automation-field {
+  gap: 9px;
+  padding: 14px 16px;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 48%, transparent);
+}
+
+.collaborator-info-content .automation-rules-panel .automation-settings-form input,
+.collaborator-info-content .automation-rules-panel .automation-settings-form select,
+.collaborator-info-content .automation-rules-panel .automation-settings-form textarea {
+  border: var(--control-border);
+  background: var(--control-surface);
+  color: var(--control-text);
+  box-shadow: var(--control-shadow);
+  line-height: 1.55;
+  outline: none;
+  backdrop-filter: blur(12px) saturate(1.02);
+  -webkit-backdrop-filter: blur(12px) saturate(1.02);
+}
+
+.collaborator-info-content .automation-rules-panel .automation-settings-form input,
+.collaborator-info-content .automation-rules-panel .automation-settings-form select {
+  height: 44px;
+  min-height: 44px;
+  border-radius: 14px;
+  padding: 0 14px;
+  font-size: var(--type-body);
+}
+
+.collaborator-info-content .automation-rules-panel .automation-settings-form textarea {
+  min-height: 72px;
+  border-radius: 14px;
+  padding: 12px 14px;
+  resize: vertical;
+  font-size: var(--type-body);
+}
+
+.collaborator-info-content .automation-rules-panel .automation-settings-form input:focus,
+.collaborator-info-content .automation-rules-panel .automation-settings-form select:focus,
+.collaborator-info-content .automation-rules-panel .automation-settings-form textarea:focus {
+  border: var(--control-border-focus);
+  background: var(--control-surface-focus);
+  box-shadow: var(--control-focus-shadow);
+}
+
+.collaborator-info-content .automation-rules-panel .automation-field-label-row small {
+  background: color-mix(in srgb, var(--accent-soft) 46%, transparent);
+  color: color-mix(in srgb, var(--accent) 70%, var(--text) 30%);
+}
+
+.collaborator-info-content .automation-rules-panel .automation-conversation-field {
+  gap: 9px;
+  padding: 14px 16px;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 48%, transparent);
+}
+
+.collaborator-info-content .automation-rules-panel .automation-conversation-list {
+  max-height: min(210px, 30vh);
+}
+
+.collaborator-info-content .automation-rules-panel .automation-conversation-option {
+  border-color: color-mix(in srgb, var(--border) 42%, transparent);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--surface) 34%, transparent);
+  color: var(--text);
+  box-shadow: none;
+}
+
+.collaborator-info-content .automation-rules-panel .automation-conversation-option small {
+  color: var(--muted);
+}
+
+.collaborator-info-content .automation-rules-panel .automation-conversation-option.selected {
+  border-color: color-mix(in srgb, var(--accent) 24%, var(--border));
+  background: color-mix(in srgb, var(--accent-soft) 30%, var(--surface) 70%);
+  box-shadow:
+    0 0 0 2px color-mix(in srgb, var(--accent-soft) 18%, transparent),
+    inset 0 1px 0 color-mix(in srgb, var(--surface-deep) 44%, transparent);
+}
+
+.collaborator-info-content .automation-rules-panel .automation-schedule-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 16px;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 48%, transparent);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.collaborator-info-content .automation-settings-form .mcp-transport-switch {
+  width: 100%;
+  padding: 2px;
+  border-radius: 10px;
+  border-color: color-mix(in srgb, var(--border) 54%, transparent);
+  background: color-mix(in srgb, var(--surface) 24%, transparent);
+}
+
+.collaborator-info-content .automation-settings-form .mcp-transport-switch button {
+  min-height: 28px;
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-size: var(--type-caption);
+}
+
+.collaborator-info-content .automation-settings-form .mcp-transport-switch button.active {
+  color: var(--text);
+  background: color-mix(in srgb, var(--surface-solid) 82%, var(--accent-soft) 18%);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--surface-deep) 48%, transparent);
+}
+
+.collaborator-info-content .automation-rules-panel .automation-interval-input-wrap input {
+  padding-right: 52px;
+}
+
+.collaborator-info-content .automation-rules-panel .automation-interval-input-wrap span {
+  color: var(--muted);
+}
+
+.collaborator-info-content .automation-form-actions {
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 14px 16px;
+  background: color-mix(in srgb, var(--surface-solid) 38%, transparent);
+}
+
+.collaborator-info-content .automation-form-actions .mcp-btn {
+  flex: 0 1 auto;
+  min-height: 36px;
+  border-radius: var(--radius-sm);
+  padding-inline: 14px;
+  font-size: var(--type-small);
+}
+
+.collaborator-info-content .automation-rule-list {
+  gap: 8px;
+}
+
+.collaborator-info-content .automation-rule-card {
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  padding: 11px 36px 11px 13px;
+  border-radius: 16px;
+  border-color: color-mix(in srgb, var(--border) 88%, var(--surface-solid) 12%);
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-deep) 38%, var(--surface-solid) 62%),
+      color-mix(in srgb, var(--surface) 78%, var(--surface-deep) 22%)
+    );
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--surface-deep) 56%, transparent),
+    inset 0 -1px 0 color-mix(in srgb, var(--surface-solid) 72%, transparent),
+    0 2px 8px rgba(133, 112, 87, 0.028);
+}
+
+.collaborator-info-content .automation-rule-title-row {
+  gap: 8px;
+}
+
+.collaborator-info-content .automation-rule-title-row strong {
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 520;
+}
+
+.collaborator-info-content .automation-rule-badges {
+  gap: 4px 8px;
+  margin-top: 7px;
+}
+
+.collaborator-info-content .automation-rule-badge {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: var(--type-caption);
+}
+
+.collaborator-info-content .automation-rule-badge::after {
+  content: "/";
+  margin-left: 8px;
+  color: color-mix(in srgb, var(--text-muted) 44%, transparent);
+}
+
+.collaborator-info-content .automation-rule-badge:last-child::after {
+  content: "";
+  margin: 0;
+}
+
+.collaborator-info-content .automation-rule-badge.active {
+  color: color-mix(in srgb, var(--accent) 72%, var(--text) 28%);
+  background: transparent;
+  border: 0;
+}
+
+.collaborator-info-content .automation-rule-prompt {
+  margin-top: 8px;
+  color: var(--text-soft);
+  font-size: var(--type-body);
+  line-height: 1.5;
+}
+
+.collaborator-info-content .automation-rule-meta {
+  gap: 6px 12px;
+  margin-top: 8px;
+  color: var(--text-muted);
+  font-size: var(--type-caption);
+}
+
+.collaborator-info-content .automation-rule-actions {
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  max-width: none;
+}
+
+.collaborator-info-content .automation-rule-actions .ps-toggle-sw {
+  width: 34px;
+  height: 18px;
+  margin-right: 2px;
+}
+
+.collaborator-info-content .automation-rule-actions .ps-toggle-knob {
+  width: 14px;
+  height: 14px;
+}
+
+.collaborator-info-content .automation-rule-actions .ps-toggle-sw--on .ps-toggle-knob {
+  transform: translateX(16px);
+}
+
+.collaborator-info-content .automation-rule-delete-btn,
+.collaborator-info-content .automation-rule-delete-btn.mcp-btn.danger {
+  top: 10px;
+  right: 10px;
+  flex-basis: 22px;
+  width: 22px;
+  min-width: 22px;
+  height: 22px;
+  min-height: 22px;
+  color: color-mix(in srgb, #a95353 58%, var(--text-muted) 42%);
+  background: transparent;
+  border-color: transparent;
+}
+
+.collaborator-info-content .automation-rule-delete-btn:hover,
+.collaborator-info-content .automation-rule-delete-btn:focus-visible,
+.collaborator-info-content .automation-rule-delete-btn.mcp-btn.danger:hover,
+.collaborator-info-content .automation-rule-delete-btn.mcp-btn.danger:focus-visible {
+  color: #a95353;
+  background: color-mix(in srgb, #d66b6b 10%, transparent);
+}
+
+.collaborator-info-content .automation-rule-action-btn {
+  flex: 0 0 30px;
+  width: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  height: 30px;
+  padding: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text-muted);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.collaborator-info-content .automation-rule-action-btn:hover,
+.collaborator-info-content .automation-rule-action-btn:focus-visible {
+  background: color-mix(in srgb, var(--surface-solid) 72%, var(--accent-soft) 16%);
+  color: var(--text);
+  transform: none;
+}
+
+.collaborator-info-content .automation-rule-action-btn.danger,
+.collaborator-info-content .automation-rule-action-btn.mcp-btn.danger {
+  color: color-mix(in srgb, #a95353 78%, var(--text-muted) 22%);
+  background: transparent;
+  border-color: transparent;
+}
+
+.collaborator-info-content .automation-rule-action-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.collaborator-info-content .automation-empty-state {
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border-color: color-mix(in srgb, var(--border) 58%, transparent);
+  background: transparent;
+  color: var(--text-muted);
+}
+
+.collaborator-info-content .automation-empty-state strong {
+  color: var(--text-soft);
+  font-size: var(--type-label);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.collaborator-info-content .automation-empty-state .mcp-btn {
+  flex: 0 1 auto;
+  min-height: 30px;
+  padding: 0 12px;
+  border-radius: var(--radius-sm);
+  font-size: var(--type-caption);
+}
+
+@media (max-width: 520px) {
+  .collaborator-info-content .automation-rule-card {
+    grid-template-columns: 1fr;
+    padding-right: 36px;
+  }
+
+  .collaborator-info-content .automation-rule-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}

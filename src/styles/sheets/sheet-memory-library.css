@@ -1,0 +1,13 @@
+.memory-library-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding-top: 4px; }
+.memory-library-head strong { display: block; font-size: var(--type-small); color: var(--text); }
+.memory-library-head span, .memory-library-head small { font-size: var(--type-caption); line-height: 1.5; color: var(--text-muted); }
+.memory-library-composer { display: flex; flex-direction: column; gap: 8px; }
+.memory-library-list { display: flex; flex-direction: column; gap: 10px; }
+.memory-entry-card { border: 1px solid var(--border); border-radius: 18px; background: var(--surface); padding: 12px; display: flex; flex-direction: column; gap: 10px; }
+.memory-entry-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.memory-entry-tags, .memory-entry-actions, .memory-entry-editor-actions { display: flex; flex-wrap: wrap; gap: 6px; }
+.memory-entry-tags span { padding: 3px 8px; border-radius: 999px; background: color-mix(in srgb, var(--accent-soft) 72%, transparent); color: var(--text-soft); font-size: 10px; line-height: 1.4; }
+.memory-entry-tags span.warn { background: rgba(215, 146, 71, 0.12); color: #b67932; }
+.memory-entry-card p, .memory-empty-card { margin: 0; font-size: var(--type-body); line-height: 1.65; color: var(--text-soft); white-space: pre-wrap; word-break: break-word; }
+.memory-entry-editor { display: flex; flex-direction: column; gap: 8px; }
+.memory-empty-card { border: 1px dashed var(--border); border-radius: 18px; background: rgba(248, 249, 253, 0.52); padding: 14px; }

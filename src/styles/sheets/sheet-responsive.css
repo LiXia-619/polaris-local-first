@@ -1,0 +1,33 @@
+@media (max-width: 480px) {
+  .ps-topbar { padding: max(14px, calc(8px + env(safe-area-inset-top, 0px))) 18px 12px; }
+  .companion-setup-stack {
+    padding: 0 18px;
+  }
+  .companion-connected-item {
+    flex-direction: column;
+  }
+  .companion-bridge-command-row {
+    grid-template-columns: 1fr auto;
+  }
+  .companion-bridge-command-label {
+    grid-column: 1 / -1;
+  }
+  .companion-bridge-command-row code {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  .ps-nav { padding: 0 18px; }
+  .ps-content { padding: 20px 18px calc(40px + var(--keyboard-scroll-padding, 0px)); }
+  .ps-section { gap: 20px; }
+  .ps-identity-hero { padding: 18px; gap: 14px; }
+  .ps-avatar { width: 44px; height: 44px; border-radius: 11px; }
+  .ps-avatar-initial { font-size: 17px; }
+  .ps-identity-name { font-size: 17px; }
+  .theme-tool-mode-warning-overlay {
+    padding:
+      max(18px, calc(env(safe-area-inset-top, 0px) + 18px))
+      18px
+      max(112px, calc(env(safe-area-inset-bottom, 0px) + 112px));
+  }
+  .theme-tool-mode-warning-card { padding: 16px; border-radius: 22px; }
+}

@@ -1,0 +1,134 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --standalone-safe-area-bottom: 0px;
+  --native-safe-area-bottom: 0px;
+  --collection-bottom-nav-safe-area: var(--standalone-safe-area-bottom, 0px);
+  --collection-bottom-nav-padding-bottom: max(8px, var(--standalone-safe-area-bottom, 0px));
+  --app-shell-height: var(--app-height, 100%);
+}
+@media (display-mode: standalone) {
+  :root {
+    --standalone-safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
+html[data-polaris-native='true'] {
+  --native-safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  --collection-bottom-nav-safe-area: var(--native-safe-area-bottom, 0px);
+  --collection-bottom-nav-padding-bottom: calc(8px + var(--native-safe-area-bottom, 0px));
+}
+html, body, #root {
+  width: 100%;
+  height: var(--app-shell-height);
+  min-height: var(--app-shell-height);
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+#root {
+  background: inherit;
+}
+::-webkit-scrollbar { width: 0; }
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  transition: background var(--duration-world) var(--ease-out), color var(--duration-slow) ease;
+}
+
+html[data-polaris-world='chat'],
+body[data-polaris-world='chat'] {
+  background: var(--cool-bg);
+}
+
+html[data-polaris-world='collection'],
+body[data-polaris-world='collection'] {
+  background: var(--warm-bg);
+}
+
+body,
+body *,
+body *::before,
+body *::after {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  -webkit-appearance: none;
+  appearance: none;
+  font: inherit;
+}
+
+.app-shell,
+.app-shell * {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.app-shell input,
+.app-shell textarea,
+.app-shell select,
+.app-shell [contenteditable='true'],
+.app-shell [contenteditable='plaintext-only'] {
+  -webkit-user-select: text;
+  user-select: text;
+  -webkit-touch-callout: default;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  input, textarea, select {
+    font-size: 16px;
+  }
+}
+
+/* ── Theme transition: smooth color shifts when AI patches land ── */
+.app-shell,
+.app-stage,
+.world-collection,
+.world-stack {
+  transition:
+    background var(--duration-normal) var(--ease-out),
+    background-color var(--duration-normal) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-normal) var(--ease-out),
+    color var(--duration-fast) ease;
+}
+
+.topbar,
+.topbar-surface,
+.chat-topbar-shell,
+.chat-box,
+.bubble,
+.world-collection .card,
+.world-collection .code-card,
+.world-collection .conversation-card,
+.collection-shelf-tabs {
+  transition:
+    background var(--duration-normal) var(--ease-out),
+    background-color var(--duration-normal) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-normal) var(--ease-out),
+    color var(--duration-fast) ease;
+}
+
+.app-shell.theme-transition-enter .topbar,
+.app-shell.theme-transition-enter .topbar-surface,
+.app-shell.theme-transition-enter .chat-topbar-shell,
+.app-shell.theme-transition-enter .chat-box,
+.app-shell.theme-transition-enter .bubble,
+.app-shell.theme-transition-enter .world-collection .card,
+.app-shell.theme-transition-enter .world-collection .code-card,
+.app-shell.theme-transition-enter .world-collection .conversation-card,
+.app-shell.theme-transition-enter .collection-shelf-tabs {
+  transition-delay: 72ms;
+}
+
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideFromTop { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@keyframes slideFromBottom { from { transform: translate3d(0, 18px, 0); opacity: 0; } to { transform: translate3d(0, 0, 0); opacity: 1; } }
+@keyframes localSurfaceEnter { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes softPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.8; } }

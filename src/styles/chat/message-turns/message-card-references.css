@@ -1,0 +1,320 @@
+.message-card-reference {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: min(100%, 228px);
+  max-width: min(100%, 508px);
+  margin-bottom: 8px;
+  padding: 11px 13px 12px;
+  border-radius: 18px;
+  border: 1px solid color-mix(in srgb, var(--border-hover) 30%, transparent);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-solid) 84%, rgba(255,255,255,0.16)), color-mix(in srgb, var(--surface) 72%, rgba(255,255,255,0.08)));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+.tool-product-stack {
+  width: min(100%, 508px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7px;
+}
+.tool-product-stack .message-card-reference {
+  width: 100%;
+  margin: 0;
+}
+.message-card-reference--created {
+  border-color: color-mix(in srgb, var(--border-hover) 36%, transparent);
+  background:
+    radial-gradient(circle at 14% 10%, color-mix(in srgb, var(--accent-soft) 28%, transparent), transparent 36%),
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-solid) 90%, rgba(255,255,255,0.22)), color-mix(in srgb, var(--surface) 78%, rgba(255,255,255,0.08)));
+  box-shadow:
+    0 12px 28px color-mix(in srgb, var(--accent-soft) 8%, transparent),
+    inset 0 1px 0 rgba(255,255,255,0.14);
+}
+.bubble.user .message-card-reference {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0.12));
+  border-color: rgba(255,255,255,0.34);
+}
+.bubble.assistant .message-card-reference {
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-solid) 92%, rgba(255,255,255,0.22)), color-mix(in srgb, var(--surface) 80%, rgba(255,255,255,0.08)));
+}
+.message-card-reference--face {
+  --message-card-reference-face-width: calc(var(--collection-code-card-column-width) * 0.92);
+  width: min(100%, var(--message-card-reference-face-width));
+  min-width: 0;
+  max-width: min(100%, var(--message-card-reference-face-width));
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.tool-product-stack .message-card-reference--face {
+  width: min(100%, var(--message-card-reference-face-width));
+  max-width: min(100%, var(--message-card-reference-face-width));
+}
+.message-card-reference--face.message-card-reference--created,
+.bubble.assistant .message-card-reference--face,
+.bubble.user .message-card-reference--face {
+  background: transparent;
+  box-shadow: none;
+}
+.message-card-reference-face {
+  width: 100%;
+  --collection-code-card-rest-scale: 1;
+}
+.message-card-reference-face .code-card {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+.message-card-reference-hitbox {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: inherit;
+  cursor: pointer;
+}
+.message-card-reference-hitbox:focus-visible {
+  border-radius: 14px;
+  outline: 1px solid color-mix(in srgb, var(--accent) 42%, transparent);
+  outline-offset: 5px;
+}
+.message-card-reference:not(.message-card-reference--face):has(.message-card-reference-hitbox:hover) {
+  border-color: color-mix(in srgb, var(--border-hover) 46%, transparent);
+  box-shadow:
+    0 10px 24px color-mix(in srgb, var(--accent-soft) 9%, transparent),
+    inset 0 1px 0 rgba(255,255,255,0.12);
+  transform: translateY(-1px);
+}
+.message-card-reference-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+.message-card-reference-copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.message-card-reference-copy strong {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.message-card-reference-copy span {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.message-card-reference-language {
+  flex: 0 0 auto;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent-soft) 60%, transparent);
+  color: color-mix(in srgb, var(--accent) 82%, var(--text) 18%);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+.message-card-reference-preview {
+  margin: 0;
+  color: color-mix(in srgb, var(--text-soft) 88%, var(--text) 12%);
+  font-size: 12px;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.message-card-reference.expanded .message-card-reference-preview {
+  display: none;
+}
+.message-card-reference-content {
+  max-height: min(48vh, 360px);
+  overflow: auto;
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--border) 22%, transparent);
+  background: color-mix(in srgb, var(--surface) 12%, transparent);
+}
+.message-card-reference-content .message-rich-text {
+  padding: 10px 12px 12px;
+  font-size: 12px;
+  line-height: 1.62;
+}
+.message-card-reference-content pre {
+  margin: 0;
+  padding: 10px 12px 12px;
+  overflow: auto;
+  white-space: pre;
+  word-break: normal;
+  color: var(--text);
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 12px;
+  line-height: 1.58;
+}
+.message-card-reference-actions {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+.message-card-reference-action {
+  min-height: 30px;
+  padding: 6px 10px;
+  border: 1px solid color-mix(in srgb, var(--border) 28%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 18%, transparent);
+  color: color-mix(in srgb, var(--text-soft) 92%, var(--text) 8%);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+  transition: transform 160ms ease, background 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+.message-card-reference-action:hover,
+.message-card-reference-action:focus-visible {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--border-hover) 44%, transparent);
+  background: color-mix(in srgb, var(--accent-soft) 22%, transparent);
+  color: var(--text);
+  outline: none;
+}
+
+/* ============================================================
+   生成图成品：图是主角，信息收进图下的小字脚注
+   ============================================================ */
+.generated-image-stack {
+  width: min(100%, 420px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.generated-image-card {
+  margin: 0;
+  width: 100%;
+  border-radius: 18px;
+  border: 1px solid color-mix(in srgb, var(--border-hover) 34%, transparent);
+  background:
+    radial-gradient(circle at 14% 8%, color-mix(in srgb, var(--accent-soft) 22%, transparent), transparent 38%),
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-solid) 88%, rgba(255,255,255,0.18)), color-mix(in srgb, var(--surface) 76%, rgba(255,255,255,0.06)));
+  box-shadow:
+    0 14px 30px color-mix(in srgb, var(--accent-soft) 9%, transparent),
+    inset 0 1px 0 rgba(255,255,255,0.12);
+  overflow: hidden;
+  animation: generatedImageReveal 240ms var(--ease-out) both;
+}
+
+@keyframes generatedImageReveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.generated-image-frame {
+  display: block;
+  width: 100%;
+  cursor: zoom-in;
+}
+
+span.generated-image-frame {
+  cursor: default;
+}
+
+.generated-image-frame img {
+  display: block;
+  width: 100%;
+  max-height: min(58vh, 460px);
+  object-fit: cover;
+  transition: transform 220ms var(--ease-out);
+}
+
+.generated-image-frame:hover img,
+.generated-image-frame:focus-visible img {
+  transform: scale(1.012);
+}
+
+a.generated-image-frame:focus-visible {
+  outline: none;
+}
+
+.generated-image-canvas {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+}
+
+.generated-image-canvas.is-loading {
+  background:
+    linear-gradient(110deg,
+      color-mix(in srgb, var(--surface) 70%, transparent) 28%,
+      color-mix(in srgb, var(--accent-soft) 26%, transparent) 46%,
+      color-mix(in srgb, var(--surface) 70%, transparent) 64%);
+  background-size: 220% 100%;
+  animation: generatedImageShimmer 1.6s ease-in-out infinite;
+}
+
+@keyframes generatedImageShimmer {
+  from {
+    background-position: 120% 0;
+  }
+  to {
+    background-position: -60% 0;
+  }
+}
+
+.generated-image-card.is-cleared {
+  border-style: dashed;
+  box-shadow: none;
+  animation: none;
+}
+
+.generated-image-canvas.is-cleared {
+  aspect-ratio: auto;
+  height: 52px;
+  background: color-mix(in srgb, var(--surface) 52%, transparent);
+}
+
+.generated-image-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 12px 9px;
+}
+
+.generated-image-meta {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.generated-image-meta strong {
+  font-size: 12px;
+  font-weight: 560;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.generated-image-meta > span {
+  font-size: 10.5px;
+  color: var(--text-muted);
+}

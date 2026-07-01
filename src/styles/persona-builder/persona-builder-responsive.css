@@ -1,0 +1,39 @@
+@container (max-width: 860px) {
+  .pb-field-grid,
+  .pb-field-grid.triple,
+  .pb-deep-grid,
+  .pb-starter-grid,
+  .pb-card-grid,
+  .pb-card-grid.compact {
+    grid-template-columns: 1fr;
+  }
+
+  .pb-core-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .pb-hero,
+  .pb-field-grid,
+  .pb-field-grid.triple,
+  .pb-deep-grid,
+  .pb-starter-grid,
+  .pb-card-grid,
+  .pb-card-grid.compact {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+
+  .pb-core-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pb-hero {
+    padding: 14px;
+  }
+
+  .pb-actions .compact-btn {
+    width: 100%;
+  }
+}

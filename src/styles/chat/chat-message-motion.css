@@ -1,0 +1,186 @@
+@keyframes latestMessageFade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes latestMessagePop {
+  0% {
+    opacity: 0;
+    transform: scale(0.975);
+    filter: blur(0.5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes userBubbleBloom {
+  0% {
+    opacity: 0;
+    transform: scale(0.94);
+    filter: blur(0.8px);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.012);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes thinkingOrbitSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes taskReceiptCheckIn {
+  0% {
+    opacity: 0;
+    transform: translateY(3px) scale(0.78);
+    filter: saturate(0.86);
+  }
+  58% {
+    opacity: 1;
+    transform: translateY(-1px) scale(1.08);
+    filter: saturate(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: saturate(1);
+  }
+}
+
+@keyframes taskDockPanelPulseIn {
+  0% {
+    opacity: 0;
+    transform: translateY(14px) scale(0.92);
+    filter: saturate(0.92);
+  }
+  58% {
+    opacity: 1;
+    transform: translateY(-2px) scale(1.01);
+    filter: saturate(1.04);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: saturate(1);
+  }
+}
+
+@keyframes taskDockFabArmIn {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.74);
+    box-shadow:
+      0 0 0 0 color-mix(in srgb, var(--accent-soft) 0%, transparent),
+      0 10px 24px rgba(103, 122, 171, 0.08);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-1px) scale(1.06);
+    box-shadow:
+      0 0 0 10px color-mix(in srgb, var(--accent-soft) 12%, transparent),
+      0 16px 28px rgba(103, 122, 171, 0.16);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes taskFabCompletePop {
+  0% {
+    transform: scale(0.92);
+    box-shadow: 0 6px 14px rgba(103, 122, 171, 0.08);
+  }
+  68% {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 8px color-mix(in srgb, #d8f4df 26%, transparent), 0 16px 28px rgba(103, 122, 171, 0.16);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes taskFabCheckBloom {
+  0% {
+    opacity: 0;
+    transform: scale(0.72);
+  }
+  65% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 720px) {
+  .chat-flow { padding: 10px 16px 14px; gap: 16px; }
+  .system-inline-note,
+  .tool-event,
+  .task-runtime-fab,
+  .task-runtime-card.floating,
+  .chat-jump-latest-btn,
+  .thinking-inline-trigger,
+  .assistant-stage-live { backdrop-filter: blur(8px) saturate(1.04); box-shadow: 0 8px 16px color-mix(in srgb, var(--accent-soft) 6%, transparent); }
+  .chat-floating-controls {
+    left: 16px;
+    right: 16px;
+    bottom: 14px;
+  }
+  .task-runtime-dock-panel {
+    width: min(100%, 380px);
+    max-width: min(100%, 380px);
+  }
+  .task-runtime-dock-panel.armed {
+    width: min(100%, 320px);
+    max-width: min(100%, 320px);
+  }
+  .task-runtime-card.floating { backdrop-filter: none; }
+  .message-code-stack--sandbox { min-height: 172px; max-height: 172px; }
+  .message-code-peek,
+  .message-code-drawer-head,
+  .message-code-card { backdrop-filter: blur(8px); box-shadow: 0 10px 22px rgba(103, 122, 171, 0.12); }
+  .bubble-frame.assistant.streaming-live::before { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chat-flow { scroll-behavior: auto; }
+  .msg-row[data-row-state='entering'],
+  .msg-row[data-row-state='entering'] .bubble,
+  .bubble-frame.assistant.streaming-stage,
+  .bubble-frame.assistant.streaming-stage .message-rich-text,
+  .bubble-frame.assistant.streaming-stage .message-tool-draft,
+  .assistant-stage-live,
+  .assistant-stage-live-icon,
+  .assistant-streaming-dots span,
+  .assistant-streaming-caret,
+  .tool-event-icon.running,
+  .task-runtime-dock-panel.attention-fresh,
+  .task-runtime-card-kicker-icon-spinning,
+  .task-runtime-fab.attention-fresh,
+  .task-runtime-fab.completed-fresh,
+  .task-runtime-fab.completed-fresh .task-runtime-fab-icon-orbit,
+  .thinking-inline-icon.spinning,
+  .tool-event-live-dots span,
+  .bubble-frame.assistant.streaming-live::before { animation: none; }
+  .msg-row[data-row-state='entering'] .bubble,
+  .system-inline-note,
+  .message-code-peek,
+  .task-runtime-fab,
+  .chat-jump-latest-btn,
+  .tool-btn:hover,
+  .user-bubble-action-btn:hover,
+  .user-bubble-action-btn:focus-visible { transform: none; }
+}

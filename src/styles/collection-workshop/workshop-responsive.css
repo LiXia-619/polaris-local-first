@@ -1,0 +1,129 @@
+@container (max-width: 900px) {
+  .code-workshop-sheet {
+    border-radius: 26px;
+  }
+
+  .code-workshop-layer .code-workshop-sheet {
+    border-radius: 0;
+  }
+
+  .code-workshop-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@container (max-width: 640px) {
+  .code-collection-shelf .code-card-grid.code-card-grid--masonry {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-width: auto;
+    column-gap: normal;
+    gap: 8px;
+    align-items: start;
+  }
+
+  .code-collection-shelf .code-card-grid.code-card-grid--masonry > * {
+    display: block;
+    width: auto;
+    margin-bottom: 0;
+    break-inside: auto;
+    -webkit-column-break-inside: auto;
+  }
+
+  .code-collection-shelf .code-card-grid.code-card-grid--solo {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .code-collection-shelf .code-card-grid.code-card-grid--duo,
+  .code-collection-shelf .code-card-grid.code-card-grid--files {
+    gap: 8px;
+  }
+
+  .create-code-fullscreen-bar {
+    padding-inline: 14px;
+  }
+
+  .create-code-fullscreen-body {
+    padding-inline: 14px;
+  }
+
+  .create-code-workshop-head-copy {
+    flex-wrap: wrap;
+    gap: 6px 10px;
+  }
+
+  .code-collection-create-menu {
+    left: 38px;
+    min-width: min(220px, calc(100vw - 76px));
+  }
+
+  .code-workshop-sheet {
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+  }
+
+  .code-workshop-sheet-bar,
+  .code-workshop-header,
+  .code-card-source-bar,
+  .code-workshop-layout,
+  .create-code-workshop-toolbar,
+  .create-code-workshop-paste {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .code-card-source-bar,
+  .code-workshop-sheet-bar,
+  .code-workshop-header {
+    flex-direction: column;
+  }
+
+  .code-collection-shelf.workshop-open-edit .create-code-workshop-editor-shell,
+  .code-collection-shelf.workshop-open-edit .create-code-workshop-editor {
+    min-height: min(54vh, 620px);
+  }
+
+  .code-workshop-actions-main,
+  .code-workshop-actions-secondary {
+    width: 100%;
+  }
+
+  .create-code-workshop-actions {
+    gap: 7px;
+    justify-content: flex-start;
+  }
+
+  .code-workshop-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .code-workshop-preview-meta {
+    flex-direction: column;
+  }
+
+  .text-reading-workshop {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .text-reading-workshop-body {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .text-reading-workshop-paper {
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .text-reading-fullscreen-bar {
+    padding: calc(16px + env(safe-area-inset-top, 0px)) 16px 12px;
+  }
+
+  .text-reading-fullscreen-body {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}

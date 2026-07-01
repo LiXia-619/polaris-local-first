@@ -1,0 +1,86 @@
+.theme-css-guard-card {
+  margin-bottom: 12px;
+  padding: 12px 14px;
+  border-radius: 18px;
+  border: 1px solid color-mix(in srgb, var(--border) 84%, transparent);
+  background: color-mix(in srgb, var(--surface) 74%, transparent);
+}
+
+.collection .theme-css-guard-card {
+  border-color: color-mix(in srgb, var(--border) 84%, transparent);
+  background: color-mix(in srgb, var(--surface) 78%, transparent);
+}
+
+.theme-css-guard-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.theme-css-guard-row strong,
+.theme-css-guard-note {
+  color: var(--text);
+  font-size: var(--type-small);
+}
+
+.collection .theme-css-guard-row strong,
+.collection .theme-css-guard-note {
+  color: var(--text);
+}
+
+.theme-css-guard-card p {
+  margin-top: 7px;
+  font-size: var(--type-caption);
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.collection .theme-css-guard-card p {
+  color: var(--text-muted);
+}
+
+.theme-css-guard-badge {
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  line-height: 1.3;
+  border: 1px solid color-mix(in srgb, var(--border) 88%, transparent);
+  color: var(--text-soft);
+}
+
+.theme-css-guard-badge.variables {
+  border-color: color-mix(in srgb, var(--border-hover) 82%, transparent);
+  background: color-mix(in srgb, var(--accent-soft) 62%, transparent);
+  color: var(--accent);
+}
+
+.theme-css-guard-badge.experimental {
+  border-color: rgba(204, 156, 88, 0.28);
+  background: rgba(204, 156, 88, 0.10);
+  color: #9d6a20;
+}
+
+.theme-css-guard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.theme-css-guard-list span {
+  font-size: var(--type-caption);
+  line-height: 1.5;
+}
+
+.theme-css-guard-list.warn span {
+  color: #9d6a20;
+}
+
+.theme-css-guard-list.danger span {
+  color: #b45f5f;
+}
+
+.theme-css-guard-note {
+  margin-top: 8px;
+}

@@ -1,0 +1,183 @@
+.task-runtime-card {
+  --task-bg: #09090b;
+  --task-surface: rgba(255, 255, 255, 0.03);
+  --task-surface-strong: rgba(255, 255, 255, 0.055);
+  --task-border: rgba(255, 255, 255, 0.065);
+  --task-text: rgba(255, 255, 255, 0.88);
+  --task-secondary: rgba(255, 255, 255, 0.48);
+  --task-tertiary: rgba(255, 255, 255, 0.28);
+  --task-green: #2ef5a0;
+  --task-blue: #5eaaff;
+  --task-yellow: #f5c542;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0 0 4px;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid var(--task-border);
+  background: color-mix(in srgb, var(--task-bg) 94%, transparent);
+  color: var(--task-text);
+  backdrop-filter: blur(40px) saturate(1.06);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.03) inset,
+    0 24px 80px rgba(0, 0, 0, 0.42);
+}
+.task-runtime-card.inline {
+  margin-bottom: 4px;
+}
+.task-runtime-card.floating {
+  margin: 0;
+  max-height: min(42vh, 360px);
+  overflow: auto;
+}
+.task-runtime-card-armed {
+  gap: 8px;
+  padding: 16px 18px 18px;
+}
+.task-runtime-card-armed .task-runtime-card-head {
+  padding: 0;
+}
+.task-runtime-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 20px 22px 16px;
+  gap: 12px;
+}
+.task-runtime-card-head-copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.task-runtime-card-head-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex: 0 0 auto;
+}
+.task-runtime-card-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: rgba(221, 228, 242, 0.7);
+}
+.task-runtime-card-kicker-icon {
+  display: inline-flex;
+  align-items: center;
+  color: rgba(181, 200, 255, 0.84);
+  transform-origin: center;
+}
+.task-runtime-card-kicker-icon-spinning {
+  animation: thinkingOrbitSpin 2.6s linear infinite;
+}
+.task-runtime-card-kicker-icon svg {
+  transform-box: view-box;
+  transform-origin: center;
+}
+.task-runtime-card-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-height: 24px;
+  padding: 0 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  text-transform: uppercase;
+}
+.task-runtime-card-status::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: currentColor;
+}
+.task-runtime-card-status.running {
+  background: rgba(94, 170, 255, 0.1);
+  border-color: rgba(94, 170, 255, 0.16);
+  color: var(--task-blue);
+}
+.task-runtime-card-status.running::before {
+  box-shadow: 0 0 7px rgba(94, 170, 255, 0.55);
+  animation: softPulse 2s ease-in-out infinite;
+}
+.task-runtime-card-status.completed {
+  background: rgba(46, 245, 160, 0.12);
+  border-color: rgba(46, 245, 160, 0.16);
+  color: var(--task-green);
+}
+.task-runtime-card-status.blocked {
+  background: rgba(245, 197, 66, 0.1);
+  border-color: rgba(245, 197, 66, 0.13);
+  color: var(--task-yellow);
+}
+.task-runtime-card-status.cancelled {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.34);
+}
+.task-runtime-card-collapse {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 1px solid rgba(232, 240, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(221, 228, 242, 0.7);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease;
+}
+.task-runtime-card-collapse:hover,
+.task-runtime-card-collapse:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(232, 240, 255, 0.24);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(247, 249, 255, 0.94);
+}
+.task-runtime-card-title {
+  font-size: 15px;
+  line-height: 1.28;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--task-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.task-runtime-card-stage,
+.task-runtime-card-summary,
+.task-runtime-card-step-detail,
+.task-runtime-card-evidence-summary,
+.task-runtime-card-more {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.task-runtime-card-stage {
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--task-secondary);
+  letter-spacing: 0.02em;
+}
+.task-runtime-card-summary {
+  padding: 0 22px 14px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--task-secondary);
+}

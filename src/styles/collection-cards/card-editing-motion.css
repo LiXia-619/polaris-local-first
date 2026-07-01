@@ -1,0 +1,76 @@
+@media (max-width: 640px) {
+  .card { padding: var(--collection-card-padding-mobile); }
+  .collection .code-card { min-height: 150px; }
+  .room-project-card { min-height: 176px; padding: 0; }
+}
+
+@keyframes cardJiggle {
+  0%, 100% { transform: rotate(-0.8deg); }
+  50% { transform: rotate(0.8deg); }
+}
+.card.jiggling {
+  animation: cardJiggle 0.18s ease-in-out infinite alternate;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.card-delete-badge,
+.card-pin-badge {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  z-index: 4;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(220, 80, 70, 0.92);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  appearance: none;
+  box-shadow: 0 2px 8px rgba(180, 60, 50, 0.3);
+  animation: badgePop 0.2s var(--ease-spring) both;
+}
+
+.card-pin-badge {
+  left: auto;
+  right: -6px;
+  border: 1px solid color-mix(in srgb, var(--collection-card-border-color) 78%, transparent);
+  background: color-mix(in srgb, var(--collection-card-background) 88%, rgba(255,255,255,0.24));
+  color: color-mix(in srgb, var(--collection-card-meta-color) 88%, var(--text) 12%);
+  box-shadow: 0 7px 16px color-mix(in srgb, var(--surface-deep) 12%, transparent);
+}
+
+.card-pin-badge.active {
+  border-color: color-mix(in srgb, var(--accent) 44%, var(--collection-card-border-color) 56%);
+  background: color-mix(in srgb, var(--accent-soft) 68%, var(--collection-card-background) 32%);
+  color: color-mix(in srgb, var(--accent) 82%, var(--text) 18%);
+}
+
+.card-pin-badge svg {
+  transform: rotate(-18deg);
+}
+
+@keyframes badgePop {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.card-delete-badge:active,
+.card-pin-badge:active {
+  transform: scale(0.9);
+}
+
+.code-card.viewing .card-delete-badge,
+.code-card.viewing .card-pin-badge {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.code-card.editing .card-delete-badge,
+.code-card.editing .card-pin-badge {
+  opacity: 1;
+  pointer-events: auto;
+}

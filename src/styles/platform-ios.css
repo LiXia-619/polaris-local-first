@@ -1,0 +1,61 @@
+html[data-polaris-platform='ios'] .chat-flow,
+html[data-polaris-platform='ios'] .chat-floating-controls {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+html[data-polaris-platform='ios'] .bubble,
+html[data-polaris-platform='ios'] .bubble.assistant,
+html[data-polaris-platform='ios'] .system-inline-note,
+html[data-polaris-platform='ios'] .tool-event,
+html[data-polaris-platform='ios'] .assistant-stage-live,
+html[data-polaris-platform='ios'] .task-runtime-card,
+html[data-polaris-platform='ios'] .task-runtime-fab,
+html[data-polaris-platform='ios'] .chat-jump-latest-btn,
+html[data-polaris-platform='ios'] .message-code-peek,
+html[data-polaris-platform='ios'] .message-code-drawer-head,
+html[data-polaris-platform='ios'] .message-code-card {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+html[data-polaris-platform='ios'] .app-shell:not(.world-switching) .msg-row[data-row-state='entering'],
+html[data-polaris-platform='ios'] .app-shell:not(.world-switching) .msg-row.assistant[data-row-state='entering'] .bubble.assistant,
+html[data-polaris-platform='ios'] .app-shell:not(.world-switching) .msg-row.system[data-row-state='entering'] .bubble,
+html[data-polaris-platform='ios'] .bubble-frame.assistant.streaming-stage,
+html[data-polaris-platform='ios'] .bubble-frame.assistant.streaming-stage .message-rich-text,
+html[data-polaris-platform='ios'] .bubble-frame.assistant.streaming-stage .message-tool-draft,
+html[data-polaris-platform='ios'] .assistant-stage-live,
+html[data-polaris-platform='ios'] .task-runtime-dock-panel.attention-fresh,
+html[data-polaris-platform='ios'] .task-runtime-fab.attention-fresh,
+html[data-polaris-platform='ios'] .task-runtime-fab.completed-fresh,
+html[data-polaris-platform='ios'] .task-runtime-fab.completed-fresh .task-runtime-fab-icon-orbit {
+  animation: none;
+}
+
+html[data-polaris-platform='ios'] .bubble-frame.assistant.streaming-stage,
+html[data-polaris-platform='ios'] .bubble-frame.assistant.streaming-live .bubble.assistant,
+html[data-polaris-platform='ios'] .task-runtime-fab.attention-fresh,
+html[data-polaris-platform='ios'] .task-runtime-fab.completed-fresh {
+  transform: none;
+}
+
+html[data-polaris-platform='ios'] .task-runtime-card-status.running::before,
+html[data-polaris-platform='ios'] .task-runtime-card-kicker-icon-spinning,
+html[data-polaris-platform='ios'] .task-runtime-fab-icon-orbit.spinning,
+html[data-polaris-platform='ios'] .thinking-inline-icon.spinning,
+html[data-polaris-platform='ios'] .tool-event-icon.running,
+html[data-polaris-platform='ios'] .tool-event-live-dots span,
+html[data-polaris-platform='ios'] .assistant-streaming-dots span,
+html[data-polaris-platform='ios'] .assistant-streaming-caret,
+html[data-polaris-platform='ios'] .bubble-frame.assistant.streaming-live::before {
+  animation-duration: 2.8s;
+}
+
+html[data-polaris-platform='ios'] .assistant-stage-live-icon {
+  animation: thinkingOrbitSpin 2.8s linear infinite;
+}
+
+html[data-polaris-platform='ios'] .task-runtime-card-progress-fill {
+  transition: width 180ms ease;
+}

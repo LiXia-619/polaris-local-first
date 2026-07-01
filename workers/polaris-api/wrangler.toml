@@ -1,0 +1,13 @@
+name = "polaris-api"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+
+[vars]
+MIMO_API_KEY = "" # set with `wrangler secret put MIMO_API_KEY`
+SILICONFLOW_API_KEY = "" # set with `wrangler secret put SILICONFLOW_API_KEY`
+DAILY_LIMIT = "30"
+DEFAULT_MODEL = "mimo-v2-pro"
+
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "" # fill after creating the namespace

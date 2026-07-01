@@ -1,0 +1,205 @@
+.task-runtime-card-voice {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 22px;
+  border-top: 1px solid var(--task-border);
+  background: transparent;
+}
+.task-runtime-card-voice-line {
+  margin: 0;
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--task-secondary);
+}
+.task-runtime-card-voice-line.next {
+  color: var(--task-secondary);
+}
+.task-runtime-card-voice-armed {
+  background: rgba(176, 193, 255, 0.08);
+}
+.task-runtime-card-voice-kicker {
+  flex: 0 0 auto;
+  min-width: 34px;
+  padding-top: 1px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--task-tertiary);
+}
+.task-runtime-card-progress {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 80px;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 22px 16px;
+  border-top: 1px solid var(--task-border);
+  background: transparent;
+}
+.task-runtime-card-progress-copy {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  color: var(--task-tertiary);
+}
+.task-runtime-card-progress-track {
+  position: relative;
+  height: 3px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+}
+.task-runtime-card-progress-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--task-green), var(--task-blue));
+  transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.task-runtime-card-evidence {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 2px 22px 18px;
+  border-top: 1px solid var(--task-border);
+}
+.task-runtime-card-evidence-kicker {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--task-tertiary);
+}
+.task-runtime-card-evidence-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.task-runtime-card-evidence-segment {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.task-runtime-card-evidence-segment-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+.task-runtime-card-evidence-segment-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 26px;
+  min-height: 18px;
+  padding: 0 7px;
+  border-radius: 999px;
+  border: 1px solid rgba(232, 240, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  letter-spacing: 0;
+  color: rgba(247, 249, 255, 0.78);
+}
+.task-runtime-card-evidence-segment-note {
+  min-width: 0;
+  font-size: 11px;
+  color: rgba(221, 228, 242, 0.56);
+  text-align: right;
+}
+.task-runtime-card-evidence-segment-body {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+}
+.task-runtime-card-evidence-rail {
+  flex: 0 0 auto;
+  width: 2px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(181, 200, 255, 0.42), rgba(232, 240, 255, 0.1));
+}
+.task-runtime-card-evidence-segment-items {
+  min-width: 0;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.task-runtime-card-evidence-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 9px 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(232, 240, 255, 0.1);
+}
+.task-runtime-card-evidence-icon {
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.075);
+  color: rgba(221, 228, 242, 0.66);
+}
+.task-runtime-card-evidence-icon.preview,
+.task-runtime-card-evidence-icon.applied,
+.task-runtime-card-evidence-icon.executed,
+.task-runtime-card-evidence-icon.saved {
+  color: color-mix(in srgb, var(--accent-soft) 76%, var(--text) 24%);
+}
+.task-runtime-card-evidence-icon.failed {
+  color: #f1a5a5;
+}
+.task-runtime-card-evidence-icon.pending {
+  color: #ffd89f;
+}
+.task-runtime-card-evidence-copy {
+  min-width: 0;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.task-runtime-card-evidence-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.task-runtime-card-evidence-title {
+  min-width: 0;
+  font-size: 12.5px;
+  color: rgba(247, 249, 255, 0.9);
+}
+.task-runtime-card-evidence-status {
+  flex: 0 0 auto;
+  font-size: 10.5px;
+  letter-spacing: 0;
+  color: rgba(221, 228, 242, 0.62);
+}
+.task-runtime-card-evidence-status.failed {
+  color: #f1a5a5;
+}
+.task-runtime-card-evidence-status.pending {
+  color: #ffd89f;
+}
+.task-runtime-card-evidence-summary {
+  font-size: 11.5px;
+  color: rgba(221, 228, 242, 0.62);
+}
+.task-runtime-card-more {
+  font-size: 11.5px;
+  color: rgba(221, 228, 242, 0.58);
+}

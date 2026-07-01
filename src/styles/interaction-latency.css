@@ -1,0 +1,9 @@
+button,
+[role='button'],
+a[href],
+summary,
+input[type='button'],
+input[type='submit'],
+input[type='reset'] {
+  touch-action: manipulation;
+}

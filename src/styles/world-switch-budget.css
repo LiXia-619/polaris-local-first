@@ -1,0 +1,10 @@
+.app-shell.world-switching .world-frame:not(.active) .chat-box,
+.app-shell.world-switching .world-frame:not(.active) .tool-event,
+.app-shell.world-switching .world-frame:not(.active) .thinking-box,
+.app-shell.world-switching .world-frame:not(.active) .message-code-peek,
+.app-shell.world-switching .world-frame:not(.active) .message-code-drawer-head,
+.app-shell.world-switching .world-frame:not(.active) .active-preview-strip,
+.app-shell.world-switching .world-frame:not(.active) .attachment-picker-sheet {
+  backdrop-filter: none;
+  box-shadow: none;
+}

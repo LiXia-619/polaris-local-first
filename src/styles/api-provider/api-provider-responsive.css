@@ -1,0 +1,16 @@
+@media (max-width: 640px) {
+  .api-provider-sheet {
+    max-height: calc(100% - 4px);
+  }
+
+  .api-provider-hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .api-provider-hero-badge {
+    width: 100%;
+    min-width: 0;
+  }
+
+}

@@ -1,0 +1,47 @@
+.world-chat {
+  --bg: var(--cool-bg);
+  --surface: var(--cool-surface);
+  --surface-solid: var(--cool-surface-solid);
+  --surface-deep: var(--cool-surface-deep);
+  --border: var(--cool-border);
+  --border-hover: var(--cool-border-hover);
+  --text: var(--cool-text);
+  --text-soft: var(--cool-text-soft);
+  --text-muted: var(--cool-text-muted);
+  --accent: var(--cool-accent);
+  --accent-soft: var(--cool-accent-soft);
+  --accent-glow: var(--cool-accent-glow);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  padding: 0;
+  position: relative;
+}
+.world-chat::before { content: none; }
+.chat-body { position: relative; z-index: 1; flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; overflow: hidden; }
+.chat-dock {
+  --chat-dock-bottom-gap: 8px;
+  position: relative;
+  z-index: 3;
+  flex: 0 0 auto;
+  padding-bottom: calc(var(--chat-dock-bottom-gap) + var(--keyboard-bridge-offset, 0px));
+}
+html[data-native-keyboard-overlay='true'] .chat-dock {
+  --chat-dock-bottom-gap: calc(env(safe-area-inset-bottom, 0px) + 8px);
+}
+@media (display-mode: standalone) {
+  .chat-dock {
+    --chat-dock-bottom-gap: calc(var(--standalone-safe-area-bottom, 0px) + 8px);
+  }
+}
+html[data-native-keyboard-overlay='true'][data-keyboard-open='true'] .chat-dock {
+  --chat-dock-bottom-gap: 1px;
+}
+.micro-action-btn { width: 30px; height: 30px; border: 1px solid color-mix(in srgb, var(--border) 82%, transparent); border-radius: 999px; background: color-mix(in srgb, var(--surface) 76%, transparent); color: var(--text-muted); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: background var(--duration-fast) ease, color var(--duration-fast) ease, border-color var(--duration-fast) ease, transform var(--duration-fast) ease; }
+.micro-action-btn:hover, .micro-action-btn:focus-visible { border-color: color-mix(in srgb, var(--border-hover) 84%, transparent); background: color-mix(in srgb, var(--accent-soft) 72%, transparent); color: var(--accent); outline: none; transform: translateY(-1px); }
+.micro-action-btn.active { border-color: color-mix(in srgb, var(--border-hover) 92%, transparent); background: color-mix(in srgb, var(--accent-soft) 88%, transparent); color: var(--accent); }
+.micro-action-btn.danger:hover, .micro-action-btn.danger:focus-visible { border-color: rgba(194, 92, 92, 0.28); background: rgba(194, 92, 92, 0.08); color: #b45f5f; }
+.micro-action-btn svg { display: block; }
+
+.chat .panel { background: var(--surface); border: 1px solid var(--border); }

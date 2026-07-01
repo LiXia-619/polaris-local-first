@@ -1,0 +1,38 @@
+# Generated dependencies and build outputs.
+node_modules/
+workers/polaris-api/node_modules/
+dist/
+server-dist/
+desktop-dist/
+
+# Release/export artifacts are useful as retained proof, but they should not
+# participate in source search unless explicitly requested.
+exports/
+output/
+tmp/
+
+# Capacitor and native platform build products.
+android/.gradle/
+android/build/
+android/app/build/
+android/app/src/main/assets/
+android/capacitor-cordova-android-plugins/
+
+ios/build/
+ios/App/build/
+ios/App/App/public/
+ios/App/CapApp-SPM/.build/
+ios/App/CapApp-SPM/.swiftpm/
+ios/capacitor-cordova-ios-plugins/
+
+# Local app/package state.
+.claude/
+.vercel/
+.playwright-cli/
+*.xcarchive/
+*.ipa
+*.apk
+*.aab
+*.tsbuildinfo
+*.log
+.DS_Store

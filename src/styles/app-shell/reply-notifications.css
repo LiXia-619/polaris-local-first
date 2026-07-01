@@ -1,0 +1,79 @@
+.app-reply-notification-stack {
+  position: fixed;
+  z-index: 860;
+  top: max(12px, calc(env(safe-area-inset-top, 0px) + 10px));
+  left: max(16px, env(safe-area-inset-left, 0px) + 16px);
+  right: max(16px, env(safe-area-inset-right, 0px) + 16px);
+  display: grid;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.app-reply-notification {
+  width: min(420px, 100%);
+  justify-self: center;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 34px;
+  align-items: stretch;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(30, 32, 40, 0.94), rgba(12, 13, 18, 0.88)),
+    rgba(14, 15, 20, 0.9);
+  box-shadow:
+    0 18px 46px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px) saturate(1.12);
+  overflow: hidden;
+  pointer-events: auto;
+}
+
+.app-reply-notification-main,
+.app-reply-notification-close {
+  border: 0;
+  color: rgba(255, 255, 255, 0.92);
+  background: transparent;
+  font: inherit;
+}
+
+.app-reply-notification-main {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  padding: 13px 4px 13px 16px;
+  text-align: left;
+}
+
+.app-reply-notification-title {
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.96);
+  font-size: 14px;
+  font-weight: 720;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.app-reply-notification-preview {
+  display: -webkit-box;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 13px;
+  line-height: 1.35;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.app-reply-notification-close {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  min-height: 100%;
+  color: rgba(255, 255, 255, 0.56);
+}
+
+@media (min-width: 880px) {
+  .app-shell.has-desktop-sidebar .app-reply-notification-stack {
+    left: calc(var(--desktop-sidebar-width, 292px) + 18px);
+  }
+}

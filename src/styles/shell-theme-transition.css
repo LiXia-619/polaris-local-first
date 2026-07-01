@@ -1,0 +1,26 @@
+.theme-transition-veil {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 8;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--surface) 12%, transparent), color-mix(in srgb, var(--surface) 4%, transparent) 38%, transparent),
+    radial-gradient(circle at 18% 14%, color-mix(in srgb, var(--accent-soft) 14%, transparent), transparent 38%),
+    radial-gradient(circle at 82% 88%, color-mix(in srgb, var(--accent-soft) 16%, transparent), transparent 34%);
+  backdrop-filter: none;
+  transition:
+    opacity 140ms ease,
+    backdrop-filter 140ms ease;
+  will-change: opacity;
+}
+
+.app-shell.theme-transition-enter .theme-transition-veil {
+  opacity: 0.58;
+  backdrop-filter: blur(18px) saturate(1.08);
+}
+
+.app-shell.theme-transition-exit .theme-transition-veil {
+  opacity: 0;
+  backdrop-filter: blur(18px) saturate(1.08);
+}

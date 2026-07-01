@@ -1,0 +1,37 @@
+@keyframes builder-choice-pop {
+  0% {
+    transform: translateY(1px) scale(0.982);
+  }
+  58% {
+    transform: translateY(-2px) scale(1.012);
+  }
+  100% {
+    transform: translateY(-1px) scale(1);
+  }
+}
+
+@keyframes builder-choice-glint {
+  0% {
+    opacity: 0;
+    transform: scaleX(0.42) scaleY(0.2);
+  }
+  42% {
+    opacity: 0.34;
+    transform: scaleX(1.05) scaleY(0.72);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleX(1.2) scaleY(0.92);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .persona-builder-sheet .pb-choice-card.active,
+  .persona-builder-sheet .pb-starter-card.active,
+  .persona-builder-sheet .pb-chip.active,
+  .persona-builder-sheet .pb-choice-card.active::after,
+  .persona-builder-sheet .pb-starter-card.active::after {
+    animation: none;
+  }
+}
+

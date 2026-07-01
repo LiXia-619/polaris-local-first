@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "types": ["vite/client", "node"]
+  },
+  "include": [
+    "api/**/*.ts",
+    "capacitor.config.ts",
+    "tools/**/*.ts",
+    "vite.config.ts",
+    "vitest.config.ts"
+  ]
+}

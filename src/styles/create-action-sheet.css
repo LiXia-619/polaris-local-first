@@ -1,0 +1,280 @@
+.create-action-sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 260;
+  display: grid;
+  align-items: end;
+  justify-items: center;
+  padding: 0 max(10px, env(safe-area-inset-left, 0px)) max(10px, env(safe-area-inset-bottom, 0px)) max(10px, env(safe-area-inset-right, 0px));
+  pointer-events: auto;
+}
+
+.create-action-sheet-scrim {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: color-mix(in srgb, rgba(15, 18, 24, 0.42) 82%, var(--surface) 18%);
+  backdrop-filter: blur(10px) saturate(1.04);
+  -webkit-backdrop-filter: blur(10px) saturate(1.04);
+  cursor: pointer;
+}
+
+.create-action-sheet-panel {
+  position: relative;
+  width: min(520px, calc(100vw - 20px));
+  max-height: min(76vh, 620px);
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 16px 14px 14px;
+  border-radius: 28px 28px 24px 24px;
+  border: 1px solid color-mix(in srgb, var(--border) 78%, rgba(255,255,255,0.26));
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-solid) 96%, rgba(255,255,255,0.82)), color-mix(in srgb, var(--surface) 90%, rgba(255,255,255,0.34))),
+    radial-gradient(circle at 22% 0%, color-mix(in srgb, var(--accent-glow) 22%, transparent), transparent 62%);
+  box-shadow:
+    0 28px 70px rgba(12, 16, 24, 0.28),
+    inset 0 1px 0 color-mix(in srgb, rgba(255,255,255,0.56) 100%, transparent);
+  backdrop-filter: blur(26px) saturate(1.08);
+  -webkit-backdrop-filter: blur(26px) saturate(1.08);
+  animation: create-action-sheet-rise 0.24s var(--ease-out) both;
+}
+
+.create-action-sheet-grabber {
+  width: 44px;
+  height: 4px;
+  margin: 0 auto 12px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--text-muted) 30%, transparent);
+}
+
+.create-action-sheet-close {
+  position: absolute;
+  top: 13px;
+  right: 14px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid color-mix(in srgb, var(--border) 58%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface-solid) 88%, rgba(255,255,255,0.2));
+  color: var(--text-soft);
+  display: inline-grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.create-action-sheet-body {
+  min-width: 0;
+}
+
+.create-action-sheet .persona-create-picker {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.create-action-sheet .persona-create-picker::before,
+.create-action-sheet .persona-create-picker::after {
+  display: none;
+}
+
+.create-action-sheet .persona-create-picker-head {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 42px 8px 2px;
+}
+
+.create-action-sheet .persona-create-picker-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 4px;
+  gap: 10px;
+}
+
+.create-action-sheet .persona-create-picker-close {
+  width: 30px;
+  height: 30px;
+  border: 1px solid color-mix(in srgb, var(--border) 58%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface-solid) 88%, rgba(255,255,255,0.2));
+  color: var(--text-soft);
+  display: inline-grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.create-action-sheet .persona-create-choice {
+  display: flex;
+  min-width: 0;
+  min-height: 82px;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border: 1px solid color-mix(in srgb, #16325a 18%, var(--border) 82%);
+  border-radius: 20px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.58), rgba(255,255,255,0.2)),
+    color-mix(in srgb, var(--surface-solid) 76%, transparent);
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  box-shadow: 0 10px 24px rgba(22, 50, 90, 0.055);
+  cursor: pointer;
+}
+
+.create-action-sheet .persona-create-choice--primary {
+  border-color: color-mix(in srgb, #16325a 34%, var(--border) 66%);
+  background:
+    linear-gradient(135deg, rgba(20, 35, 61, 0.075), rgba(199, 164, 90, 0.052)),
+    color-mix(in srgb, var(--surface-solid) 78%, transparent);
+}
+
+.create-action-sheet .persona-create-choice-icon {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 12px;
+  color: color-mix(in srgb, #16325a 76%, var(--text-soft) 24%);
+}
+
+.create-action-sheet .persona-create-choice-copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.create-action-sheet .persona-create-choice-copy strong {
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.22;
+}
+
+.collaborator-create-action-sheet {
+  padding-bottom: max(24px, calc(env(safe-area-inset-bottom, 0px) + 18px));
+}
+
+.collaborator-create-action-sheet .create-action-sheet-panel {
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 78%, rgba(255,255,255,0.26));
+  border-radius: 28px;
+}
+
+.collaborator-create-action-sheet .persona-create-picker-actions {
+  gap: 12px;
+}
+
+.collaborator-create-action-sheet .persona-create-choice {
+  min-height: 82px;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  border-radius: 20px;
+}
+
+.collaborator-create-action-sheet .persona-create-choice-icon,
+.collaborator-create-action-sheet .persona-create-choice--primary .persona-create-choice-icon {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: color-mix(in srgb, #16325a 76%, var(--text-soft) 24%);
+  box-shadow: none;
+}
+
+.collaborator-create-action-sheet .persona-create-choice-copy {
+  justify-content: center;
+}
+
+.collaborator-create-action-sheet .persona-create-choice-copy strong {
+  font-size: 17px;
+  line-height: 1.22;
+  font-weight: 720;
+}
+
+.create-action-sheet .code-collection-create-menu,
+.create-action-sheet .room-project-file-quick-menu {
+  position: static;
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.create-action-sheet .code-collection-create-menu-item,
+.create-action-sheet .room-project-file-quick-menu-item {
+  min-height: 68px;
+  border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.58), rgba(255,255,255,0.2)),
+    color-mix(in srgb, var(--surface-solid) 76%, transparent);
+  box-shadow: 0 10px 24px rgba(22, 50, 90, 0.055);
+}
+
+@keyframes create-action-sheet-rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (min-width: 720px) {
+  .create-action-sheet {
+    padding-bottom: max(22px, env(safe-area-inset-bottom, 0px));
+  }
+
+  .create-action-sheet-panel {
+    border-radius: 30px;
+  }
+}
+
+@media (max-width: 430px) {
+  .create-action-sheet {
+    padding-inline: 0;
+    padding-bottom: 0;
+  }
+
+  .create-action-sheet-panel {
+    width: 100vw;
+    max-height: min(78vh, 620px);
+    padding: 14px 12px 12px;
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+    border-radius: 28px 28px 0 0;
+  }
+
+  .create-action-sheet .persona-create-picker-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .collaborator-create-action-sheet {
+    padding-inline: max(8px, env(safe-area-inset-left, 0px)) max(8px, env(safe-area-inset-right, 0px));
+    padding-bottom: max(22px, calc(env(safe-area-inset-bottom, 0px) + 16px));
+  }
+
+  .collaborator-create-action-sheet .create-action-sheet-panel {
+    width: min(100%, calc(100vw - 16px));
+    border: 1px solid color-mix(in srgb, var(--border) 78%, rgba(255,255,255,0.26));
+    border-radius: 28px;
+  }
+}

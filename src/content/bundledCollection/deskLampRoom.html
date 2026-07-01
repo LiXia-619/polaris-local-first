@@ -1,0 +1,627 @@
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    background: radial-gradient(ellipse at 50% 20%, rgba(42,36,26,1) 0%, rgba(16,14,11,1) 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    font-family: "Noto Serif SC", "Source Han Serif CN", Georgia, serif;
+    color: rgba(255,220,150,0.88);
+    overflow-x: hidden;
+    padding: 56px 0 80px;
+  }
+
+  .lamp-wrap {
+    position: relative;
+    width: 420px;
+    max-width: 100%;
+    min-height: min(720px, calc(100vh - 136px));
+    padding: 0 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+  }
+
+  .glow {
+    position: absolute;
+    top: -90px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,197,82,0.13) 0%, transparent 70%);
+    pointer-events: none;
+    animation: breathe 4s ease-in-out infinite;
+    z-index: 0;
+  }
+  @keyframes breathe {
+    0%, 100% { opacity: 0.7; transform: translateX(-50%) scale(1); }
+    50% { opacity: 1; transform: translateX(-50%) scale(1.08); }
+  }
+
+  .time-block {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    padding-top: 20px;
+  }
+  .date {
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    color: rgba(255,210,130,0.5);
+    margin-bottom: 8px;
+  }
+  .clock {
+    font-size: 42px;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    color: rgba(255,218,140,0.92);
+    text-shadow: 0 0 30px rgba(255,191,72,0.15);
+    font-variant-numeric: tabular-nums;
+  }
+  .period {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    color: rgba(255,200,110,0.4);
+  }
+
+  .divider {
+    width: 40px;
+    height: 1px;
+    background: rgba(255,200,97,0.12);
+    position: relative;
+    z-index: 1;
+    align-self: center;
+  }
+
+  .compose {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: auto;
+    padding-top: 8px;
+  }
+  .compose-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 30px;
+    gap: 6px;
+    align-items: center;
+    padding: 3px 0 7px;
+  }
+  .compose-row::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 24px;
+    bottom: 10px;
+    height: 1px;
+    background:
+      linear-gradient(90deg, transparent, rgba(255,221,150,0.18) 8%, rgba(255,221,150,0.58) 46%, rgba(255,191,72,0.22) 82%, transparent);
+    box-shadow: 0 0 8px rgba(255,191,72,0.18);
+    opacity: 0.8;
+    pointer-events: none;
+  }
+  textarea {
+    width: 100%;
+    min-height: 50px;
+    position: relative;
+    z-index: 1;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    padding: 8px 0 12px;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(255,218,145,0.84);
+    resize: none;
+    outline: none;
+    text-shadow: 0 0 10px rgba(255,191,72,0.1);
+    transition: color 0.3s, text-shadow 0.3s;
+  }
+  textarea::placeholder {
+    color: rgba(255,200,110,0.22);
+  }
+  textarea:focus {
+    color: rgba(255,228,158,0.94);
+    text-shadow: 0 0 12px rgba(255,191,72,0.14);
+  }
+  .send-btn {
+    width: 30px;
+    height: 34px;
+    min-width: 30px;
+    position: relative;
+    z-index: 1;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: rgba(255,224,150,0.58);
+    font-family: inherit;
+    cursor: pointer;
+    opacity: 0.82;
+    filter: none;
+    transition: color 0.3s, opacity 0.3s, filter 0.3s, transform 0.15s;
+  }
+  .send-btn:hover,
+  .send-btn:focus-visible {
+    color: rgba(255,228,160,0.86);
+    opacity: 1;
+    filter: drop-shadow(0 0 6px rgba(255,191,72,0.14));
+    outline: none;
+  }
+  .send-btn:active { transform: translateY(1px); }
+  .send-btn svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+    margin: 0 auto;
+    transform: translateY(4px) rotate(-3deg);
+    stroke-width: 1.55;
+    stroke-linecap: round;
+  }
+
+  .saved-hint {
+    font-size: 10px;
+    color: rgba(255,200,110,0.28);
+    text-align: right;
+    letter-spacing: 0.1em;
+    opacity: 0;
+    transition: opacity 0.5s;
+    min-height: 12px;
+    padding-right: 36px;
+  }
+  .saved-hint.show { opacity: 1; }
+
+  .todo-list {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1 1 auto;
+    padding: 8px 0 4px;
+    min-height: 150px;
+  }
+
+  .todo-list-empty {
+    color: rgba(255,200,110,0.26);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-align: center;
+    padding: 22px 0;
+    font-style: italic;
+  }
+
+  .todo-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 6px 8px 6px 6px;
+    transform: rotate(var(--r, 0deg)) translateY(0);
+    transform-origin: left center;
+    transition:
+      transform 600ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 500ms ease,
+      filter 500ms ease;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    animation: todoIn 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @keyframes todoIn {
+    from {
+      opacity: 0;
+      filter: blur(6px);
+      transform: rotate(var(--r, 0deg)) translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      filter: blur(0);
+      transform: rotate(var(--r, 0deg)) translateY(0);
+    }
+  }
+
+  .todo-mark {
+    flex: 0 0 auto;
+    width: 18px;
+    height: 20px;
+    margin-top: 1px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    color: rgba(255,222,150,0.82);
+    font-size: 15px;
+    line-height: 1;
+    text-shadow:
+      0 0 8px rgba(255,210,130,0.5),
+      0 0 18px rgba(255,191,72,0.26);
+    filter: drop-shadow(0 0 7px rgba(255,191,72,0.32));
+    transform: translateY(var(--note-y, 0px)) rotate(var(--note-r, 0deg));
+    animation: noteGlow 3.8s ease-in-out var(--note-delay, 0s) infinite;
+    transition: color 500ms ease, text-shadow 500ms ease, filter 500ms ease, opacity 500ms ease;
+  }
+
+  @keyframes noteGlow {
+    0%, 100% {
+      opacity: 0.52;
+      transform: translateY(var(--note-y, 0px)) rotate(var(--note-r, 0deg)) scale(0.95);
+    }
+    42% {
+      opacity: 1;
+      transform: translateY(calc(var(--note-y, 0px) - 1px)) rotate(var(--note-r, 0deg)) scale(1.06);
+    }
+  }
+
+  .todo-text {
+    flex: 1 1 auto;
+    font-size: 14px;
+    line-height: 1.7;
+    letter-spacing: 0.04em;
+    color: rgba(255,222,160,0.84);
+    text-shadow: 0 0 14px rgba(255,191,72,0.16);
+    word-break: break-word;
+    transition: color 500ms ease, text-shadow 500ms ease, text-decoration-color 500ms ease;
+    position: relative;
+  }
+
+  .todo-time {
+    flex: 0 0 auto;
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    color: rgba(255,200,110,0.28);
+    margin-top: 8px;
+    font-variant-numeric: tabular-nums;
+    transition: color 500ms ease;
+  }
+
+  .todo-item.done {
+    transform: rotate(0deg) translateY(8px);
+    opacity: 0.42;
+    filter: saturate(0.4);
+  }
+  .todo-item.done .todo-mark {
+    color: rgba(220,210,190,0.34);
+    text-shadow: none;
+    filter: none;
+    opacity: 0.52;
+    animation: none;
+  }
+  .todo-item.done .todo-text {
+    color: rgba(220,210,190,0.42);
+    text-shadow: none;
+    text-decoration: line-through;
+    text-decoration-color: rgba(220,210,190,0.34);
+    text-decoration-thickness: 1px;
+  }
+  .todo-item.done .todo-time {
+    color: rgba(200,190,170,0.22);
+  }
+
+  .todo-remove {
+    flex: 0 0 auto;
+    width: 18px;
+    height: 18px;
+    margin-top: 4px;
+    border: 0;
+    background: transparent;
+    color: rgba(220,210,190,0.32);
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    opacity: 0;
+    transition: opacity 250ms ease, color 250ms ease;
+    padding: 0;
+    font-family: inherit;
+  }
+  .todo-item.done .todo-remove {
+    opacity: 1;
+  }
+  .todo-remove:hover {
+    color: rgba(255,170,150,0.6);
+  }
+</style>
+
+<div class="lamp-wrap">
+  <div class="glow"></div>
+
+  <div class="time-block">
+    <div class="date" id="date"></div>
+    <div class="clock" id="clock"></div>
+    <span class="period" id="period"></span>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="todo-list" id="todoList" aria-live="polite"></div>
+
+  <div class="compose">
+    <div class="compose-row">
+      <textarea id="note" placeholder="今天想做什么……" maxlength="80" rows="1"></textarea>
+      <button class="send-btn" id="send" type="button" aria-label="加入">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 5v14"></path>
+          <path d="M5 12h14"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="saved-hint" id="hint">已点亮</div>
+  </div>
+</div>
+
+<script>
+(async () => {
+  const room = window.PolarisRoom;
+  if (room?.whenReady) await room.whenReady();
+
+  const $ = id => document.getElementById(id);
+  const noteEl = $('note');
+  const hintEl = $('hint');
+  const sendEl = $('send');
+  const listEl = $('todoList');
+  const dateEl = $('date');
+  const clockEl = $('clock');
+  const periodEl = $('period');
+  const fallbackKey = 'desk-lamp-todos';
+  const noteGlyphs = ['♪', '♫', '♩', '♬'];
+  const weekNames = ['日', '一', '二', '三', '四', '五', '六'];
+  const periodNames = [
+    [0, '深夜'],
+    [5, '凌晨'],
+    [7, '早晨'],
+    [9, '上午'],
+    [12, '午间'],
+    [14, '下午'],
+    [17, '傍晚'],
+    [19, '晚上'],
+    [23, '深夜']
+  ];
+
+  let todos = readState().map(normalize).filter(Boolean);
+  let composing = false;
+
+  function readState() {
+    const state = room?.getState?.();
+    if (Array.isArray(state?.todos)) return state.todos;
+    try {
+      const stored = JSON.parse(localStorage.getItem(fallbackKey) || '[]');
+      return Array.isArray(stored) ? stored : [];
+    } catch {
+      return [];
+    }
+  }
+
+  function writeState(todos) {
+    room?.patchState?.({ todos });
+    try {
+      localStorage.setItem(fallbackKey, JSON.stringify(todos));
+    } catch {}
+  }
+
+  function nowLabel() {
+    const now = new Date();
+    return `${pad(now.getHours())}:${pad(now.getMinutes())}`;
+  }
+
+  function pad(value) {
+    return String(value).padStart(2, '0');
+  }
+
+  function randomBetween(min, max) {
+    return (Math.random() * (max - min) + min).toFixed(2);
+  }
+
+  function randomTilt() {
+    return randomBetween(-3, 3);
+  }
+
+  function randomNote() {
+    return noteGlyphs[Math.floor(Math.random() * noteGlyphs.length)];
+  }
+
+  function randomNoteTilt() {
+    return randomBetween(-10, 10);
+  }
+
+  function randomNoteDrift() {
+    return randomBetween(-2, 2);
+  }
+
+  function randomNoteDelay() {
+    return (Math.random() * -3.2).toFixed(2);
+  }
+
+  function makeId() {
+    return 't_' + Math.random().toString(36).slice(2, 9) + Date.now().toString(36);
+  }
+
+  function createTodo(text) {
+    return {
+      id: makeId(),
+      text,
+      time: nowLabel(),
+      done: false,
+      r: randomTilt(),
+      note: randomNote(),
+      noteR: randomNoteTilt(),
+      noteY: randomNoteDrift(),
+      noteDelay: randomNoteDelay()
+    };
+  }
+
+  function normalize(item) {
+    if (!item || typeof item !== 'object') return null;
+    const text = typeof item.text === 'string' ? item.text.trim() : '';
+    if (!text) return null;
+    const todo = createTodo(text);
+    return {
+      ...todo,
+      id: typeof item.id === 'string' ? item.id : todo.id,
+      time: typeof item.time === 'string' && item.time.trim() ? item.time.trim() : nowLabel(),
+      done: !!item.done,
+      r: typeof item.r === 'string' || typeof item.r === 'number' ? String(item.r) : randomTilt(),
+      note: typeof item.note === 'string' && noteGlyphs.includes(item.note) ? item.note : randomNote(),
+      noteR: typeof item.noteR === 'string' || typeof item.noteR === 'number' ? String(item.noteR) : randomNoteTilt(),
+      noteY: typeof item.noteY === 'string' || typeof item.noteY === 'number' ? String(item.noteY) : randomNoteDrift(),
+      noteDelay: typeof item.noteDelay === 'string' || typeof item.noteDelay === 'number' ? String(item.noteDelay) : randomNoteDelay()
+    };
+  }
+
+  function sortForRender(list) {
+    const active = list.filter(t => !t.done);
+    const done = list.filter(t => t.done);
+    return [...active, ...done];
+  }
+
+  function render() {
+    listEl.innerHTML = '';
+    if (!todos.length) {
+      renderEmpty();
+      return;
+    }
+    sortForRender(todos).forEach(todo => listEl.appendChild(createTodoNode(todo)));
+  }
+
+  function renderEmpty() {
+    const empty = document.createElement('div');
+    empty.className = 'todo-list-empty';
+    empty.textContent = '灯下还没有事……';
+    listEl.appendChild(empty);
+  }
+
+  function createTodoNode(todo) {
+    const item = document.createElement('div');
+    item.className = 'todo-item' + (todo.done ? ' done' : '');
+    item.style.setProperty('--r', `${todo.r}deg`);
+    item.dataset.id = todo.id;
+
+    const mark = document.createElement('span');
+    mark.className = 'todo-mark';
+    mark.textContent = todo.note;
+    mark.style.setProperty('--note-r', `${todo.noteR}deg`);
+    mark.style.setProperty('--note-y', `${todo.noteY}px`);
+    mark.style.setProperty('--note-delay', `${todo.noteDelay}s`);
+
+    const text = document.createElement('span');
+    text.className = 'todo-text';
+    text.textContent = todo.text;
+
+    const time = document.createElement('span');
+    time.className = 'todo-time';
+    time.textContent = todo.time;
+
+    const remove = document.createElement('button');
+    remove.type = 'button';
+    remove.className = 'todo-remove';
+    remove.setAttribute('aria-label', '移除');
+    remove.textContent = '×';
+    remove.addEventListener('click', event => {
+      event.stopPropagation();
+      removeTodo(todo.id);
+    });
+
+    item.append(mark, text, time, remove);
+    item.addEventListener('click', () => toggleTodo(todo.id));
+    return item;
+  }
+
+  function removeTodo(id) {
+    todos = todos.filter(todo => todo.id !== id);
+    writeState(todos);
+    render();
+  }
+
+  function toggleTodo(id) {
+    todos = todos.map(todo => {
+      if (todo.id !== id) return todo;
+      const done = !todo.done;
+      return { ...todo, done, time: done ? nowLabel() : todo.time };
+    });
+    writeState(todos);
+    render();
+  }
+
+  function addTodo() {
+    const text = noteEl.value.trim().replace(/\s+/g, ' ');
+    if (!text) return;
+    todos = [...todos, createTodo(text)];
+    writeState(todos);
+    clearNoteInputAfterSubmit();
+    render();
+    showHint();
+  }
+
+  function clearNoteInput() {
+    noteEl.value = '';
+    noteEl.defaultValue = '';
+    noteEl.textContent = '';
+    autoResize();
+  }
+
+  function clearNoteInputAfterSubmit() {
+    clearNoteInput();
+    requestAnimationFrame(clearNoteInput);
+    setTimeout(clearNoteInput, 60);
+  }
+
+  function showHint() {
+    hintEl.classList.add('show');
+    setTimeout(() => hintEl.classList.remove('show'), 1500);
+  }
+
+  function autoResize() {
+    noteEl.style.height = 'auto';
+    noteEl.style.height = Math.min(noteEl.scrollHeight, 120) + 'px';
+  }
+
+  noteEl.addEventListener('compositionstart', () => { composing = true; });
+  noteEl.addEventListener('compositionend', () => { composing = false; });
+  noteEl.addEventListener('input', autoResize);
+  noteEl.addEventListener('keydown', event => {
+    if (event.key !== 'Enter' || event.shiftKey || composing) return;
+    event.preventDefault();
+    addTodo();
+  });
+  sendEl.addEventListener('click', addTodo);
+
+  render();
+  autoResize();
+
+  function getPeriod(h) {
+    let p = '深夜';
+    for (const [start, name] of periodNames) {
+      if (h >= start) p = name;
+    }
+    return p;
+  }
+
+  function tick() {
+    const now = new Date();
+    const y = now.getFullYear();
+    const m = pad(now.getMonth() + 1);
+    const d = pad(now.getDate());
+    const w = weekNames[now.getDay()];
+    dateEl.textContent = `${y}.${m}.${d}  周${w}`;
+    clockEl.textContent = `${pad(now.getHours())}:${pad(now.getMinutes())}`;
+    periodEl.textContent = getPeriod(now.getHours());
+  }
+
+  tick();
+  setInterval(tick, 10000);
+})();
+</script>

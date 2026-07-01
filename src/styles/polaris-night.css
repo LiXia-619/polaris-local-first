@@ -1,0 +1,103 @@
+body[data-polaris-preset='polaris-night'] .app-shell.collection {
+  --polaris-gold-bright: #d3ad66;
+  --polaris-gold: #b59154;
+  --polaris-gold-deep: #97784a;
+  --polaris-gold-muted: rgba(184, 151, 95, 0.84);
+  --polaris-code-gold: rgba(156, 122, 69, 0.88);
+}
+
+body[data-polaris-preset='polaris-night'] .app-shell.collection .brand h1 {
+  color: var(--polaris-gold-bright);
+  text-shadow: 0 0 16px rgba(216, 180, 108, 0.18);
+}
+
+body[data-polaris-preset='polaris-night'] .app-shell.collection .brand p,
+body[data-polaris-preset='polaris-night'] .app-shell.collection .world-collection {
+  color: var(--polaris-gold-muted);
+}
+
+body[data-polaris-preset='polaris-night'] .app-shell.collection .pulse-dot {
+  background: #c79c53;
+}
+
+body[data-polaris-preset='polaris-night'] .app-shell.collection .shelf-tab-label {
+  color: var(--polaris-gold-deep) !important;
+}
+
+body[data-polaris-preset='polaris-night'] .app-shell.collection .shelf-tab.active .shelf-tab-label,
+body[data-polaris-preset='polaris-night'] .app-shell.collection .shelf-tab:hover .shelf-tab-label {
+  color: var(--polaris-gold) !important;
+}
+
+body[data-polaris-preset='polaris-night'] .app-shell.collection .shelf-tab.active {
+  background: none !important;
+}
+
+body[data-polaris-preset='polaris-night'] .app-shell.collection .world-collection .collection-filter-panel .chip {
+  border-color: rgba(196, 167, 105, 0.24) !important;
+  background: rgba(11, 16, 34, 0.56) !important;
+  color: var(--polaris-gold-muted) !important;
+}
+
+body[data-polaris-preset='polaris-night'] .app-shell.collection .world-collection .collection-filter-panel .chip.active,
+body[data-polaris-preset='polaris-night'] .app-shell.collection .quick-skin-row .chip {
+  border-color: rgba(224, 192, 126, 0.5) !important;
+  background: rgba(216, 180, 108, 0.16) !important;
+  color: var(--polaris-gold-bright) !important;
+}
+
+body[data-polaris-preset='polaris-night'] .app-shell.collection .card,
+body[data-polaris-preset='polaris-night'] .app-shell.collection .conversation-card {
+  border-color: rgba(198, 167, 105, 0.22);
+}
+
+body[data-polaris-preset='polaris-night'] .app-shell.collection .card h3,
+body[data-polaris-preset='polaris-night'] .app-shell.collection .conversation-card h3,
+body[data-polaris-preset='polaris-night'] .app-shell.collection .conversation-card-persona,
+body[data-polaris-preset='polaris-night'] .app-shell.collection .conversation-card-state.active {
+  color: var(--polaris-gold-bright) !important;
+}
+
+body[data-polaris-preset='polaris-night'] .app-shell.collection .card .card-meta-row small,
+body[data-polaris-preset='polaris-night'] .app-shell.collection .conversation-card-updated,
+body[data-polaris-preset='polaris-night'] .app-shell.collection .code-card-origin,
+body[data-polaris-preset='polaris-night'] .app-shell.collection .conversation-excerpt,
+body[data-polaris-preset='polaris-night'] .app-shell.collection .conversation-stats,
+body[data-polaris-preset='polaris-night'] .app-shell.collection .conversation-stats span,
+body[data-polaris-preset='polaris-night'] .app-shell.collection .tags span {
+  color: var(--polaris-gold-muted) !important;
+}
+
+body[data-polaris-preset='polaris-night'] .app-shell.collection .card pre {
+  color: var(--polaris-code-gold) !important;
+}
+
+body[data-polaris-preset='polaris-night'] .app-shell.collection .tags span {
+  background: rgba(216, 180, 108, 0.16);
+}
+
+body[data-polaris-preset='polaris-night'] .app-shell.collection .code-card-run-dot {
+  color: var(--polaris-gold-muted);
+}
+
+body[data-polaris-preset='polaris-night'] .app-shell.collection .code-card-run-dot::before {
+  border-color: rgba(211, 174, 100, 0.54);
+  background: linear-gradient(180deg, rgba(11, 16, 34, 0.82), rgba(18, 26, 52, 0.7));
+}
+
+body[data-polaris-preset='polaris-night'] .app-shell.collection .code-card-run-dot:hover,
+body[data-polaris-preset='polaris-night'] .app-shell.collection .code-card-run-dot:focus-visible,
+body[data-polaris-preset='polaris-night'] .app-shell.collection .conversation-card .micro-action-btn:hover,
+body[data-polaris-preset='polaris-night'] .app-shell.collection .conversation-card .micro-action-btn:focus-visible,
+body[data-polaris-preset='polaris-night'] .app-shell.collection .conversation-card .micro-action-btn.active {
+  color: var(--polaris-gold-bright);
+}
+
+body[data-polaris-preset='polaris-night'] .app-shell.collection .code-card-run-dot:hover::before,
+body[data-polaris-preset='polaris-night'] .app-shell.collection .code-card-run-dot:focus-visible::before,
+body[data-polaris-preset='polaris-night'] .app-shell.collection .conversation-card .micro-action-btn:hover,
+body[data-polaris-preset='polaris-night'] .app-shell.collection .conversation-card .micro-action-btn:focus-visible,
+body[data-polaris-preset='polaris-night'] .app-shell.collection .conversation-card .micro-action-btn.active {
+  border-color: rgba(224, 192, 126, 0.4);
+  background: rgba(216, 180, 108, 0.12);
+}

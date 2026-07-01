@@ -1,0 +1,666 @@
+.usage-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.usage-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.usage-secondary-metrics {
+  padding-top: 10px;
+  border-top: 1px solid color-mix(in srgb, var(--border) 58%, transparent);
+}
+.usage-model-panel {
+  min-width: 0;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--border) 68%, transparent);
+  background: color-mix(in srgb, var(--surface) 42%, transparent);
+}
+.usage-model-panel-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.usage-model-panel-head strong {
+  color: var(--sheet-readable-text);
+  font-size: var(--type-small);
+  line-height: 1.35;
+}
+.usage-model-panel-head span {
+  color: var(--sheet-readable-muted);
+  font-size: var(--type-caption);
+  line-height: 1.35;
+}
+.usage-model-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.usage-model-row {
+  min-width: 0;
+  padding: 10px;
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--surface-solid) 36%, transparent);
+}
+.usage-model-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: start;
+}
+.usage-model-head > div:first-child,
+.usage-model-total {
+  min-width: 0;
+}
+.usage-model-head strong,
+.usage-model-total strong {
+  display: block;
+  color: var(--sheet-readable-text);
+  font-size: var(--type-small);
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+.usage-model-head span,
+.usage-model-total span {
+  display: block;
+  margin-top: 3px;
+  color: var(--sheet-readable-muted);
+  font-size: var(--type-caption);
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+.usage-model-total {
+  text-align: right;
+}
+.usage-model-cache {
+  display: grid;
+  grid-template-columns: auto minmax(48px, 1fr);
+  gap: 8px;
+  align-items: center;
+  margin-top: 8px;
+}
+.usage-model-cache span {
+  color: var(--sheet-readable-muted);
+  font-size: 10px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.usage-model-cache i {
+  display: block;
+  height: 6px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--border) 52%, transparent);
+}
+.usage-model-cache b {
+  display: block;
+  height: 100%;
+  min-width: 0;
+  max-width: 100%;
+  border-radius: inherit;
+  background: color-mix(in srgb, var(--accent) 68%, var(--sheet-readable-text) 8%);
+}
+.usage-model-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 5px 8px;
+  margin-top: 8px;
+}
+.usage-model-grid span {
+  min-width: 0;
+  color: var(--sheet-readable-muted);
+  font-size: 10px;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+.usage-cache-panel {
+  min-width: 0;
+  margin-bottom: 10px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--accent) 18%, var(--border) 62%);
+  background: color-mix(in srgb, var(--surface-solid) 42%, transparent);
+}
+.usage-cache-panel-head,
+.usage-cache-panel-foot {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+.usage-cache-panel-head strong {
+  color: var(--sheet-readable-text);
+  font-size: var(--type-small);
+  line-height: 1.35;
+}
+.usage-cache-panel-head span,
+.usage-cache-panel-foot span {
+  color: var(--sheet-readable-muted);
+  font-size: var(--type-caption);
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+.usage-cache-bar {
+  position: relative;
+  height: 9px;
+  margin: 10px 0 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--border) 52%, transparent);
+}
+.usage-cache-bar i {
+  display: block;
+  height: 100%;
+  min-width: 0;
+  max-width: 100%;
+  border-radius: inherit;
+  background: color-mix(in srgb, var(--accent) 70%, var(--sheet-readable-text) 8%);
+}
+.usage-metric-tile {
+  min-width: 0;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+  background: color-mix(in srgb, var(--surface) 50%, transparent);
+}
+.usage-metric-tile.primary {
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--accent-soft) 40%, var(--surface) 46%),
+      color-mix(in srgb, var(--surface) 58%, transparent)
+    );
+  border-color: color-mix(in srgb, var(--accent) 20%, var(--border) 64%);
+}
+.usage-metric-tile span,
+.usage-entry-grid span {
+  display: block;
+  font-size: var(--type-caption);
+  line-height: 1.45;
+  color: var(--sheet-readable-muted);
+}
+.usage-metric-tile strong {
+  display: block;
+  margin-top: 4px;
+  color: var(--sheet-readable-text);
+  font-size: var(--type-title);
+  line-height: 1.15;
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+}
+.usage-metric-tile small {
+  display: block;
+  margin-top: 5px;
+  color: var(--sheet-readable-muted);
+  font-size: var(--type-caption);
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+.usage-entry-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.usage-trend-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.usage-entry-row {
+  min-width: 0;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--border) 68%, transparent);
+  background: color-mix(in srgb, var(--surface) 38%, transparent);
+}
+.usage-request-row {
+  padding: 13px;
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-solid) 46%, transparent),
+      color-mix(in srgb, var(--surface) 36%, transparent)
+    );
+}
+.usage-trend-row {
+  min-width: 0;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--accent) 18%, var(--border) 62%);
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--accent-soft) 34%, var(--surface) 42%),
+      color-mix(in srgb, var(--surface) 38%, transparent)
+    );
+}
+.usage-trend-row summary {
+  display: block;
+  cursor: pointer;
+  list-style: none;
+}
+.usage-trend-row summary::-webkit-details-marker {
+  display: none;
+}
+.usage-trend-row summary:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--accent) 52%, transparent);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+.usage-trend-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+.usage-trend-stats span {
+  min-width: 0;
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--surface-solid) 38%, transparent);
+  color: var(--sheet-readable-muted);
+  font-size: var(--type-caption);
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+.usage-trend-dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 9px;
+}
+.usage-trend-dots span {
+  display: inline-grid;
+  grid-template-columns: repeat(3, 6px);
+  gap: 3px;
+  padding: 5px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface-solid) 42%, transparent);
+}
+.usage-trend-dots i {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--sheet-readable-muted) 44%, transparent);
+}
+.usage-trend-dots i.same {
+  background: color-mix(in srgb, var(--accent) 48%, var(--sheet-readable-text) 20%);
+}
+.usage-trend-dots i.changed {
+  background: color-mix(in srgb, var(--accent) 82%, var(--sheet-readable-text) 8%);
+}
+.usage-trend-dots i.unknown {
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--sheet-readable-muted) 58%, transparent);
+}
+.usage-trend-detail {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid color-mix(in srgb, var(--border) 62%, transparent);
+}
+.usage-trend-detail-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.usage-trend-detail-head strong {
+  color: var(--sheet-readable-text);
+  font-size: var(--type-small);
+  line-height: 1.35;
+}
+.usage-trend-detail-head span {
+  color: var(--sheet-readable-muted);
+  font-size: var(--type-caption);
+  line-height: 1.35;
+}
+.usage-trend-intents {
+  margin-top: 0;
+}
+.usage-trend-history {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+.usage-trend-history-row {
+  min-width: 0;
+  padding: 10px;
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--surface-solid) 34%, transparent);
+}
+.usage-trend-history-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.usage-trend-history-head strong {
+  color: var(--sheet-readable-text);
+  font-size: var(--type-caption);
+  line-height: 1.3;
+}
+.usage-trend-history-head span {
+  color: var(--sheet-readable-muted);
+  font-size: 10px;
+  line-height: 1.3;
+}
+.usage-trend-hash-grid,
+.usage-trend-history-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+.usage-trend-history-meta {
+  margin-top: 6px;
+}
+.usage-trend-hash-grid span,
+.usage-trend-history-meta span {
+  min-width: 0;
+  padding: 5px 7px;
+  border-radius: 7px;
+  background: color-mix(in srgb, var(--surface) 36%, transparent);
+  color: var(--sheet-readable-muted);
+  font-size: 10px;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+.usage-trend-hash-grid span.same {
+  color: var(--sheet-readable-text);
+  background: color-mix(in srgb, var(--accent-soft) 30%, var(--surface) 38%);
+}
+.usage-trend-hash-grid span.changed {
+  color: var(--sheet-readable-text);
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--border) 52%);
+  background: color-mix(in srgb, var(--accent-soft) 44%, var(--surface) 32%);
+}
+.usage-trend-hash-grid span.unknown {
+  border: 1px dashed color-mix(in srgb, var(--border) 70%, transparent);
+}
+.usage-entry-head {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  margin-bottom: 10px;
+}
+.usage-entry-head strong {
+  color: var(--sheet-readable-text);
+  font-size: var(--type-small);
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+.usage-entry-head span {
+  color: var(--sheet-readable-muted);
+  font-size: var(--type-caption);
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+.usage-request-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+.usage-request-badges {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px;
+  flex: 0 0 auto;
+}
+.usage-request-badges span {
+  padding: 4px 7px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--border) 68%, transparent);
+  background: color-mix(in srgb, var(--surface-solid) 54%, transparent);
+  color: var(--sheet-readable-muted);
+  font-size: 10px;
+  line-height: 1.2;
+}
+.usage-entry-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px 10px;
+}
+.usage-receipt-grid {
+  margin-bottom: 8px;
+}
+.usage-receipt-line {
+  margin-top: 6px;
+  font-size: var(--type-caption);
+  line-height: 1.45;
+  color: var(--sheet-readable-muted);
+  overflow-wrap: anywhere;
+}
+.usage-judgement-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  margin-top: 8px;
+}
+.usage-judgement-row span {
+  min-width: 0;
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--surface-solid) 38%, transparent);
+  color: var(--sheet-readable-muted);
+  font-size: var(--type-caption);
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+.usage-judgement-row span.same {
+  background: color-mix(in srgb, var(--accent-soft) 36%, var(--surface) 42%);
+  color: var(--sheet-readable-text);
+}
+.usage-judgement-row span.changed {
+  border: 1px solid color-mix(in srgb, var(--accent) 24%, var(--border) 54%);
+  background: color-mix(in srgb, var(--accent-soft) 48%, var(--surface) 36%);
+  color: var(--sheet-readable-text);
+}
+.usage-judgement-row span.unknown {
+  border: 1px dashed color-mix(in srgb, var(--border) 72%, transparent);
+}
+.usage-cache-breakpoints {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  margin-top: 8px;
+}
+.usage-cache-breakpoint {
+  min-width: 0;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, var(--border) 64%, transparent);
+  background: color-mix(in srgb, var(--surface-solid) 34%, transparent);
+}
+.usage-cache-breakpoint.eligible {
+  border-color: color-mix(in srgb, var(--accent) 18%, var(--border) 62%);
+}
+.usage-cache-breakpoint.ineligible {
+  border-style: dashed;
+}
+.usage-cache-breakpoint.changed {
+  background: color-mix(in srgb, var(--accent-soft) 42%, var(--surface) 36%);
+  border-color: color-mix(in srgb, var(--accent) 24%, var(--border) 54%);
+}
+.usage-cache-breakpoint strong,
+.usage-cache-breakpoint small,
+.usage-cache-breakpoint em {
+  display: block;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.usage-cache-breakpoint strong {
+  color: var(--sheet-readable-text);
+  font-size: var(--type-caption);
+  line-height: 1.25;
+}
+.usage-cache-breakpoint small,
+.usage-cache-breakpoint em {
+  margin-top: 4px;
+  color: var(--sheet-readable-muted);
+  font-size: 10px;
+  font-style: normal;
+  line-height: 1.25;
+}
+.usage-cache-blocks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+.usage-cache-block {
+  min-width: 0;
+  max-width: 100%;
+  padding: 7px 8px;
+  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, var(--border) 62%, transparent);
+  background: color-mix(in srgb, var(--surface-solid) 30%, transparent);
+}
+.usage-cache-block.changed {
+  border-color: color-mix(in srgb, var(--accent) 22%, var(--border) 54%);
+  background: color-mix(in srgb, var(--accent-soft) 36%, var(--surface) 38%);
+}
+.usage-cache-block.unknown {
+  border-style: dashed;
+}
+.usage-cache-block strong,
+.usage-cache-block small,
+.usage-cache-block em {
+  display: block;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.usage-cache-block strong {
+  color: var(--sheet-readable-text);
+  font-size: var(--type-caption);
+  line-height: 1.25;
+}
+.usage-cache-block small,
+.usage-cache-block em {
+  margin-top: 3px;
+  color: var(--sheet-readable-muted);
+  font-size: 10px;
+  font-style: normal;
+  line-height: 1.25;
+}
+.usage-shrink-plans {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 6px;
+  margin-top: 8px;
+}
+.usage-shrink-plan {
+  min-width: 0;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px dashed color-mix(in srgb, var(--border) 70%, transparent);
+  background: color-mix(in srgb, var(--surface-solid) 30%, transparent);
+}
+.usage-shrink-plan.high {
+  border-style: solid;
+  border-color: color-mix(in srgb, var(--accent) 26%, var(--border) 54%);
+  background: color-mix(in srgb, var(--accent-soft) 40%, var(--surface) 36%);
+}
+.usage-shrink-plan.medium {
+  border-color: color-mix(in srgb, var(--accent) 18%, var(--border) 60%);
+}
+.usage-shrink-plan strong,
+.usage-shrink-plan small,
+.usage-shrink-plan em {
+  display: block;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.usage-shrink-plan strong {
+  color: var(--sheet-readable-text);
+  font-size: var(--type-caption);
+  line-height: 1.25;
+}
+.usage-shrink-plan small,
+.usage-shrink-plan em {
+  margin-top: 3px;
+  color: var(--sheet-readable-muted);
+  font-size: 10px;
+  font-style: normal;
+  line-height: 1.25;
+}
+.usage-intent-lanes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+.usage-intent-lanes span {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  min-width: 0;
+  padding: 5px 7px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--surface-solid) 42%, transparent);
+  color: var(--sheet-readable-muted);
+  font-size: var(--type-caption);
+  line-height: 1.25;
+}
+.usage-intent-lanes strong {
+  color: var(--sheet-readable-text);
+  font-size: var(--type-caption);
+  line-height: 1.25;
+}
+.usage-intent-lanes small {
+  color: var(--sheet-readable-muted);
+  font-size: 10px;
+  line-height: 1.25;
+}
+.usage-empty-state {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px dashed color-mix(in srgb, var(--border) 74%, transparent);
+  color: var(--sheet-readable-muted);
+  font-size: var(--type-caption);
+  line-height: 1.55;
+}
+
+@media (max-width: 520px) {
+  .usage-metric-grid,
+  .usage-entry-grid,
+  .usage-model-grid,
+  .usage-cache-breakpoints,
+  .usage-trend-hash-grid,
+  .usage-trend-history-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .usage-model-head {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .usage-model-total {
+    text-align: left;
+  }
+
+  .usage-trend-detail-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .usage-cache-panel-head,
+  .usage-cache-panel-foot {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+}

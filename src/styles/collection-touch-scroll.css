@@ -1,0 +1,62 @@
+@media (hover: none), (pointer: coarse) {
+  .world-collection .card,
+  .world-collection .code-card,
+  .world-collection .conversation-card,
+  .world-collection .room-project-card,
+  .world-collection .asset-card {
+    transition-property: background, background-color, border-color, box-shadow, opacity, color;
+  }
+
+  .collection .card.active,
+  .collection .code-card,
+  .collection .code-card:hover,
+  .collection .code-card:focus-within,
+  .collection .code-card.active,
+  .collection .room-project-card,
+  .collection .room-project-card:hover,
+  .collection .room-project-card:focus-within,
+  .asset-card:hover,
+  .asset-card:focus-visible {
+    transform: none;
+  }
+
+  .collection .conversation-card,
+  .collection .conversation-card:hover,
+  .collection .conversation-card:focus-within,
+  .collection .conversation-card.editing:focus-within {
+    transform: none;
+  }
+
+  .conversation-card-list {
+    transition: none;
+  }
+
+  .conversation-card-detail,
+  .conversation-card-actions,
+  .conversation-card .micro-action-btn {
+    transition-duration: 0ms;
+  }
+
+  .conversation-card:not(.swiping):not(.swipe-open) .conversation-card-swipe-surface {
+    transition: none;
+  }
+
+  .collection .conversation-card:not(.active):not(.pinned):not(.editing):hover {
+    background: var(--collection-dialogue-card-background);
+    box-shadow: var(--collection-dialogue-card-shadow);
+    transform: none;
+  }
+
+  .collection .conversation-card:not(.active):not(.pinned):not(.editing):hover .conversation-card-thread-mark {
+    opacity: var(--collection-card-thread-opacity);
+  }
+
+  .collection .conversation-card:not(.active):not(.pinned):not(.editing):hover .conversation-card-actions {
+    opacity: 0.42;
+    transform: translateY(1px);
+  }
+
+  .collection .conversation-card:not(.active):not(.pinned):not(.editing):hover .micro-action-btn {
+    opacity: 0.58;
+  }
+}

@@ -1,0 +1,118 @@
+.task-runtime-card-steps {
+  margin: 0;
+  padding: 4px 22px 20px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--task-border);
+}
+.task-runtime-card-step {
+  position: relative;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 10px 0;
+}
+.task-runtime-card-step-indicator {
+  flex: 0 0 auto;
+  width: 20px;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.task-runtime-card-step-dot {
+  position: relative;
+  z-index: 1;
+  width: 8px;
+  height: 8px;
+  margin-top: 4px;
+  border-radius: 999px;
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+.task-runtime-card-step-rail {
+  width: 1px;
+  flex: 1 1 auto;
+  min-height: 16px;
+  margin-top: 4px;
+  background: var(--task-border);
+}
+.task-runtime-card-step:last-child .task-runtime-card-step-rail {
+  display: none;
+}
+.task-runtime-card-step-dot.in_progress {
+  border-color: transparent;
+  background: var(--task-blue);
+  box-shadow: 0 0 10px rgba(94, 170, 255, 0.4);
+  animation: softPulse 2s ease-in-out infinite;
+}
+.task-runtime-card-step-dot.completed {
+  border-color: transparent;
+  background: var(--task-green);
+  box-shadow: 0 0 8px rgba(46, 245, 160, 0.3);
+}
+.task-runtime-card-step.completed .task-runtime-card-step-rail {
+  background: rgba(46, 245, 160, 0.2);
+}
+.task-runtime-card-step-dot.completed::after {
+  content: '';
+  position: absolute;
+  top: 1.5px;
+  left: 2.5px;
+  width: 3px;
+  height: 5px;
+  border: solid var(--task-bg);
+  border-width: 0 1.5px 1.5px 0;
+  transform: rotate(40deg);
+}
+.task-runtime-card-step-dot.blocked {
+  border-color: transparent;
+  background: var(--task-yellow);
+  box-shadow: 0 0 6px rgba(245, 197, 66, 0.3);
+}
+.task-runtime-card-step-dot.pending {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.task-runtime-card-step-copy {
+  min-width: 0;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.task-runtime-card-step-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.task-runtime-card-step-title {
+  min-width: 0;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--task-text);
+}
+.task-runtime-card-step.pending .task-runtime-card-step-title {
+  color: var(--task-tertiary);
+}
+.task-runtime-card-step.completed .task-runtime-card-step-title {
+  color: var(--task-secondary);
+}
+.task-runtime-card-step-detail {
+  font-size: 11px;
+  color: var(--task-tertiary);
+}
+.task-runtime-card-step-meta {
+  font-size: 11px;
+  color: var(--task-tertiary);
+  margin-top: 2px;
+}
+.task-runtime-card-step-more .task-runtime-card-step-title {
+  color: var(--task-tertiary);
+}
+

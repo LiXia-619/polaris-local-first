@@ -1,0 +1,640 @@
+.app-shell.collection,
+.world-collection,
+.collection-card-token-scope {
+  --bg: var(--warm-bg);
+  --surface: var(--warm-surface);
+  --surface-solid: var(--warm-surface-solid);
+  --surface-deep: var(--warm-surface-deep);
+  --border: var(--warm-border);
+  --border-hover: var(--warm-border-hover);
+  --text: var(--warm-text);
+  --text-soft: var(--warm-text-soft);
+  --text-muted: var(--warm-text-muted);
+  --accent: var(--warm-accent);
+  --accent-soft: var(--warm-accent-soft);
+  --accent-glow: var(--warm-accent-glow);
+  --card-bg: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--warm-surface-solid) 88%, var(--warm-accent-soft) 12%) 0%,
+    color-mix(in srgb, var(--warm-surface-solid) 72%, var(--warm-surface-deep) 28%) 100%
+  );
+  --collection-card-fill: var(--card-bg);
+  --collection-card-background:
+    radial-gradient(circle at top left, color-mix(in srgb, var(--accent-glow) 72%, transparent), transparent 54%),
+    linear-gradient(145deg, color-mix(in srgb, var(--collection-card-fill) 92%, var(--warm-accent-soft) 8%), color-mix(in srgb, var(--surface-solid) 76%, var(--collection-card-fill) 24%));
+  --collection-card-border-color: color-mix(in srgb, var(--border-hover) 36%, var(--border) 64%);
+  --collection-card-shadow: 0 10px 24px rgba(90, 104, 99, 0.07), 0 2px 8px rgba(90, 104, 99, 0.04), 0 0 0 1px rgba(134, 147, 143, 0.09);
+  --collection-card-hover-shadow: 0 16px 32px rgba(90, 104, 99, 0.1), 0 4px 12px rgba(90, 104, 99, 0.05), 0 0 0 1px rgba(134, 147, 143, 0.13);
+  --collection-code-card-shadow:
+    0 18px 32px color-mix(in srgb, var(--accent-glow) 16%, transparent),
+    0 10px 20px rgba(90, 104, 99, 0.08),
+    0 2px 8px rgba(90, 104, 99, 0.04),
+    0 0 0 1px rgba(134, 147, 143, 0.09);
+  --collection-code-card-hover-shadow:
+    0 24px 40px color-mix(in srgb, var(--accent-glow) 24%, transparent),
+    0 14px 26px rgba(90, 104, 99, 0.11),
+    0 4px 12px rgba(90, 104, 99, 0.05),
+    0 0 0 1px rgba(134, 147, 143, 0.13);
+  --collection-code-card-rest-scale: 1;
+  --collection-card-pinned-shadow: 0 8px 20px rgba(102, 116, 111, 0.06), 0 0 0 1px rgba(166, 177, 172, 0.1);
+  --collection-card-surface: color-mix(in srgb, var(--surface-solid) 92%, var(--surface) 8%);
+  --collection-card-surface-solid: var(--surface-solid);
+  --collection-card-text: var(--text);
+  --collection-card-text-soft: var(--text-soft);
+  --collection-card-text-muted: var(--text-muted);
+  --collection-card-accent: var(--accent);
+  --collection-card-accent-soft: var(--accent-soft);
+  --collection-card-border: var(--border);
+  --collection-card-border-hover: var(--border-hover);
+  --collection-card-code-strip-bg: linear-gradient(90deg, color-mix(in srgb, var(--border-hover) 22%, transparent), transparent 72%), repeating-linear-gradient(90deg, color-mix(in srgb, var(--border-hover) 12%, transparent) 0 1px, transparent 1px 16px);
+  --collection-card-code-strip-opacity: 0.07;
+  --collection-card-padding: 12px;
+  --collection-card-padding-mobile: 11px;
+  --collection-card-radius: var(--radius-2xl);
+  --collection-card-backdrop: none;
+  --collection-card-active-border: 1px solid color-mix(in srgb, var(--collection-card-border-hover) 72%, transparent);
+  --collection-card-active-transform: scale(1.02);
+  --collection-card-meta-color: var(--collection-card-text-soft);
+  --collection-card-heading-color: var(--collection-card-text);
+  --collection-card-pre-color: var(--collection-card-text-soft);
+  --collection-card-tag-fill: var(--collection-card-accent-soft);
+  --collection-card-tag-color: var(--collection-card-text-muted);
+  --collection-card-run-dot-color: var(--collection-card-text-soft);
+  --collection-card-run-dot-border: 1px dashed color-mix(in srgb, var(--collection-card-border-hover) 56%, transparent);
+  --collection-card-run-dot-fill: color-mix(in srgb, var(--collection-card-surface) 82%, transparent);
+  --collection-card-run-dot-hover-border: color-mix(in srgb, var(--collection-card-border-hover) 72%, transparent);
+  --collection-card-run-dot-hover-fill: color-mix(in srgb, var(--collection-card-surface-solid) 68%, var(--collection-card-accent-soft) 32%);
+  --collection-card-run-dot-hover-color: color-mix(in srgb, var(--collection-card-accent) 72%, var(--collection-card-text) 28%);
+  --collection-card-tool-border: 1px solid var(--collection-card-border);
+  --collection-card-tool-fill: color-mix(in srgb, var(--collection-card-surface) 82%, transparent);
+  --collection-card-tool-color: var(--collection-card-text-soft);
+  --collection-card-tool-shadow: inset 0 1px 0 rgba(255,255,255,0.16);
+  --collection-card-tool-primary-border: color-mix(in srgb, var(--collection-card-border-hover) 76%, transparent);
+  --collection-card-tool-primary-fill: color-mix(in srgb, var(--collection-card-surface-solid) 72%, var(--collection-card-accent-soft) 28%);
+  --collection-card-tool-primary-color: color-mix(in srgb, var(--collection-card-accent) 78%, var(--collection-card-text) 22%);
+  --collection-card-tool-primary-solid-border: color-mix(in srgb, var(--collection-card-border-hover) 78%, transparent);
+  --collection-card-tool-primary-solid-fill: linear-gradient(135deg, color-mix(in srgb, var(--collection-card-surface-solid) 78%, rgba(255,255,255,.24)), color-mix(in srgb, var(--collection-card-accent-soft) 38%, rgba(255,255,255,.1)));
+  --collection-card-tool-primary-solid-color: color-mix(in srgb, var(--collection-card-accent) 76%, var(--collection-card-text) 24%);
+  --collection-card-tool-primary-solid-shadow: 0 8px 16px color-mix(in srgb, var(--collection-card-border-hover) 12%, transparent), inset 0 1px 0 rgba(255,255,255,0.18);
+  --collection-card-tool-secondary-color: var(--collection-card-text-muted);
+  --collection-card-tool-danger-border: rgba(194, 92, 92, 0.26);
+  --collection-card-tool-danger-color: #b45f5f;
+  --collection-card-tool-danger-hover-fill: rgba(194, 92, 92, 0.08);
+  --collection-card-tool-danger-hover-border: rgba(194, 92, 92, 0.34);
+  --collection-empty-card-fill: color-mix(in srgb, var(--surface) 34%, transparent);
+  --collection-empty-card-text: var(--text-soft);
+  --collection-search-border: var(--control-border);
+  --collection-search-fill: var(--control-surface);
+  --collection-search-text: var(--control-text);
+  --collection-search-placeholder: var(--control-placeholder);
+  --collection-tab-border: 1px solid color-mix(in srgb, var(--border) 18%, transparent);
+  --collection-tab-row-fill: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--surface-solid) 34%, transparent),
+    color-mix(in srgb, var(--surface) 8%, transparent)
+  );
+  --collection-tab-row-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.1),
+    inset 0 0 0 1px color-mix(in srgb, var(--border) 10%, transparent);
+  --collection-tab-text: color-mix(in srgb, var(--text-soft) 86%, var(--text-muted) 14%);
+  --collection-tab-text-active: var(--text);
+  --collection-tab-active-fill: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--surface-solid) 18%, transparent),
+    color-mix(in srgb, var(--surface) 6%, transparent)
+  );
+  --collection-tab-active-border: color-mix(in srgb, var(--border-hover) 14%, transparent);
+  --collection-tab-active-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.1),
+    0 4px 14px color-mix(in srgb, var(--accent-glow) 6%, transparent);
+  --collection-tab-indicator: color-mix(in srgb, var(--accent) 44%, transparent);
+  --collection-tab-indicator-inset: 14px;
+  --collection-tab-indicator-span: 28px;
+  --collection-chip-border: var(--border);
+  --collection-chip-fill: transparent;
+  --collection-chip-text: var(--text-soft);
+  --collection-chip-active-border: var(--accent);
+  --collection-chip-active-fill: var(--accent-soft);
+  --collection-chip-active-text: var(--accent);
+  --collection-filter-chip-border: color-mix(in srgb, var(--border) 76%, rgba(130, 142, 138, 0.14));
+  --collection-filter-chip-fill: color-mix(in srgb, var(--surface-solid) 42%, rgba(255, 255, 255, 0.16));
+  --collection-filter-chip-text: color-mix(in srgb, var(--text) 84%, var(--text-soft) 16%);
+  --collection-filter-chip-active-border: color-mix(in srgb, var(--accent) 78%, var(--border-hover) 22%);
+  --collection-filter-chip-active-fill: color-mix(in srgb, var(--accent-soft) 70%, rgba(255,255,255,0.14));
+  --collection-filter-chip-active-text: color-mix(in srgb, var(--accent) 88%, var(--text) 12%);
+  --collection-tag-muted-border: color-mix(in srgb, var(--border) 44%, transparent);
+  --collection-tag-muted-text: color-mix(in srgb, var(--text-muted) 78%, transparent);
+  --collection-tag-muted-fill: color-mix(in srgb, var(--surface) 44%, transparent);
+  --collection-asset-card-padding: 10px 10px 24px;
+  --collection-asset-card-radius: 12px;
+  --collection-asset-card-fill: linear-gradient(180deg, color-mix(in srgb, var(--surface-solid) 94%, var(--collection-card-surface) 6%), color-mix(in srgb, var(--surface-solid) 82%, var(--accent-soft) 18%));
+  --collection-asset-card-border: 1px solid color-mix(in srgb, var(--border-hover) 34%, var(--border) 66%);
+  --collection-asset-card-shadow: 0 16px 28px rgba(78, 92, 88, 0.12), 0 3px 8px rgba(78, 92, 88, 0.08);
+  --collection-asset-card-hover-shadow: 0 22px 34px rgba(78, 92, 88, 0.16), 0 5px 12px rgba(78, 92, 88, 0.1);
+  --collection-asset-card-image-radius: max(0px, calc(var(--collection-asset-card-radius) - 8px));
+  --collection-asset-card-image-wrap-fill: color-mix(in srgb, var(--collection-card-surface) 44%, transparent);
+  --collection-asset-card-image-wrap-shadow: inset 0 0 0 1px rgba(18, 26, 36, 0.06);
+  --collection-asset-card-image-fill: color-mix(in srgb, var(--collection-card-surface) 48%, transparent);
+  --collection-asset-card-date-color: rgba(84, 94, 91, 0.42);
+  --collection-workshop-panel-radius: 26px;
+  --collection-workshop-panel-border: 1px solid color-mix(in srgb, var(--border) 46%, transparent);
+  --collection-workshop-panel-fill:
+    radial-gradient(circle at top right, color-mix(in srgb, var(--warm-accent) 10%, transparent), transparent 32%),
+    linear-gradient(180deg, color-mix(in srgb, rgba(255, 255, 255, 0.1) 100%, transparent), color-mix(in srgb, rgba(255, 255, 255, 0.04) 100%, transparent));
+  --collection-workshop-panel-shadow: 0 14px 30px rgba(92, 106, 101, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  --collection-workshop-panel-backdrop: blur(10px) saturate(1.03);
+  --collection-workshop-panel-title-color: var(--text);
+  --collection-workshop-panel-meta-color: color-mix(in srgb, var(--accent) 74%, var(--text-soft) 26%);
+  --collection-workshop-panel-label-color: var(--text-muted);
+  --collection-workshop-panel-helper-color: var(--text-soft);
+  --collection-workshop-panel-textarea-border: var(--control-border);
+  --collection-workshop-panel-textarea-fill: var(--control-surface);
+  --collection-workshop-panel-textarea-shadow: var(--control-shadow);
+  --collection-workshop-tag-hint-color: rgba(98, 110, 106, 0.72);
+  --collection-workshop-tag-pill-border: 1px solid color-mix(in srgb, var(--border) 88%, transparent);
+  --collection-workshop-tag-pill-fill: color-mix(in srgb, var(--surface-deep) 82%, var(--surface) 18%);
+  --collection-workshop-tag-pill-shadow: 0 6px 16px rgba(102, 114, 109, 0.05);
+  --collection-workshop-tag-pill-color: color-mix(in srgb, var(--text) 82%, var(--text-soft) 18%);
+  --collection-workshop-tag-remove-border: 1px solid color-mix(in srgb, var(--border) 82%, transparent);
+  --collection-workshop-tag-remove-fill: color-mix(in srgb, rgba(255, 255, 255, 0.42) 100%, transparent);
+  --collection-workshop-tag-remove-color: color-mix(in srgb, var(--text-soft) 72%, var(--text) 28%);
+  --collection-workshop-tag-input-border: var(--control-border);
+  --collection-workshop-tag-input-fill: var(--control-surface);
+  --collection-workshop-tag-input-placeholder: var(--control-placeholder);
+  --collection-workshop-tag-add-border: 1px solid color-mix(in srgb, var(--border) 82%, transparent);
+  --collection-workshop-tag-add-fill: color-mix(in srgb, rgba(255, 255, 255, 0.46) 100%, transparent);
+  --collection-workshop-tag-add-color: color-mix(in srgb, var(--accent) 78%, var(--text) 22%);
+  --room-rule-card-lock-fill: color-mix(in srgb, var(--collection-card-accent-soft) 76%, var(--collection-card-surface) 24%);
+  --room-rule-card-lock-color: color-mix(in srgb, var(--collection-card-accent) 74%, var(--collection-card-text) 26%);
+  --room-rule-card-lock-border: 1.5px solid color-mix(in srgb, var(--collection-card-text) 18%, var(--collection-card-border-hover) 82%);
+  --room-rule-card-title-color: var(--collection-card-heading-color);
+  --room-rule-card-note-color: color-mix(in srgb, var(--collection-card-text-soft) 72%, var(--collection-card-text-muted) 28%);
+  --room-rule-card-tag-fill: color-mix(in srgb, var(--collection-card-surface-solid) 84%, var(--collection-card-accent-soft) 16%);
+  --room-rule-card-tag-color: color-mix(in srgb, var(--collection-card-text-soft) 82%, var(--collection-card-text) 18%);
+  --room-rule-card-tag-border: 1.5px solid color-mix(in srgb, var(--collection-card-text) 14%, var(--collection-card-border) 86%);
+  --room-rule-card-bullet-color: color-mix(in srgb, var(--collection-card-accent) 54%, transparent);
+  --room-rule-card-preview-color: color-mix(in srgb, var(--collection-card-text) 68%, var(--collection-card-text-soft) 32%);
+  --room-rule-card-border: 2px solid color-mix(in srgb, var(--collection-card-text) 18%, var(--collection-card-border-hover) 82%);
+  --room-rule-card-inner-border: rgba(255, 255, 255, 0.18);
+  --room-rule-card-shadow: 0 14px 30px rgba(87, 99, 95, 0.08), 0 0 0 1px rgba(84, 96, 93, 0.12);
+  --collection-card-divider-bg: linear-gradient(90deg, transparent, color-mix(in srgb, var(--border-hover) 14%, transparent), transparent);
+  --collection-card-thread-bg: linear-gradient(180deg, color-mix(in srgb, var(--border-hover) 28%, white 72%), color-mix(in srgb, var(--border) 12%, transparent));
+  --collection-card-thread-opacity: 0.16;
+  --collection-dialogue-card-isolation: auto;
+  --collection-dialogue-card-overflow: visible;
+  --collection-dialogue-card-margin: 0;
+  --collection-dialogue-card-margin-search-closed: 0;
+  --collection-dialogue-card-padding: 11px 10px 11px 13px;
+  --collection-dialogue-card-padding-mobile: 10px 9px 10px 11px;
+  --collection-dialogue-card-padding-search-open: 14px 10px 14px 13px;
+  --collection-dialogue-card-padding-search-closed: 9px 10px 9px 13px;
+  --collection-dialogue-card-radius: 12px;
+  --collection-dialogue-card-radius-search-open: 14px;
+  --collection-dialogue-card-radius-search-closed: 10px;
+  --collection-dialogue-card-border: 1px solid transparent;
+  --collection-dialogue-card-background: transparent;
+  --collection-dialogue-card-shadow: none;
+  --collection-dialogue-card-backdrop: none;
+  --collection-dialogue-card-hover-transform: none;
+  --collection-dialogue-card-hover-shadow: none;
+  --collection-dialogue-card-press-transform: none;
+  --collection-dialogue-card-press-shadow: none;
+  --collection-dialogue-card-divider-display: none;
+  --collection-dialogue-card-thread-display: none;
+  --collection-dialogue-card-copy-padding-left: 6px;
+  --collection-dialogue-card-copy-padding-left-mobile: 5px;
+  --collection-dialogue-card-title-color: color-mix(in srgb, var(--collection-card-text) 76%, var(--collection-card-text-soft) 24%);
+  --collection-dialogue-card-title-weight: 500;
+  --collection-dialogue-card-meta-color: color-mix(in srgb, var(--collection-card-text-soft) 74%, var(--collection-card-text) 26%);
+  --collection-dialogue-card-updated-color: color-mix(in srgb, var(--collection-card-text-muted) 78%, var(--collection-card-text-soft) 22%);
+  --collection-dialogue-card-archive-color: color-mix(in srgb, var(--collection-card-text-muted) 84%, var(--collection-card-text-soft) 16%);
+  --collection-dialogue-card-archive-color-collapsed: var(--collection-dialogue-card-archive-color);
+  --collection-dialogue-card-excerpt-color: color-mix(in srgb, var(--collection-card-text-soft) 82%, var(--collection-card-text-muted) 18%);
+  --collection-dialogue-card-stats-color: color-mix(in srgb, var(--collection-card-text-muted) 82%, var(--collection-card-text-soft) 18%);
+  --collection-dialogue-card-micro-border: color-mix(in srgb, var(--collection-card-border) 74%, transparent);
+  --collection-dialogue-card-micro-fill: color-mix(in srgb, var(--collection-card-surface) 68%, transparent);
+  --collection-dialogue-card-micro-color: color-mix(in srgb, var(--collection-card-text-muted) 82%, var(--collection-card-text-soft) 18%);
+  --collection-dialogue-card-micro-shadow: inset 0 1px 0 rgba(255,255,255,0.18);
+  --collection-dialogue-card-micro-hover-border: color-mix(in srgb, var(--collection-card-border-hover) 76%, transparent);
+  --collection-dialogue-card-micro-hover-fill: color-mix(in srgb, var(--collection-card-surface-solid) 72%, var(--collection-card-accent-soft) 28%);
+  --collection-dialogue-card-micro-hover-color: color-mix(in srgb, var(--collection-card-accent) 72%, var(--collection-card-text) 28%);
+  --collection-dialogue-card-micro-active-border: color-mix(in srgb, var(--collection-card-border-hover) 82%, transparent);
+  --collection-dialogue-card-micro-active-fill: color-mix(in srgb, var(--collection-card-surface-solid) 64%, var(--collection-card-accent-soft) 36%);
+  --collection-dialogue-card-micro-active-color: color-mix(in srgb, var(--collection-card-accent) 78%, var(--collection-card-text) 22%);
+  --collection-dialogue-card-state-border: 1px solid color-mix(in srgb, var(--collection-card-border) 68%, transparent);
+  --collection-dialogue-card-state-fill: color-mix(in srgb, var(--collection-card-surface) 72%, transparent);
+  --collection-dialogue-card-state-color: color-mix(in srgb, var(--collection-card-text-muted) 86%, var(--collection-card-text-soft) 14%);
+  --collection-dialogue-card-state-active-border: 1px solid color-mix(in srgb, var(--collection-card-border-hover) 82%, transparent);
+  --collection-dialogue-card-state-active-fill: color-mix(in srgb, var(--collection-card-surface-solid) 66%, var(--collection-card-accent-soft) 34%);
+  --collection-dialogue-card-state-active-color: color-mix(in srgb, var(--collection-card-accent) 78%, var(--collection-card-text) 22%);
+  --collection-dialogue-card-collapsed-title-gap: 8px;
+  --collection-dialogue-card-collapsed-title-size: 13.5px;
+  --collection-section-heading-color: color-mix(in srgb, var(--text) 76%, var(--text-soft) 24%);
+  --collection-section-meta-color: color-mix(in srgb, var(--text-soft) 72%, var(--text-muted) 28%);
+  --theme-studio-stage-fill:
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-deep) 82%, transparent), color-mix(in srgb, var(--surface) 62%, transparent)),
+    radial-gradient(circle at top left, var(--accent-glow), transparent 38%);
+  --theme-studio-stage-shadow: 0 12px 36px rgba(100, 114, 109, 0.09);
+  --theme-timeline-shell-fill:
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-deep) 82%, transparent), color-mix(in srgb, var(--surface) 62%, transparent)),
+    radial-gradient(circle at top left, var(--accent-glow), transparent 38%);
+  --theme-timeline-shell-shadow: 0 12px 34px rgba(100, 114, 109, 0.09);
+}
+.world-collection,
+.collection-card-token-scope {
+  --collection-shell-inline-pad: 20px;
+  --collection-code-card-grid-gap: 8px;
+  --collection-code-card-column-width: calc((min(100vw, 430px) - (var(--collection-shell-inline-pad) * 2) - var(--collection-code-card-grid-gap)) / 2);
+}
+
+.world-collection {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 0;
+  touch-action: pan-y;
+}
+.collection-shelf-stage { position: relative; flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; container-type: inline-size; }
+.collection-shelf-controls {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-inline: var(--collection-shell-inline-pad);
+  margin-bottom: 4px;
+}
+.collection-shelf-controls .search-wrap,
+.collection-shelf-controls .collection-search-wrap {
+  padding: 0 0 10px;
+}
+.collection-shelf-rail {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: block;
+  overflow: hidden;
+  scrollbar-width: none;
+}
+.collection-shelf-page {
+  display: none;
+  min-height: 0;
+  height: 100%;
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+.collection-shelf-page--active {
+  display: block;
+}
+.collection-shelf-page::-webkit-scrollbar {
+  display: none;
+}
+.collection-shelf-page-body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-inline: var(--collection-shell-inline-pad);
+  padding-bottom: 24px;
+}
+.collection-shelf-page--code .collection-shelf-page-body,
+.collection-shelf-page--project .collection-shelf-page-body {
+  padding-bottom: 28px;
+}
+.collection-shelf-page-body--info {
+  padding-top: 10px;
+}
+.collection-shelf-stack {
+  flex: 1 1 auto;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.collection-virtual-spacer {
+  flex: 0 0 auto;
+  grid-column: 1 / -1;
+  pointer-events: none;
+}
+.collection-shelf-stack--dialogue .conversation-card-list,
+.collection-shelf-stack--code .code-collection-view-stage,
+.collection-shelf-stack--code .code-collection-grid-stage,
+.collection-shelf-stack--project .code-collection-grid-stage {
+  flex: 1 1 auto;
+}
+.collection-shelf-stack--dialogue {
+  gap: 8px;
+}
+
+.collection-shelf-stack--dialogue .conversation-card-list {
+  padding-bottom: calc(68px + env(safe-area-inset-bottom, 0px));
+}
+.collection-shelf-lead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 30px;
+  padding: 4px 0 2px;
+}
+.collection-shelf-lead-main {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.collection-shelf-lead-copy {
+  min-width: 0;
+}
+.collection-shelf-lead-title {
+  display: block;
+  font-size: 14px;
+  font-weight: 560;
+  color: var(--collection-section-heading-color, var(--text));
+  line-height: 1.35;
+}
+.collection-shelf-lead-meta-cluster {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+.collection-shelf-lead-meta {
+  font-size: var(--type-caption);
+  color: var(--collection-section-meta-color, var(--text-muted));
+}
+.collection-shelf-lead--dialogue-meta {
+  justify-content: flex-end;
+  min-height: 18px;
+  padding-top: 8px;
+  padding-bottom: 0;
+}
+.collection-shelf-lead--dialogue-meta .collection-shelf-lead-main {
+  display: none;
+}
+.search-wrap, .collection-search-wrap { padding: 0 0 10px; }
+.search-input {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  outline: none;
+  font-size: var(--type-body);
+  line-height: 1.35;
+  background: transparent;
+  transition: border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+.collection .search-input {
+  border: var(--collection-search-border);
+  color: var(--collection-search-text);
+  background: var(--collection-search-fill);
+  box-shadow: var(--control-shadow);
+  backdrop-filter: blur(14px) saturate(1.04);
+  -webkit-backdrop-filter: blur(14px) saturate(1.04);
+}
+.collection .search-input::placeholder { color: var(--collection-search-placeholder); }
+.collection .search-input:focus {
+  border: var(--control-border-focus);
+  background: var(--control-surface-focus);
+  box-shadow: var(--control-focus-shadow);
+}
+.collection-search-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 10px;
+}
+.collection-search-suggestion {
+  border-color: color-mix(in srgb, var(--collection-filter-chip-border) 86%, transparent);
+  background: color-mix(in srgb, var(--collection-filter-chip-fill) 78%, transparent);
+  color: var(--collection-filter-chip-text);
+}
+.collection-search { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: var(--radius-xl); border: var(--collection-search-border); background: var(--collection-search-fill); }
+.collection-search input { border: 0; outline: none; background: transparent; flex: 1; font-size: var(--type-body); color: var(--collection-search-text); }
+.collection-search input::placeholder { color: var(--collection-search-placeholder); }
+.app-shell:not(.world-switching) .skin-panel,
+.app-shell:not(.world-switching) .skin-workshop { animation: fadeInUp .25s ease; }
+.skin-panel h3, .skin-workshop h3 { font-size: var(--type-card-title); margin-bottom: 8px; }
+.new-card-btn { margin-top: 12px; width: 100%; padding: 16px; border-radius: var(--radius-lg); border: 1.5px dashed var(--border); background: transparent; color: var(--text-muted); }
+
+.collection-shelf-tabs {
+  flex: 0 0 auto;
+  width: 100%;
+  margin: 0;
+  padding: 7px var(--collection-shell-inline-pad) var(--collection-bottom-nav-padding-bottom);
+  border-top: 1px solid color-mix(in srgb, var(--border) 38%, transparent);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-solid) 76%, #e9e5dc 24%), color-mix(in srgb, var(--surface-solid) 86%, #eee9df 14%));
+  box-shadow:
+    0 -10px 26px color-mix(in srgb, var(--surface-deep) 7%, transparent),
+    inset 0 1px 0 color-mix(in srgb, rgba(255,255,255,0.34) 100%, transparent);
+  backdrop-filter: blur(18px) saturate(1.06);
+  -webkit-backdrop-filter: blur(18px) saturate(1.06);
+}
+.collection-shelf-tab-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--collection-shelf-count, 4), minmax(0, 1fr));
+  align-items: center;
+  gap: 3px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.shelf-tab {
+  position: relative;
+  width: 100%;
+  border: 0;
+  border-radius: 14px;
+  background: none;
+  min-height: 50px;
+  padding: 5px 4px 4px;
+  text-align: center;
+  color: color-mix(in srgb, var(--collection-tab-text) 72%, var(--text-muted) 28%);
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  transition: transform 0.22s ease, background 0.22s ease, box-shadow 0.22s ease, color 0.2s ease, opacity 0.2s ease;
+}
+.shelf-tab-icon {
+  width: 23px;
+  height: 23px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: currentColor;
+  opacity: 0.9;
+  filter: drop-shadow(0 2px 8px color-mix(in srgb, currentColor 14%, transparent));
+}
+.shelf-tab-icon svg {
+  width: 100%;
+  height: 100%;
+}
+.shelf-tab-label {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 500;
+  color: currentColor;
+  letter-spacing: 0.01em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color 0.18s ease, text-shadow 0.18s ease;
+}
+.shelf-tab.active {
+  color: var(--collection-tab-text-active);
+  background: transparent;
+  box-shadow: none;
+}
+.shelf-tab.active .shelf-tab-icon {
+  opacity: 1;
+  filter: drop-shadow(0 4px 12px color-mix(in srgb, var(--accent-glow) 38%, transparent));
+}
+.shelf-tab.active .shelf-tab-label {
+  text-shadow: 0 0 16px color-mix(in srgb, var(--accent-glow) 16%, transparent);
+}
+.shelf-tab:hover { color: var(--collection-tab-text-active); }
+.shelf-tab:not(.active) { opacity: 0.82; }
+
+.collection-filter-panel {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 4px 0 14px;
+}
+.collection-filter-chip-row { margin-bottom: 0; }
+.chip-row { display: flex; gap: 8px; overflow-x: auto; overflow-y: visible; margin-bottom: 14px; padding: 0; }
+.collection-filter-panel .chip-row { flex: 1; margin-bottom: 0; }
+.chip-row-primary { padding-right: 2px; }
+.collection-filter-chips {
+  align-items: center;
+  min-height: 38px;
+  overflow-y: visible;
+  -webkit-overflow-scrolling: touch;
+}
+.code-collection-shelf .collection-filter-chips {
+  flex: 1;
+  min-width: 0;
+}
+.dialogue-filter-panel { margin-bottom: 16px; }
+.dialogue-filter-chips { position: relative; z-index: 2; }
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid;
+  font-size: var(--type-small);
+  line-height: 1.2;
+  white-space: nowrap;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 400;
+  font-family: inherit;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+.collection .chip { border-color: var(--collection-chip-border); background: var(--collection-chip-fill); color: var(--collection-chip-text); }
+.collection .chip.active, .quick-skin-row .chip { border-color: var(--collection-chip-active-border); background: var(--collection-chip-active-fill); color: var(--collection-chip-active-text); font-weight: 500; }
+.app-shell.collection .world-collection .collection-filter-panel .chip {
+  border-color: var(--collection-filter-chip-border);
+  background-color: var(--collection-filter-chip-fill);
+  color: var(--collection-filter-chip-text);
+}
+.app-shell.collection .world-collection .collection-filter-panel .chip.active {
+  border-color: var(--collection-filter-chip-active-border);
+  background-color: var(--collection-filter-chip-active-fill);
+  color: var(--collection-filter-chip-active-text);
+}
+.chip-add { width: 32px; min-width: 32px; padding: 0; display: inline-flex; align-items: center; justify-content: center; font-size: 16px; line-height: 1; }
+.quick-skin-row { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }
+.quick-skin-row .chip { padding: 4px 10px; font-size: var(--type-caption); }
+.tags .tag-muted {
+  border-color: var(--collection-tag-muted-border);
+  color: var(--collection-tag-muted-text);
+  background: var(--collection-tag-muted-fill);
+}
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 178px), 1fr)); gap: 12px; align-items: start; }
+.grid > * { min-width: 0; }
+.grid > .card { min-width: 0; }
+.code-workshop-editor input,
+.code-workshop-editor textarea { font-size: 13px; line-height: 1.55; }
+.code-workshop-editor label { font-size: var(--type-caption); }
+.code-workshop-tag-hint {
+  margin: 6px 0 0;
+  font-size: var(--type-tiny);
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+.empty-state-card { min-height: 92px; border-style: dashed; justify-content: center; background: var(--collection-empty-card-fill); box-shadow: none; }
+.grid > .empty-state-card { grid-column: 1 / -1; }
+.empty-state-card p { margin: 0; font-size: var(--type-small); line-height: 1.55; color: var(--collection-empty-card-text); }
+.actionable-card { position: relative; width: 100%; text-align: left; font: inherit; }
+.code-card-run-dot,
+.card-pin-badge,
+.code-card-composer-tool { touch-action: manipulation; }
+
+.panel { border-radius: var(--radius-lg); padding: 12px; margin-bottom: 10px; backdrop-filter: blur(12px); }
+.collection .panel { background: var(--surface); border: 1px solid var(--border); }
+
+@media (max-width: 640px) {
+  .world-collection,
+  .collection-card-token-scope {
+    --collection-shell-inline-pad: 16px;
+  }
+
+  .collection-shelf-tabs {
+    width: 100%;
+    margin-bottom: 0;
+    padding: 4px var(--collection-shell-inline-pad) 8px;
+  }
+
+  .collection-shelf-page-body {
+    padding-bottom: 18px;
+  }
+
+  .collection-shelf-page-body--info { padding-top: 0; }
+
+  .collection-shelf-lead {
+    padding-top: 2px;
+  }
+
+  .collection-shelf-tab-row { padding-bottom: 0; }
+
+  .shelf-tab {
+    min-height: 39px;
+    padding: 1px 4px 0;
+    gap: 2px;
+  }
+
+  .shelf-tab-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .shelf-tab-label {
+    font-size: 10px;
+    line-height: 1.08;
+    letter-spacing: 0;
+  }
+
+  .chip-row {
+    margin-bottom: 12px;
+  }
+
+  .grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 164px), 1fr)); gap: 8px; }
+
+  .grid > .empty-state-card { min-height: 84px; }
+}

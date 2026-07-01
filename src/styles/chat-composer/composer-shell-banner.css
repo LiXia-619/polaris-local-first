@@ -1,0 +1,146 @@
+.chat-composer {
+  padding: 0 16px;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  z-index: 2;
+}
+.chat-composer.picker-open {
+  z-index: 3;
+}
+.composer-picker-dismiss-layer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 100%;
+  height: var(--app-height, 100vh);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  appearance: none;
+  cursor: default;
+}
+.chat-workspace-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 14px;
+  border: 1px solid color-mix(in srgb, var(--border-hover) 38%, transparent);
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--surface) 92%, transparent) 0%, color-mix(in srgb, var(--surface-solid) 95%, transparent) 100%);
+  box-shadow: 0 10px 20px color-mix(in srgb, var(--accent-soft) 9%, transparent);
+}
+.chat-workspace-banner.active.compact {
+  gap: 8px;
+  min-height: 34px;
+  padding: 4px 8px 4px 12px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px color-mix(in srgb, var(--accent-soft) 4%, transparent);
+}
+.chat-workspace-banner.proposal {
+  border-color: color-mix(in srgb, var(--accent) 28%, var(--border-hover) 48%);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--accent-soft) 15%, var(--surface) 92%) 0%, color-mix(in srgb, var(--surface-solid) 96%, transparent) 100%);
+}
+.chat-workspace-banner-copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.chat-workspace-banner.active.compact .chat-workspace-banner-copy {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 5px;
+}
+.chat-workspace-banner-copy strong {
+  font-size: 12px;
+  font-weight: 650;
+  color: var(--text);
+}
+.chat-workspace-banner.active.compact .chat-workspace-banner-copy strong {
+  font-size: 12px;
+}
+.chat-workspace-banner-copy span,
+.chat-workspace-banner-copy em {
+  min-width: 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.chat-workspace-banner-copy em {
+  font-style: normal;
+  color: color-mix(in srgb, var(--text-muted) 82%, var(--accent) 18%);
+}
+.chat-workspace-banner.active.compact .chat-workspace-banner-copy span,
+.chat-workspace-banner.active.compact .chat-workspace-banner-copy em {
+  font-size: 10.5px;
+  line-height: 1.1;
+}
+.chat-workspace-banner.active.compact .chat-workspace-banner-copy em {
+  justify-self: end;
+}
+.chat-workspace-banner.active.compact .chat-workspace-banner-actions .tool-btn.compact {
+  min-height: 26px;
+  padding: 0 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  line-height: 1;
+}
+.chat-workspace-banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.chat-current-group-chip {
+  align-self: flex-start;
+  max-width: min(100%, 360px);
+  min-height: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 10px;
+  border: 1px solid color-mix(in srgb, var(--border-hover) 34%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 82%, transparent);
+  color: var(--text-muted);
+  box-shadow: 0 5px 12px color-mix(in srgb, var(--accent-soft) 5%, transparent);
+}
+.chat-current-group-chip svg {
+  flex: 0 0 auto;
+  color: color-mix(in srgb, var(--accent) 72%, var(--text-muted) 28%);
+}
+.chat-current-group-chip span,
+.chat-current-group-chip strong,
+.chat-current-group-chip em {
+  min-width: 0;
+  font-size: 11px;
+  line-height: 1;
+}
+.chat-current-group-chip span {
+  color: color-mix(in srgb, var(--text-muted) 80%, var(--accent) 20%);
+}
+.chat-current-group-chip strong {
+  max-width: 190px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 650;
+  color: var(--text);
+}
+.chat-current-group-chip em {
+  flex: 0 0 auto;
+  font-style: normal;
+  color: color-mix(in srgb, var(--text-muted) 82%, var(--accent) 18%);
+}

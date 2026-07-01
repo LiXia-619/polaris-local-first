@@ -1,0 +1,62 @@
+node_modules
+dist
+desktop-dist
+server-dist
+exports
+.claude/
+.vercel
+*.local
+.DS_Store
+tsconfig.tsbuildinfo
+
+# Local secrets and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p8
+*.cer
+*.p12
+*.mobileprovision
+ExportOptions.plist
+
+# Local data, diagnostics, and release artifacts
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.sqlite
+*.sqlite3
+*.db
+*.xcarchive
+*.ipa
+*.apk
+*.aab
+*.map
+private/
+private-*/
+*-private/
+
+# Codex work artifacts
+tmp/
+tmp/claude-*
+tmp/polaris-*
+tmp/review-worktrees/
+tmp/main-theme-validation-*.json
+tmp/theme-conversation-validation-*.json
+tmp/visual-validation/
+tmp-attachment.*
+output/
+ios/build/
+android/build/
+android/capacitor-cordova-android-plugins/build/
+ios/App/App.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/
+.playwright-cli/
+public/tool-icons-preview.html
+public/tutorial.html
+
+# Editor leftovers
+*.swp
+
+# Local working notes.

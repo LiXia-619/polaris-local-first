@@ -1,0 +1,64 @@
+.collaborator-info-content .room-theme-page-nav {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  width: calc(100% + (var(--collaborator-info-content-gutter) * 2));
+  margin-left: calc(var(--collaborator-info-content-gutter) * -1);
+  margin-right: calc(var(--collaborator-info-content-gutter) * -1);
+  padding: 4px;
+  border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--surface-solid) 74%, transparent);
+}
+
+.collaborator-info-content .room-theme-page-nav button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-width: 0;
+  min-height: 34px;
+  padding: 7px 6px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--text-muted);
+  font: inherit;
+  font-size: var(--type-small);
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+.collaborator-info-content .room-theme-page-nav button.active {
+  background: color-mix(in srgb, var(--accent-soft) 82%, var(--surface-solid) 18%);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.collaborator-info-content .room-theme-page-nav svg {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+}
+
+.collaborator-info-content .room-theme-page-nav span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.collaborator-info-content .room-theme-library-page {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+@media (max-width: 430px) {
+  .collaborator-info-content .room-theme-page-nav button {
+    flex-direction: column;
+    gap: 3px;
+    min-height: 42px;
+    font-size: 11px;
+  }
+}

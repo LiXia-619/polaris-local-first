@@ -1,0 +1,279 @@
+.conversation-card-list { display: flex; flex-direction: column; gap: 6px; padding-top: 2px; transition: gap 0.22s var(--ease-out); --collection-dialogue-card-current-margin: var(--collection-dialogue-card-margin); --collection-dialogue-card-current-padding: var(--collection-dialogue-card-padding); --collection-dialogue-card-current-radius: var(--collection-dialogue-card-radius); }
+.conversation-card-list.search-open { gap: 8px; }
+.conversation-card-list.search-closed { gap: 2px; }
+.conversation-card-list.cards-heavy {
+  --collection-dialogue-card-backdrop: none;
+  --collection-dialogue-card-shadow: none;
+  --collection-dialogue-card-hover-shadow: none;
+  --collection-dialogue-card-press-shadow: none;
+  --collection-dialogue-card-background: transparent;
+}
+
+.app-shell.collection .world-collection .conversation-card-list.cards-heavy .conversation-card {
+  --collection-dialogue-card-backdrop: none;
+  --collection-dialogue-card-shadow: none;
+  --collection-dialogue-card-hover-shadow: none;
+  --collection-dialogue-card-press-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+  transition: none;
+}
+
+.app-shell.collection .world-collection .conversation-card-list.cards-heavy .conversation-card:hover,
+.app-shell.collection .world-collection .conversation-card-list.cards-heavy .conversation-card:focus-within,
+.app-shell.collection .world-collection .conversation-card-list.cards-heavy .conversation-card.active,
+.app-shell.collection .world-collection .conversation-card-list.cards-heavy .conversation-card.pinned {
+  box-shadow: none;
+}
+
+.app-shell.collection .world-collection .conversation-card-list.cards-heavy .conversation-card-swipe-surface,
+.app-shell.collection .world-collection .conversation-card-list.cards-heavy .conversation-card-swipe-delete,
+.app-shell.collection .world-collection .conversation-card-list.cards-heavy .conversation-card-main,
+.app-shell.collection .world-collection .conversation-card-list.cards-heavy .conversation-card-detail,
+.app-shell.collection .world-collection .conversation-card-list.cards-heavy .conversation-card-actions,
+.app-shell.collection .world-collection .conversation-card-list.cards-heavy .micro-action-btn {
+  transition-duration: 0ms;
+}
+
+.conversation-card {
+  position: relative;
+  flex-shrink: 0;
+  min-height: 0;
+  isolation: var(--collection-dialogue-card-isolation);
+  overflow: var(--collection-dialogue-card-overflow);
+  padding: var(--collection-dialogue-card-current-padding);
+  border-radius: var(--collection-dialogue-card-current-radius);
+  margin: var(--collection-dialogue-card-current-margin);
+  border: var(--collection-dialogue-card-border);
+  background: var(--collection-dialogue-card-background);
+  box-shadow: var(--collection-dialogue-card-shadow);
+  backdrop-filter: var(--collection-dialogue-card-backdrop);
+  transition:
+    transform 0.16s var(--ease-out),
+    box-shadow 0.16s ease,
+    border-color 0.16s ease,
+    background 0.16s ease;
+}
+
+.collection .conversation-card {
+  border: var(--collection-dialogue-card-border);
+  background: var(--collection-dialogue-card-background);
+  box-shadow: var(--collection-dialogue-card-shadow);
+}
+
+.conversation-card::after {
+  content: '';
+  display: var(--collection-dialogue-card-divider-display);
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 0;
+  height: 1px;
+  background: var(--collection-card-divider-bg);
+}
+
+.conversation-card.pinned,
+.collection .conversation-card.pinned {
+  box-shadow: none;
+}
+
+.conversation-card.active,
+.collection .conversation-card.active {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--collection-card-accent-soft) 34%, transparent), transparent 68%),
+    color-mix(in srgb, var(--collection-card-surface-solid) 24%, transparent);
+  box-shadow: none;
+  transform: none;
+}
+
+.conversation-card:not(.active):hover,
+.conversation-card:not(.active):has(.conversation-card-main:focus-visible),
+.conversation-card:not(.active):has(.conversation-card-actions :focus-visible),
+.conversation-card:not(.active).editing:focus-within {
+  background: color-mix(in srgb, var(--collection-card-surface-solid) 28%, transparent);
+}
+
+.conversation-card.active .conversation-card-thread-mark {
+  display: block;
+  opacity: 0.44;
+}
+
+.conversation-card-swipe-delete {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  bottom: 8px;
+  z-index: 2;
+  width: 68px;
+  border: 0;
+  border-radius: calc(var(--collection-dialogue-card-current-radius) - 6px);
+  background: color-mix(in srgb, #c85f5f 86%, var(--collection-card-surface-solid) 14%);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 620;
+  opacity: 0;
+  transform: translateX(12px);
+  pointer-events: none;
+  transition: opacity 0.16s ease, transform 0.16s var(--ease-out);
+}
+
+.conversation-card.swipe-open .conversation-card-swipe-delete,
+.conversation-card.swiping .conversation-card-swipe-delete {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.conversation-card-swipe-surface {
+  position: relative;
+  z-index: 1;
+  transform: translateX(var(--swipe-delete-offset, 0px));
+  transition: transform 0.18s var(--ease-out);
+  touch-action: pan-y;
+}
+
+.conversation-card.swiping .conversation-card-swipe-surface {
+  transition: none;
+}
+
+.conversation-card-thread-mark {
+  display: var(--collection-dialogue-card-thread-display);
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  bottom: 12px;
+  width: 2px;
+  border-radius: 999px;
+  background: var(--collection-card-thread-bg);
+  opacity: var(--collection-card-thread-opacity);
+}
+
+.conversation-card-head { position: relative; min-height: 0; margin-bottom: 6px; }
+.conversation-card-head,
+.conversation-card-main,
+.conversation-card-edit { position: relative; z-index: 1; }
+
+.conversation-card .card-meta-row,
+.conversation-card .conversation-card-main,
+.conversation-card .conversation-card-edit { padding-left: var(--collection-dialogue-card-copy-padding-left); }
+
+.conversation-card .card-meta-row {
+  padding-right: 88px;
+  margin-bottom: 0;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.conversation-card-meta-copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.conversation-card-persona {
+  letter-spacing: 0.08em;
+  color: var(--collection-dialogue-card-meta-color);
+}
+
+.conversation-card-workspace-badge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 18px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: rgba(120, 151, 177, 0.12);
+  color: rgba(82, 103, 122, 0.88);
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.conversation-card-updated {
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--collection-dialogue-card-updated-color);
+}
+
+.conversation-card-actions {
+  position: absolute;
+  top: -1px;
+  right: 0;
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+  opacity: 0.42;
+  transform: translateY(1px);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.conversation-card:hover,
+.conversation-card:has(.conversation-card-main:focus-visible),
+.conversation-card:has(.conversation-card-actions :focus-visible),
+.conversation-card.editing:focus-within {
+  transform: var(--collection-dialogue-card-hover-transform);
+  box-shadow: var(--collection-dialogue-card-hover-shadow);
+}
+
+.conversation-card:hover .conversation-card-thread-mark,
+.conversation-card:has(.conversation-card-main:focus-visible) .conversation-card-thread-mark,
+.conversation-card:has(.conversation-card-actions :focus-visible) .conversation-card-thread-mark,
+.conversation-card.editing:focus-within .conversation-card-thread-mark { opacity: 0.2; }
+
+.conversation-card:hover .conversation-card-actions,
+.conversation-card:has(.conversation-card-main:focus-visible) .conversation-card-actions,
+.conversation-card:has(.conversation-card-actions :focus-visible) .conversation-card-actions,
+.conversation-card.editing:focus-within .conversation-card-actions,
+.conversation-card.active .conversation-card-actions,
+.conversation-card.pinned .conversation-card-actions,
+.conversation-card.editing .conversation-card-actions {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.conversation-card .micro-action-btn {
+  width: 24px;
+  height: 24px;
+  opacity: 0.58;
+  border-color: var(--collection-dialogue-card-micro-border);
+  background: var(--collection-dialogue-card-micro-fill);
+  color: var(--collection-dialogue-card-micro-color);
+  box-shadow: var(--collection-dialogue-card-micro-shadow);
+}
+
+.conversation-card.active .micro-action-btn,
+.conversation-card:hover .micro-action-btn,
+.conversation-card:has(.conversation-card-main:focus-visible) .micro-action-btn,
+.conversation-card:has(.conversation-card-actions :focus-visible) .micro-action-btn,
+.conversation-card.editing:focus-within .micro-action-btn,
+.conversation-card.pinned .micro-action-btn,
+.conversation-card.editing .micro-action-btn {
+  opacity: 1;
+}
+
+.conversation-card .micro-action-btn:hover,
+.conversation-card .micro-action-btn:focus-visible {
+  border-color: var(--collection-dialogue-card-micro-hover-border);
+  background: var(--collection-dialogue-card-micro-hover-fill);
+  color: var(--collection-dialogue-card-micro-hover-color);
+}
+
+.conversation-card .micro-action-btn.active {
+  border-color: var(--collection-dialogue-card-micro-active-border);
+  background: var(--collection-dialogue-card-micro-active-fill);
+  color: var(--collection-dialogue-card-micro-active-color);
+}
+
+.conversation-card .micro-action-btn.danger:hover,
+.conversation-card .micro-action-btn.danger:focus-visible {
+  border-color: rgba(194, 92, 92, 0.28);
+  background: rgba(194, 92, 92, 0.08);
+  color: #b45f5f;
+}

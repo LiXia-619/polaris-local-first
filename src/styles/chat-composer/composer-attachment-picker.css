@@ -1,0 +1,189 @@
+.attachment-picker-sheet {
+  --attachment-picker-safe-bottom: env(safe-area-inset-bottom, 0px);
+  order: 50;
+  flex: 0 0 auto;
+  width: calc(100% + 32px);
+  margin: 6px -16px 0;
+  padding: 14px 16px calc(18px + var(--attachment-picker-safe-bottom));
+  border-radius: 28px 28px 0 0;
+  border-top: 1px solid color-mix(in srgb, var(--border-hover) 34%, rgba(255,255,255,0.16));
+  border-right: 0;
+  border-bottom: 0;
+  border-left: 0;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-solid) 97%, rgba(255,255,255,0.16)) 0%, color-mix(in srgb, var(--surface) 93%, rgba(255,255,255,0.08)) 100%);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.22) inset,
+    0 -14px 30px rgba(8, 10, 20, 0.08);
+  backdrop-filter: blur(18px) saturate(1.08);
+  position: relative;
+  overflow: hidden;
+}
+.attachment-picker-sheet::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  width: 42px;
+  height: 4px;
+  border-radius: 999px;
+  transform: translateX(-50%);
+  background: color-mix(in srgb, var(--border-hover) 42%, transparent);
+  opacity: 0.72;
+}
+.app-shell:not(.world-switching) .attachment-picker-sheet { animation: attachmentPickerAppear 140ms var(--ease-out) both; }
+@keyframes attachmentPickerAppear {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.attachment-picker-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 8px;
+}
+.attachment-picker-card-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid color-mix(in srgb, var(--border) 24%, transparent);
+}
+.attachment-picker-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.attachment-picker-card-head strong {
+  font-size: 13px;
+  font-weight: 560;
+  color: var(--text);
+}
+.attachment-picker-card-back {
+  min-height: 28px;
+  padding: 0 10px;
+  border: 1px solid color-mix(in srgb, var(--border) 32%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 42%, transparent);
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+}
+.attachment-picker-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 220px;
+  overflow: auto;
+}
+.attachment-picker-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  padding: 12px 13px;
+  border: 1px solid color-mix(in srgb, var(--border) 34%, transparent);
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--surface) 54%, transparent);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+.attachment-picker-card:hover,
+.attachment-picker-card:focus-visible {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--border-hover) 72%, transparent);
+  background: color-mix(in srgb, var(--surface) 80%, transparent);
+}
+.attachment-picker-card.selected {
+  border-color: color-mix(in srgb, var(--border-hover) 78%, transparent);
+  background: color-mix(in srgb, var(--accent-soft) 18%, transparent);
+}
+.attachment-picker-card-copy {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.attachment-picker-card-copy strong {
+  min-width: 0;
+  font-size: 13px;
+  font-weight: 560;
+  color: var(--text);
+}
+.attachment-picker-card-copy span {
+  flex: 0 0 auto;
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.attachment-picker-card-preview {
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--text-muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.attachment-picker-card-empty {
+  padding: 12px 2px 4px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.attachment-picker-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 84px;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid color-mix(in srgb, var(--border) 34%, transparent);
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--surface) 56%, transparent);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+.attachment-picker-action:hover,
+.attachment-picker-action:focus-visible {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--border-hover) 72%, transparent);
+  background: color-mix(in srgb, var(--surface) 80%, transparent);
+}
+.attachment-picker-action.active {
+  border-color: color-mix(in srgb, var(--border-hover) 78%, transparent);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--accent-soft) 18%, var(--surface-solid) 82%), color-mix(in srgb, var(--accent-soft) 10%, var(--surface) 90%));
+}
+.attachment-picker-action.active .attachment-picker-action-icon {
+  filter: drop-shadow(0 0 10px color-mix(in srgb, var(--accent-soft) 18%, transparent));
+}
+.attachment-picker-action-icon {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+}
+.attachment-picker-action-copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.attachment-picker-action-copy strong {
+  font-size: 14px;
+  font-weight: 520;
+  color: var(--text);
+}

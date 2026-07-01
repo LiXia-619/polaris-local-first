@@ -1,0 +1,127 @@
+.msg-row {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  scroll-margin-top: 20px;
+  padding-top: 10px;
+  margin-top: -10px;
+  overflow: visible;
+}
+.app-shell:not(.world-switching) .msg-row[data-row-state='entering'] { animation: latestMessageFade 220ms var(--ease-out) both; }
+.app-shell:not(.world-switching) .msg-row.assistant[data-row-state='entering'] .bubble.assistant,
+.app-shell:not(.world-switching) .msg-row.system[data-row-state='entering'] .bubble {
+  animation: latestMessagePop 220ms var(--ease-out) both;
+}
+.app-shell:not(.world-switching) .msg-row.user[data-row-state='entering'] .bubble.user {
+  animation: none;
+}
+.app-shell:not(.world-switching) .msg-row.assistant[data-row-state='entering'] .bubble.assistant {
+  transform-origin: 0 100%;
+}
+.msg-row.focused::after { content: ''; position: absolute; inset: -6px -8px; border-radius: 18px; border: 1px solid color-mix(in srgb, var(--border-hover) 82%, transparent); background: color-mix(in srgb, var(--accent-soft) 62%, transparent); pointer-events: none; }
+.msg-row.user { align-items: flex-end; }
+.msg-row.assistant { align-items: flex-start; }
+.msg-row.system { align-items: flex-start; }
+.msg-row.user + .msg-row.assistant,
+.msg-row.assistant + .msg-row.user {
+  margin-top: 10px;
+}
+.message-turn {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.message-turn-body {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  min-width: 0;
+}
+.message-turn-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  min-width: 0;
+}
+.message-turn-head-main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.message-turn-stack {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.message-avatar-slot {
+  flex: 0 0 auto;
+  display: flex;
+}
+.message-avatar-slot.assistant {
+  align-items: flex-start;
+  padding-top: 18px;
+}
+.message-avatar-slot.user {
+  align-items: flex-end;
+  padding-bottom: 2px;
+}
+.message-avatar-slot.empty {
+  visibility: hidden;
+  pointer-events: none;
+}
+.message-avatar {
+  box-shadow: 0 10px 18px color-mix(in srgb, var(--accent-soft) 10%, transparent);
+}
+.message-turn.assistant {
+  width: min(100%, 780px);
+  align-items: flex-start;
+  gap: 6px;
+}
+.message-turn.assistant.with-avatar {
+  width: min(100%, 724px);
+}
+.message-turn.assistant.with-avatar .message-turn-body {
+  gap: 9px;
+  align-items: flex-start;
+}
+.message-turn.assistant .message-turn-head {
+  width: min(100%, 780px);
+}
+.message-turn.assistant .message-turn-head-main,
+.message-turn.assistant .message-turn-stack {
+  align-items: flex-start;
+}
+.message-turn.assistant.with-avatar .message-turn-stack {
+  flex: 1 1 auto;
+  max-width: calc(100% - 44px);
+  gap: 2px;
+}
+.message-turn.assistant .message-turn-head-main {
+  flex: 1 1 auto;
+}
+.message-turn.assistant .message-turn-body.body-below-head {
+  display: block;
+}
+.message-turn.assistant .message-turn-body.body-below-head .message-turn-stack {
+  width: 100%;
+}
+.message-turn.user {
+  width: 100%;
+  max-width: 100%;
+  align-items: flex-end;
+  gap: 3px;
+}
+.message-turn.user .message-turn-body {
+  justify-content: flex-end;
+}
+.message-turn.user .message-turn-stack {
+  flex: 1 1 auto;
+  width: 100%;
+  max-width: min(100%, 82%);
+  align-items: flex-end;
+}
+.system-inline-note { max-width: min(100%, 336px); padding: 7px 11px; border-radius: 17px; background: var(--chat-system-note-fill); border: var(--chat-system-note-border); box-shadow: var(--chat-system-note-shadow); backdrop-filter: var(--chat-system-note-backdrop); font-size: 11px; line-height: 1.45; color: color-mix(in srgb, var(--text-muted) 92%, var(--text-soft) 8%); white-space: pre-wrap; word-break: break-word; opacity: 0.88; transition: border-color var(--duration-fast) ease, background var(--duration-fast) ease, box-shadow var(--duration-fast) ease, opacity var(--duration-fast) ease, transform 180ms ease; }
+.msg-row.system:hover .system-inline-note,
+.msg-row.system:focus-within .system-inline-note { border: var(--chat-system-note-border-hover); background: var(--chat-system-note-fill-hover); box-shadow: var(--chat-system-note-shadow-hover); opacity: 0.96; transform: translateY(-1px); }

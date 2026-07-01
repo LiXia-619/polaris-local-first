@@ -1,0 +1,42 @@
+@media (max-width: 640px) {
+  .ps-topbar {
+    padding: max(14px, calc(8px + env(safe-area-inset-top, 0px))) 18px 10px;
+  }
+
+  .ps-nav {
+    padding: 0 18px;
+  }
+
+  .ps-content {
+    padding: 18px 18px calc(30px + var(--keyboard-scroll-padding, 0px));
+  }
+
+  .ps-section {
+    gap: 16px;
+  }
+
+  .ps-field-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .ps-field-head--inline-action {
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .ps-field-head-actions {
+    margin-left: 0;
+  }
+
+  .ps-mode-note,
+  .ps-override-note {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .ps-textarea--expanded-inline {
+    min-height: min(56vh, calc(100dvh - 300px));
+    max-height: min(64vh, calc(100dvh - 250px));
+  }
+}

@@ -1,0 +1,391 @@
+.code-workshop-panel {
+  min-height: 0;
+  min-width: 0;
+  width: 100%;
+  border-radius: var(--collection-workshop-panel-radius);
+  border: var(--collection-workshop-panel-border);
+  background: var(--collection-workshop-panel-fill);
+  box-shadow: var(--collection-workshop-panel-shadow);
+  backdrop-filter: var(--collection-workshop-panel-backdrop);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 18px;
+}
+
+.code-workshop-panel-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  min-width: 0;
+  width: 100%;
+}
+
+.code-workshop-panel-title-input {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  outline: none;
+  color: var(--collection-workshop-panel-title-color);
+  font-family: inherit;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+}
+
+.code-workshop-panel-title-input::placeholder {
+  color: var(--text-muted);
+}
+
+.code-workshop-panel-meta {
+  flex: 0 0 auto;
+  min-width: 0;
+  padding-top: 5px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--collection-workshop-panel-meta-color) 78%, var(--text) 22%);
+}
+
+.code-workshop-panel-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+  width: 100%;
+}
+
+.code-workshop-panel-section--editor {
+  flex: 1;
+  min-height: 0;
+}
+
+.code-workshop-panel-label {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--collection-workshop-panel-label-color) 72%, var(--text-soft) 28%);
+}
+
+.code-workshop-panel-helper {
+  margin: 0;
+  font-size: var(--type-small);
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--collection-workshop-panel-helper-color) 76%, var(--text) 24%);
+}
+
+.code-workshop-panel-textarea {
+  width: 100%;
+  min-width: 0;
+  border-radius: 18px;
+  border: var(--collection-workshop-panel-textarea-border);
+  background: var(--collection-workshop-panel-textarea-fill);
+  color: var(--text);
+  padding: 12px 14px;
+  outline: none;
+  font-family: inherit;
+  font-size: var(--type-body);
+  line-height: 1.62;
+  resize: vertical;
+  box-shadow: var(--collection-workshop-panel-textarea-shadow);
+}
+
+.code-workshop-panel-textarea {
+  min-height: 360px;
+}
+
+.room-rule-draft-panel-textarea {
+  min-height: 420px;
+}
+
+.code-workshop-panel-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.code-workshop-panel-actions .code-card-composer-tool {
+  flex: 0 0 auto;
+}
+
+.code-workshop-card-panel .room-tag-picker {
+  margin-top: 0;
+}
+
+.code-workshop-card-panel .workshop-tag-composer {
+  gap: 10px;
+}
+
+.code-workshop-card-panel .room-tag-picker-chip {
+  min-height: 32px;
+  padding-inline: 13px;
+}
+
+.code-workshop-card-panel {
+  gap: 16px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.code-workshop-card-panel .code-workshop-panel-section {
+  gap: 10px;
+  padding: 14px 0 0;
+  border-top: 1px solid color-mix(in srgb, var(--border) 42%, transparent);
+}
+
+.code-workshop-card-panel .code-workshop-panel-section--editor {
+  padding-top: 12px;
+  border-top: 0;
+  padding-bottom: 14px;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 42%, transparent);
+}
+
+.code-workshop-card-panel .code-workshop-panel-textarea {
+  min-height: 360px;
+  padding: 2px 0 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  tab-size: 2;
+  white-space: pre;
+  word-break: normal;
+  overflow: auto;
+}
+
+.code-workshop-card-panel .code-workshop-panel-textarea::placeholder {
+  color: color-mix(in srgb, var(--text-muted) 82%, transparent);
+}
+
+.code-workshop-card-panel .code-workshop-panel-textarea--card-face {
+  min-height: 148px;
+  max-height: 260px;
+  padding-top: 0;
+}
+
+.code-workshop-card-panel .code-workshop-panel-label {
+  color: color-mix(in srgb, var(--text-soft) 76%, var(--text) 24%);
+}
+
+.code-workshop-card-panel .code-workshop-panel-helper {
+  font-size: 11px;
+  line-height: 1.48;
+}
+
+.workshop-tag-composer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  width: 100%;
+}
+
+.workshop-tag-composer-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+  width: 100%;
+}
+
+.code-workshop-panel-section-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.workshop-tag-composer-flow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  min-width: 0;
+  width: 100%;
+}
+
+.workshop-tag-pill,
+.workshop-tag-pill--edit {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 30px;
+  padding: 0 7px 0 11px;
+  border-radius: 999px;
+  border: var(--collection-workshop-tag-pill-border);
+  background: var(--collection-workshop-tag-pill-fill);
+  box-shadow: var(--collection-workshop-tag-pill-shadow);
+  color: var(--collection-workshop-tag-pill-color);
+  font-size: 12px;
+  font-weight: 560;
+}
+
+.workshop-tag-pill {
+  cursor: pointer;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.workshop-tag-pill-input {
+  width: 100%;
+  min-width: 54px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  outline: none;
+}
+
+.workshop-tag-pill-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  border: var(--collection-workshop-tag-remove-border);
+  background: var(--collection-workshop-tag-remove-fill);
+  color: var(--collection-workshop-tag-remove-color);
+  font: inherit;
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.workshop-tag-composer-add {
+  position: relative;
+  width: 100%;
+}
+
+.workshop-tag-composer-trigger {
+  align-self: flex-start;
+  padding: 8px 14px;
+  border-radius: 12px;
+  border: 1px dashed var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font: inherit;
+  font-size: var(--type-small);
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.workshop-tag-composer-trigger:hover,
+.workshop-tag-composer-trigger:focus-visible {
+  border-style: solid;
+  border-color: color-mix(in srgb, var(--border-hover) 88%, transparent);
+  background: color-mix(in srgb, var(--surface-deep) 74%, transparent);
+  color: var(--text-soft);
+}
+
+.workshop-tag-composer-input {
+  width: 100%;
+  min-height: 42px;
+  padding: 0 42px 0 14px;
+  border-radius: 16px;
+  border: var(--collection-workshop-tag-input-border);
+  background: var(--collection-workshop-tag-input-fill);
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 520;
+  outline: none;
+}
+
+.workshop-tag-composer-input::placeholder {
+  color: var(--collection-workshop-tag-input-placeholder);
+}
+
+.workshop-tag-composer-add-btn {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  border: var(--collection-workshop-tag-add-border);
+  background: var(--collection-workshop-tag-add-fill);
+  color: var(--collection-workshop-tag-add-color);
+  font: inherit;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.room-rule-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.room-rule-card-lock {
+  flex: 0 0 auto;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: var(--room-rule-card-lock-border);
+  background: var(--room-rule-card-lock-fill);
+  color: var(--room-rule-card-lock-color);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.room-rule-card-note {
+  margin: 0;
+  color: var(--room-rule-card-note-color);
+  font-size: 12px;
+  line-height: 1.52;
+  max-width: 27ch;
+}
+
+.room-rule-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.room-rule-card-tags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 25px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: var(--room-rule-card-tag-border);
+  background: var(--room-rule-card-tag-fill);
+  color: var(--room-rule-card-tag-color);
+  font-size: 11px;
+}
+
+@media (max-width: 960px) {
+  .code-workshop-panel-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .code-workshop-panel-meta {
+    padding-top: 0;
+  }
+
+  .code-workshop-panel-title-input {
+    font-size: 20px;
+  }
+
+  .code-workshop-panel-textarea {
+    min-height: 300px;
+  }
+}

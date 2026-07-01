@@ -1,0 +1,81 @@
+.app-shell.app-layout-wide {
+  --desktop-shell-inline: clamp(16px, 3.2vw, 52px);
+  --desktop-chat-main-width: min(860px, calc(100vw - (var(--desktop-shell-inline) * 2)));
+  width: 100%;
+  max-width: none;
+}
+
+.app-shell.app-layout-wide .app-stage {
+  width: 100%;
+  max-width: min(100%, 1280px);
+  margin: 0 auto;
+  padding-inline: var(--desktop-shell-inline);
+}
+
+.app-shell.app-layout-wide.collection .app-stage {
+  max-width: min(100%, 1440px);
+}
+
+.app-shell.app-layout-wide .topbar {
+  padding: max(22px, calc(12px + env(safe-area-inset-top, 0px))) 0 12px;
+}
+
+.app-shell.app-layout-wide .topbar-surface {
+  left: 0;
+  right: 0;
+}
+
+.app-shell.app-layout-wide ~ .world-switch-veil-host,
+.app-layout-wide .world-switch-veil-host {
+  width: 100%;
+  max-width: none;
+  height: var(--app-height, 100%);
+}
+
+.app-shell.app-layout-wide ~ .world-switch-veil-host .world-switch-veil,
+.app-layout-wide .world-switch-veil {
+  right: max(0px, calc((100vw - min(100vw, 1280px)) / 2));
+}
+
+.app-shell.app-layout-wide .chat-flow {
+  padding-inline: max(0px, calc((100% - var(--desktop-chat-main-width)) / 2));
+  padding-top: 18px;
+}
+
+.app-shell.app-layout-wide .chat-dock {
+  width: var(--desktop-chat-main-width);
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.app-shell.app-layout-wide .chat-dock {
+  padding-bottom: calc(10px + var(--keyboard-bridge-offset, 0px));
+}
+
+.app-shell.app-layout-wide .message-turn.user .message-turn-stack {
+  max-width: min(66%, 620px);
+}
+
+.app-shell.app-layout-wide .system-inline-note {
+  max-width: min(100%, 520px);
+}
+
+.app-shell.app-layout-wide .message-task-receipt-panel {
+  width: min(100%, 680px);
+}
+
+.app-shell.app-layout-wide .world-collection,
+.app-shell.app-layout-wide .collection-card-token-scope {
+  --collection-shell-inline-pad: clamp(24px, 3vw, 44px);
+  --collection-code-card-grid-gap: 12px;
+  --collection-code-card-column-width: clamp(190px, 22cqw, 280px);
+}
+
+.app-shell.app-layout-wide .collection-shelf-page-body {
+  padding-bottom: 32px;
+}
+
+.app-shell.app-layout-wide .grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr));
+  gap: 14px;
+}

@@ -1,0 +1,95 @@
+.room-project-card {
+  position: relative;
+  aspect-ratio: 390 / 196;
+  min-height: 0;
+  padding: 0;
+  border-radius: 24px;
+  overflow: hidden;
+  isolation: isolate;
+  transform: translateZ(0);
+  background: transparent;
+}
+
+.collection .room-project-card {
+  border: 0;
+  background: transparent;
+  box-shadow: var(--collection-code-card-shadow, var(--collection-card-shadow));
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .room-project-card:hover,
+  .room-project-card:focus-within {
+    transform: translateY(-3px);
+    box-shadow: var(--collection-card-hover-shadow);
+  }
+}
+
+.collection .room-project-card.pinned {
+  box-shadow: var(--collection-card-pinned-shadow);
+}
+
+.room-project-card-export-dot {
+  z-index: 5;
+  right: 8px;
+  bottom: 8px;
+  color: var(--collection-card-meta-color);
+}
+
+.room-project-card .project-cover-card {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+  border-radius: inherit !important;
+  overflow: hidden !important;
+}
+
+.room-project-card .project-cover-inner {
+  display: grid !important;
+  grid-template-rows: auto minmax(0, 1fr) auto !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  gap: clamp(7px, 3.2%, 12px) !important;
+  padding: clamp(12px, 5.2%, 18px) clamp(14px, 5.6%, 20px) !important;
+  box-sizing: border-box !important;
+}
+
+.room-project-card.viewing .card-delete-badge,
+.room-project-card.viewing .card-pin-badge {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.room-project-card.editing .card-delete-badge,
+.room-project-card.editing .card-pin-badge {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.room-project-card.editing .project-cover-header {
+  padding-right: 34px;
+}
+
+.room-project-card.editing .room-project-card-export-dot {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.room-project-card-export-dot--busy::before {
+  border-color: color-mix(in srgb, var(--collection-card-run-dot-hover-border) 92%, transparent);
+  background: color-mix(in srgb, var(--accent-soft) 58%, transparent);
+  animation: roomProjectCardExportHalo 0.92s ease-in-out infinite;
+}
+
+.room-project-card-export-dot--busy svg {
+  animation: roomProjectCardExportPulse 0.82s ease-in-out infinite;
+}
+
+@media (max-width: 640px) {
+  .room-project-card {
+    border-radius: 22px;
+  }
+}

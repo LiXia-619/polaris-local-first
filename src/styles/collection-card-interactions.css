@@ -1,0 +1,192 @@
+.code-card.actionable-card {
+  overflow: visible;
+  isolation: isolate;
+}
+
+.code-card-main {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.code-card-main:focus-visible {
+  outline: none;
+}
+
+.code-card-main h3,
+.code-card-main pre,
+.code-card-main .code-card-origin,
+.code-card-main .card-meta-row,
+.code-card-main .tags {
+  min-width: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.code-card-main pre {
+  overflow-wrap: anywhere;
+  pointer-events: none;
+}
+
+.code-card-run-dot,
+.card-delete-badge,
+.card-pin-badge {
+  z-index: 3;
+}
+
+.card-delete-badge,
+.card-pin-badge {
+  top: 8px;
+  width: 24px;
+  height: 24px;
+}
+
+.card-delete-badge {
+  left: 8px;
+  box-shadow: 0 8px 18px rgba(180, 60, 50, 0.24);
+}
+
+.card-pin-badge {
+  left: auto;
+  right: 8px;
+}
+
+.collection .code-card.editing .card-meta-row {
+  padding-right: 34px;
+}
+
+.code-card.ai-spotlight-card {
+  border-color: color-mix(in srgb, var(--border-hover) 98%, rgba(255,255,255,0.18));
+  animation:
+    codeCardArrival 0.62s var(--ease-spring) both,
+    codeCardShelfGlow 2.2s ease-in-out 0.72s infinite;
+}
+
+.code-card.ai-spotlight-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 16%, color-mix(in srgb, var(--accent-glow) 100%, rgba(255,255,255,.52)), transparent 34%),
+    radial-gradient(circle at 84% 14%, color-mix(in srgb, var(--accent-soft) 62%, transparent), transparent 26%),
+    linear-gradient(135deg, color-mix(in srgb, var(--accent-soft) 54%, transparent), transparent 42%, color-mix(in srgb, var(--accent-glow) 34%, transparent));
+  animation:
+    codeCardHalo 0.62s ease-out both,
+    codeCardShelfHalo 2.2s ease-in-out 0.72s infinite;
+}
+
+.code-card.ai-spotlight-card .code-card-main {
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, rgba(255,255,255,.56) 22%, var(--border-hover) 78%),
+    inset 0 1px 0 color-mix(in srgb, rgba(255,255,255,.46) 72%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--border-hover) 72%, transparent),
+    0 18px 34px color-mix(in srgb, var(--accent-soft) 24%, transparent);
+  border-radius: inherit;
+  animation: codeCardMainGlow 2.2s ease-in-out 0.72s infinite;
+}
+
+.code-card.ai-spotlight-card::after {
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, rgba(255,255,255,.46) 28%, var(--accent-glow) 72%);
+}
+
+.code-card.ai-spotlight-card .code-card-main::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    linear-gradient(112deg, transparent 12%, color-mix(in srgb, rgba(255,255,255,.46) 76%, var(--accent-glow) 24%) 32%, transparent 54%),
+    radial-gradient(circle at 22% 20%, color-mix(in srgb, rgba(255,255,255,.28) 76%, var(--accent-soft) 24%), transparent 34%);
+  opacity: 0.34;
+  transform: translateX(-16%) translateY(-2%) scale(1.02);
+  animation: codeCardMainSheen 2.2s ease-in-out 0.72s infinite;
+}
+
+.code-card.ai-spotlight-card .code-card-run-dot::before {
+  border-color: color-mix(in srgb, var(--border-hover) 96%, transparent);
+  background: color-mix(in srgb, var(--accent-soft) 66%, transparent);
+  box-shadow: 0 0 18px color-mix(in srgb, var(--accent-glow) 34%, transparent);
+}
+
+@keyframes codeCardShelfGlow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--border-hover) 78%, transparent),
+      0 18px 34px color-mix(in srgb, var(--accent-soft) 26%, transparent),
+      0 0 0 color-mix(in srgb, var(--accent-glow) 0%, transparent);
+  }
+  50% {
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--border-hover) 100%, transparent),
+      0 24px 48px color-mix(in srgb, var(--accent-soft) 42%, transparent),
+      0 0 32px color-mix(in srgb, var(--accent-glow) 62%, transparent);
+  }
+}
+
+@keyframes codeCardShelfHalo {
+  0%,
+  100% {
+    opacity: 0.46;
+  }
+  50% {
+    opacity: 0.88;
+  }
+}
+
+@keyframes codeCardMainGlow {
+  0%,
+  100% {
+    box-shadow:
+      inset 0 0 0 1px color-mix(in srgb, rgba(255,255,255,.52) 20%, var(--border-hover) 80%),
+      inset 0 1px 0 color-mix(in srgb, rgba(255,255,255,.42) 68%, transparent),
+      0 0 0 1px color-mix(in srgb, var(--border-hover) 70%, transparent),
+      0 18px 34px color-mix(in srgb, var(--accent-soft) 22%, transparent);
+    filter: saturate(1) brightness(1);
+  }
+  50% {
+    box-shadow:
+      inset 0 0 0 1px color-mix(in srgb, rgba(255,255,255,.74) 24%, var(--border-hover) 76%),
+      inset 0 1px 0 color-mix(in srgb, rgba(255,255,255,.64) 74%, transparent),
+      0 0 0 1px color-mix(in srgb, var(--border-hover) 88%, transparent),
+      0 22px 42px color-mix(in srgb, var(--accent-soft) 34%, transparent);
+    filter: saturate(1.04) brightness(1.03);
+  }
+}
+
+@keyframes codeCardMainSheen {
+  0%,
+  100% {
+    opacity: 0.28;
+    transform: translateX(-18%) translateY(-2%) scale(1.02);
+  }
+  50% {
+    opacity: 0.78;
+    transform: translateX(6%) translateY(0) scale(1.03);
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .code-card-main {
+    min-height: 100%;
+  }
+}

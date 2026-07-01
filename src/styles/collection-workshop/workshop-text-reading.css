@@ -1,0 +1,121 @@
+.text-reading-workshop {
+  display: flex;
+  flex-direction: column;
+  width: min(820px, 100%);
+  min-height: auto;
+  margin: 0 auto;
+  gap: 10px;
+  padding: 0 0 36px;
+}
+
+.text-reading-workshop-head {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.text-reading-workshop-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.text-reading-workshop-copy::after {
+  content: '';
+  width: 100%;
+  height: 1px;
+  margin-top: 2px;
+  background: color-mix(in srgb, var(--border) 42%, transparent);
+}
+
+.text-reading-workshop-tag-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px solid color-mix(in srgb, var(--border) 42%, transparent);
+}
+
+.text-reading-workshop-tag-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.text-reading-workshop-tag-label {
+  color: color-mix(in srgb, var(--text-muted) 78%, var(--text-soft) 22%);
+  font-size: 11px;
+  line-height: 1.45;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.text-reading-workshop-title-input {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: color-mix(in srgb, var(--text) 88%, var(--text-soft) 12%);
+  font: inherit;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Noto Serif SC", Georgia, serif;
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.24;
+  font-weight: 500;
+  outline: none;
+}
+
+.text-reading-workshop-title-input::placeholder {
+  color: color-mix(in srgb, var(--text-muted) 78%, transparent);
+}
+
+.text-reading-workshop-meta,
+.text-reading-workshop-helper {
+  margin: 0;
+  color: color-mix(in srgb, var(--text-soft) 72%, var(--text) 28%);
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.text-reading-workshop-body {
+  flex: 1;
+  min-height: 0;
+  padding: 12px 0 0;
+  border-top: 1px solid color-mix(in srgb, var(--border) 42%, transparent);
+}
+
+.text-reading-workshop-paper {
+  width: min(780px, 100%);
+  min-height: min(58vh, 760px);
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.text-reading-workshop-textarea {
+  width: 100%;
+  min-height: calc(min(58vh, 760px) - 54px);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: color-mix(in srgb, var(--text) 94%, var(--text-soft) 6%);
+  font-family: "Iowan Old Style", "Palatino Linotype", "Noto Serif SC", Georgia, serif;
+  font-size: var(--type-body);
+  line-height: 1.56;
+  letter-spacing: 0.012em;
+  resize: none;
+  outline: none;
+  overflow: hidden;
+  field-sizing: content;
+}
+
+.text-reading-workshop-actions {
+  display: contents;
+}
+.text-reading-workshop-action-row {
+  display: contents;
+}

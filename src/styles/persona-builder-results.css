@@ -1,0 +1,251 @@
+.pb-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: start;
+  min-width: 0;
+}
+
+.pb-stage-main {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 0;
+}
+
+.pb-result-card {
+  position: static;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid rgba(17, 17, 19, 0.14);
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: none;
+}
+
+.pb-result-namecard {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 10px 2px 4px;
+  background:
+    linear-gradient(90deg, rgba(17, 17, 19, 0.16), transparent) 0 0 / 100% 1px no-repeat,
+    linear-gradient(90deg, rgba(17, 17, 19, 0.1), transparent) 0 100% / 100% 1px no-repeat;
+}
+
+.pb-result-namecard-top,
+.pb-result-namecard-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.pb-result-namecard-top {
+  color: var(--text-muted);
+  font-size: var(--type-tiny);
+  letter-spacing: 0.14em;
+}
+
+.pb-result-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 2px 0 0;
+}
+
+.pb-result-identity strong {
+  color: var(--text);
+  font-size: 28px;
+  font-weight: 760;
+  line-height: 1.14;
+  overflow-wrap: anywhere;
+}
+
+.pb-result-identity p {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: var(--type-small);
+  line-height: 1.65;
+}
+
+.pb-result-namecard-meta {
+  justify-content: flex-start;
+}
+
+.pb-result-namecard-meta span {
+  color: var(--text-soft);
+  font-size: var(--type-tiny);
+  letter-spacing: 0.08em;
+}
+
+.pb-result-divider {
+  height: 1px;
+  background: rgba(17, 17, 19, 0.12);
+}
+
+.pb-result-text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.pb-result-text-block + .pb-result-text-block {
+  padding-top: 2px;
+}
+
+.pb-result-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pb-result-switch {
+  align-self: flex-start;
+}
+
+.pb-result-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.pb-result-head strong {
+  font-size: var(--type-body);
+  color: var(--text);
+}
+
+.pb-result-head span,
+.pb-result-summary,
+.pb-result-chip {
+  font-size: var(--type-small);
+  color: var(--text-soft);
+}
+
+.pb-result-summary {
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+.pb-result-runtime-note {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(17, 17, 19, 0.12);
+  background: #f4f4f3;
+  color: var(--text-soft);
+  font-size: var(--type-small);
+  line-height: 1.6;
+}
+
+.pb-result-prompt {
+  margin: 0;
+  max-height: 420px;
+  overflow: auto;
+  padding: 2px 0 0;
+  border-radius: 8px;
+  border: 1px solid rgba(17, 17, 19, 0.1);
+  background: #f7f7f6;
+  color: var(--text);
+  font-size: 12px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  padding: 12px;
+}
+
+.pb-result-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.pb-result-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pb-memory-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pb-result-chip {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(17, 17, 19, 0.12);
+  background: #f4f4f3;
+}
+
+.pb-memory-input,
+.pb-memory-add-input {
+  min-width: min(280px, 100%);
+  max-width: 100%;
+  color: inherit;
+  font: inherit;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.pb-memory-input {
+  width: clamp(180px, 42vw, 520px);
+}
+
+.pb-memory-input::placeholder,
+.pb-memory-add-input::placeholder {
+  color: var(--text-muted);
+}
+
+.pb-memory-remove,
+.pb-memory-add {
+  border: 1px solid rgba(17, 17, 19, 0.12);
+  border-radius: 999px;
+  background: #f4f4f3;
+  color: var(--text-soft);
+  font: inherit;
+  font-size: var(--type-small);
+  cursor: pointer;
+}
+
+.pb-memory-remove {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+}
+
+.pb-memory-add {
+  padding: 8px 12px;
+}
+
+.pb-inline-actions,
+.pb-actions--footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+@container (max-width: 860px) {
+  .pb-result-prompt {
+    max-height: 320px;
+  }
+}
+
+@media (max-width: 980px) {
+  .pb-result-prompt {
+    max-height: 320px;
+  }
+}
+
+@media (max-width: 720px) {
+  .pb-inline-actions,
+  .pb-actions--footer,
+  .pb-generation-actions {
+    flex-direction: column;
+  }
+}

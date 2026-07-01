@@ -1,0 +1,113 @@
+.pb-summary-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid color-mix(in srgb, var(--border-hover) 72%, transparent);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at bottom left, color-mix(in srgb, var(--accent-soft) 88%, transparent), transparent 42%),
+    color-mix(in srgb, var(--surface-deep) 76%, var(--surface) 24%);
+}
+
+.pb-summary-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pb-summary-identity strong {
+  font-size: var(--type-card-title);
+  color: var(--text);
+}
+
+.pb-summary-identity span,
+.pb-summary-section span,
+.pb-summary-pill {
+  font-size: var(--type-small);
+  color: var(--text-soft);
+}
+
+.pb-summary-grid,
+.pb-summary-sections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pb-summary-pill,
+.pb-summary-section {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--border) 88%, transparent);
+  background: color-mix(in srgb, var(--surface-deep) 84%, transparent);
+}
+
+.pb-summary-section {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.pb-summary-section strong {
+  font-size: var(--type-small);
+  color: var(--text);
+}
+
+.pb-summary-section.ready {
+  border-color: color-mix(in srgb, var(--border-hover) 94%, transparent);
+  background: color-mix(in srgb, var(--accent-soft) 88%, transparent);
+}
+
+.pb-field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.pb-field-grid.triple {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.pb-deep-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.pb-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pb-field span {
+  font-size: var(--type-caption);
+  color: var(--text-muted);
+}
+
+.pb-field-hint {
+  font-size: var(--type-caption);
+  line-height: 1.5;
+  color: var(--text-soft);
+}
+
+.pb-block-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.pb-block-head strong {
+  font-size: clamp(22px, 2.9vw, 28px);
+  font-weight: 620;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.pb-block-head span {
+  font-size: var(--type-small);
+  color: var(--text-muted);
+}
+

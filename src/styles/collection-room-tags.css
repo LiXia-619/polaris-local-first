@@ -1,0 +1,41 @@
+.room-tag-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.create-code-workshop > .room-tag-picker {
+  padding: 0 20px 8px;
+  margin-top: 0;
+}
+
+.room-tag-picker-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+  background: color-mix(in srgb, var(--surface) 56%, transparent);
+  color: color-mix(in srgb, var(--text-soft) 88%, var(--text) 12%);
+  font: inherit;
+  font-size: var(--type-small);
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.room-tag-picker-chip.active {
+  border-color: color-mix(in srgb, var(--accent) 76%, var(--border-hover) 24%);
+  background: color-mix(in srgb, var(--accent-soft) 72%, rgba(255,255,255,0.14));
+  color: color-mix(in srgb, var(--accent) 88%, var(--text) 12%);
+}
+
+.room-tag-picker-chip:hover,
+.room-tag-picker-chip:focus-visible {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--border-hover) 88%, transparent);
+}

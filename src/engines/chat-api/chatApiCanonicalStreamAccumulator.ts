@@ -1,0 +1,123 @@
+import type { CanonicalProviderStreamEvent } from '../provider-runtime';
+import type { ReplyAccumulator } from '../provider-runtime/providerRuntimeReplyAccumulator';
+import { mergeToolCallArgumentsText } from '../provider-runtime/providerRuntimeToolArguments';
+
+type UsageStreamEvent = Extract<CanonicalProviderStreamEvent, { type: 'usage' }>;
+
+function totalFromUsage(usage: UsageStreamEvent['usage']) {
+  return usage.totalTokens
+    ?? (
+      typeof usage.inputTokens === 'number' || typeof usage.outputTokens === 'number'
+        ? (usage.inputTokens ?? 0) + (usage.outputTokens ?? 0)
+        : undefined
+    );
+}
+
+function resolveToolCallIndex(target: ReplyAccumulator, event: Extract<
+  CanonicalProviderStreamEvent,
+  { type: 'tool_call.start' | 'tool_call.delta' | 'tool_call.done' }
+>) {
+  const toolCalls = target.toolCalls ?? [];
+  if (event.id) {
+    const existingIndex = toolCalls.findIndex((call) => call.id === event.id);
+    if (existingIndex !== -1) return existingIndex;
+  }
+  if (typeof event.index === 'number' && event.index >= 0) {
+    return event.index;
+  }
+  return Math.max(toolCalls.length - 1, 0);
+}
+
+export function applyProviderRuntimeStreamEvents(
+  target: ReplyAccumulator,
+  events: CanonicalProviderStreamEvent[]
+) {
+  if (events.length === 0) return false;
+  let changed = false;
+
+  events.forEach((event) => {
+    if (event.type === 'metadata') {
+      if (event.model) {
+        target.model = event.model;
+        changed = true;
+      }
+      return;
+    }
+    if (event.type === 'text.delta') {
+      target.content += event.text;
+      changed = true;
+      return;
+    }
+    if (event.type === 'text.snapshot') {
+      target.content = event.text;
+      changed = true;
+      return;
+    }
+    if (event.type === 'reasoning.delta') {
+      target.thinkingText += event.text;
+      changed = true;
+      return;
+    }
+    if (event.type === 'reasoning.snapshot') {
+      target.thinkingText = event.text;
+      changed = true;
+      return;
+    }
+    if (event.type === 'usage') {
+      target.tokenUsage = event.usage;
+      const tokenCount = totalFromUsage(event.usage);
+      if (typeof tokenCount === 'number') {
+        target.tokenCount = tokenCount;
+      }
+      changed = true;
+      return;
+    }
+    if (event.type === 'done') {
+      target.finishReason = event.finishReason;
+      target.transportIncomplete = event.transportIncomplete;
+      changed = true;
+      return;
+    }
+    if (event.type === 'error') {
+      return;
+    }
+
+    const nextToolCalls = target.toolCalls ?? [];
+    const targetIndex = resolveToolCallIndex(target, event);
+    const existing = nextToolCalls[targetIndex] ?? {
+      argumentsText: ''
+    };
+
+    if (event.type === 'tool_call.start') {
+      if (event.id) {
+        existing.id = event.id;
+      }
+      existing.name = event.name;
+    }
+    if (event.type === 'tool_call.delta') {
+      if (event.id) {
+        existing.id = event.id;
+      }
+      existing.argumentsText = mergeToolCallArgumentsText(existing.argumentsText, event.argumentsDelta);
+    }
+    if (event.type === 'tool_call.done') {
+      if (event.id) {
+        existing.id = event.id;
+      }
+      if (event.name) {
+        existing.name = event.name;
+      }
+      existing.argumentsText = event.argumentsText;
+    }
+
+    existing.sourceSpan ??= {
+      transport: 'native',
+      index: targetIndex
+    };
+    nextToolCalls[targetIndex] = existing;
+    target.toolCalls = nextToolCalls;
+    changed = true;
+  });
+
+  return changed;
+}

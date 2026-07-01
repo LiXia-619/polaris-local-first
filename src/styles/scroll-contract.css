@@ -1,0 +1,85 @@
+/* Scroll ownership lives here: shells clip, inner pages scroll. */
+
+html {
+  --keyboard-scroll-padding: 0px;
+}
+
+html[data-native-keyboard-overlay='true'][data-keyboard-open='true'] {
+  --keyboard-scroll-padding: var(--keyboard-offset, 0px);
+}
+
+.collection-frame.active {
+  overflow: hidden;
+}
+
+.settings-sheet:not(.menu-sheet):not(.persona-fullscreen):not(.api-provider-sheet),
+.api-provider-sheet-scroll,
+.menu-sheet .menu-sheet-page,
+.ps-content,
+.chat-flow,
+.collection-shelf-page:not(.collection-shelf-page--info):not(.collection-shelf-page--code):not(.collection-shelf-page--project),
+.collection-shelf-page--info .collaborator-info-shelf-overview,
+.collaborator-info-content,
+.code-collection-view-page-scroll,
+.create-code-fullscreen-body,
+.code-workshop-shelf-scroll,
+.room-project-fullscreen-body,
+.room-project-file-fullscreen-body,
+.text-reading-fullscreen-body,
+.mcp-settings-form,
+.collaborator-scope-drawer-list,
+.desktop-sidebar-thread-list {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+  scroll-padding-bottom: calc(24px + var(--keyboard-scroll-padding, 0px));
+  touch-action: pan-y;
+}
+
+.collection-shelf-page--code,
+.collection-shelf-page--project {
+  min-height: 0;
+  overflow-y: hidden;
+  overscroll-behavior-y: contain;
+  touch-action: pan-y;
+}
+
+.ps-nav,
+.provider-strip {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+}
+
+.collection-shelf-page--info .collaborator-info-shelf-overview,
+.collaborator-info-content {
+  scrollbar-width: none;
+}
+
+.collection-shelf-page--info .collaborator-info-shelf-overview::-webkit-scrollbar,
+.collaborator-info-content::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+.actionable-card,
+.shelf-tab,
+.chip,
+.ps-toggle,
+.ps-mc-list,
+.ps-mc,
+.ps-mc-text,
+.ps-mc-textarea,
+.ps-mc-add,
+.memory-library-list,
+.memory-entry-card,
+.memory-entry-swipe-surface,
+.memory-entry-top,
+.memory-entry-card p,
+.memory-empty-card,
+.memory-entry-editor {
+  touch-action: pan-y;
+}

@@ -1,0 +1,335 @@
+@keyframes appShellReveal {
+  from { opacity: 0; transform: translateY(18px) scale(0.988); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes chromeRise {
+  from { opacity: 0; transform: translateY(14px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes codeCardArrival {
+  0% { transform: translateY(20px) scale(0.94) rotate(-0.45deg); box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+  44% { transform: translateY(-4px) scale(1.02) rotate(0deg); box-shadow: 0 22px 40px color-mix(in srgb, var(--accent-soft) 34%, transparent); }
+  100% { transform: translateY(0) scale(1) rotate(0deg); box-shadow: var(--shadow-hover); }
+}
+
+@keyframes codeCardHalo {
+  0% { opacity: 0; transform: scale(0.94); }
+  24% { opacity: 0.88; }
+  100% { opacity: 0; transform: scale(1.04); }
+}
+
+@keyframes codeCardSpotlight {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--border-hover) 72%, transparent),
+      0 18px 34px color-mix(in srgb, var(--accent-soft) 26%, transparent);
+  }
+  22% {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--border-hover) 96%, transparent),
+      0 0 30px color-mix(in srgb, var(--accent-glow) 64%, transparent),
+      0 30px 58px color-mix(in srgb, var(--accent-soft) 56%, transparent);
+  }
+  46% {
+    transform: translateY(-2px) scale(1.012);
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--border-hover) 84%, transparent),
+      0 0 22px color-mix(in srgb, var(--accent-soft) 28%, transparent),
+      0 20px 40px color-mix(in srgb, var(--accent-glow) 40%, transparent);
+  }
+}
+
+@keyframes codeCardSpotlightHalo {
+  0%, 100% { opacity: 0.36; transform: scale(0.985); }
+  38% { opacity: 1; transform: scale(1.05); }
+  72% { opacity: 0.62; transform: scale(1.028); }
+}
+
+@keyframes streamingStageBloom {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes streamingCopyIn {
+  from { opacity: 0.32; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes streamingPreludeFloat {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.9; }
+  50% { transform: translateY(-2px) scale(1.01); opacity: 1; }
+}
+
+@keyframes streamingPreludeSheen {
+  0% { transform: translateX(-135%); opacity: 0; }
+  18% { opacity: 0.18; }
+  48% { opacity: 0.28; }
+  100% { transform: translateX(180%); opacity: 0; }
+}
+
+@keyframes streamingCaretBlink {
+  0%, 100% { opacity: 0.22; transform: scaleY(0.92); }
+  50% { opacity: 0.92; transform: scaleY(1); }
+}
+
+@keyframes driftGlowTop {
+  0% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.72; }
+  50% { transform: translate3d(-12px, 10px, 0) scale(1.06); opacity: 0.92; }
+  100% { transform: translate3d(10px, -6px, 0) scale(0.98); opacity: 0.76; }
+}
+
+@keyframes driftGlowBottom {
+  0% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.64; }
+  50% { transform: translate3d(14px, -10px, 0) scale(1.08); opacity: 0.84; }
+  100% { transform: translate3d(-8px, 8px, 0) scale(0.98); opacity: 0.68; }
+}
+
+@keyframes shimmerSweep {
+  0% { transform: translateX(-150%) skewX(-18deg); opacity: 0; }
+  18% { opacity: 0.22; }
+  42% { opacity: 0.32; }
+  100% { transform: translateX(280%) skewX(-18deg); opacity: 0; }
+}
+
+@keyframes sendReadyPulse {
+  0%, 100% {
+    box-shadow: 0 6px 14px color-mix(in srgb, var(--accent-soft) 52%, transparent);
+    filter: brightness(1);
+  }
+  50% {
+    box-shadow: 0 10px 22px color-mix(in srgb, var(--accent-soft) 64%, transparent);
+    filter: brightness(1.05);
+  }
+}
+
+.app-shell {
+  animation: appShellReveal 0.72s var(--ease-out) both;
+}
+
+.app-shell.world-switching .bg-glow-top {
+  animation: driftGlowTop 17s ease-in-out infinite alternate;
+}
+
+.app-shell.world-switching .bg-glow-bottom {
+  animation: driftGlowBottom 21s ease-in-out infinite alternate;
+}
+
+@keyframes topbarDescent {
+  from { opacity: 0; transform: translateY(-16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes composerRise {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes personaSlideIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes worldMarkSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(180deg); }
+}
+
+@keyframes startupStarTurn {
+  0% { transform: rotate(0deg) scale(var(--app-star-turn-scale-min, 0.92)); opacity: var(--app-star-turn-opacity-min, 0.78); }
+  14% { opacity: var(--app-star-turn-opacity-full, 1); }
+  58% { transform: rotate(360deg) scale(var(--app-star-turn-scale-full, 1)); opacity: var(--app-star-turn-opacity-full, 1); }
+  76% { transform: rotate(360deg) scale(var(--app-star-turn-scale-rest, 0.94)); opacity: var(--app-star-turn-opacity-rest, 0.86); }
+  100% { transform: rotate(360deg) scale(var(--app-star-turn-scale-min, 0.92)); opacity: var(--app-star-turn-opacity-min, 0.78); }
+}
+
+@keyframes startupStarBreath {
+  0%, 100% { transform: scale(0.78); opacity: 0.42; }
+  48% { transform: scale(1.18); opacity: 0.78; }
+}
+
+.topbar {
+  animation: topbarDescent 0.5s var(--ease-out) 0.1s both;
+}
+
+.brand-trigger,
+.preview-banner-trigger,
+.topbar-actions .action-btn {
+  animation: chromeRise 0.56s var(--ease-out) both;
+}
+
+.persona-indicator {
+  animation: personaSlideIn 0.48s var(--ease-out) 0.22s both;
+}
+
+.chat-dock {
+  animation: composerRise 0.52s var(--ease-out) 0.32s both;
+}
+
+.surface-motion-local-stage {
+  min-height: 0;
+}
+
+.surface-motion-local-stage.local-motion-enter {
+  animation: localSurfaceEnter 0.34s var(--ease-out) both;
+}
+
+.preview-banner-trigger {
+  animation-delay: 0.08s;
+}
+
+.topbar-actions .action-btn:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.topbar-actions .action-btn:nth-child(2) {
+  animation-delay: 0.16s;
+}
+
+.topbar-actions .action-btn:nth-child(3) {
+  animation-delay: 0.22s;
+}
+
+.world-frame {
+  transform: none;
+  filter: none;
+  transform-origin: 50% 12%;
+  transition:
+    opacity var(--duration-world) var(--ease-out),
+    transform var(--duration-world) var(--ease-out),
+    filter calc(var(--duration-world) - 0.08s) ease;
+}
+
+.world-frame.active {
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+.card,
+.chat-box,
+.tool-event,
+.thinking-box,
+.active-preview-strip,
+.collection-search,
+.code-card-composer,
+.attachment-chip,
+.micro-action-btn,
+.send-btn,
+.composer-slot-btn {
+  will-change: transform, box-shadow, opacity;
+}
+
+.collection .card:hover:not(.active),
+.collection .card:focus-visible:not(.active) {
+  transform: translateY(-3px) rotate(-0.25deg);
+  box-shadow: var(--shadow-hover);
+}
+
+.code-card.ai-spotlight-card {
+  z-index: 2;
+  border-color: color-mix(in srgb, var(--border-hover) 96%, rgba(255,255,255,.12));
+  animation:
+    codeCardArrival 0.62s var(--ease-spring) both,
+    codeCardSpotlight 1.85s ease-in-out 0.72s infinite;
+}
+
+.code-card.ai-spotlight-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 24% 18%, color-mix(in srgb, var(--accent-glow) 98%, rgba(255,255,255,.4)), transparent 36%),
+    radial-gradient(circle at 82% 14%, color-mix(in srgb, var(--accent-soft) 52%, transparent), transparent 28%),
+    linear-gradient(135deg, color-mix(in srgb, var(--accent-soft) 46%, transparent), transparent 44%, color-mix(in srgb, var(--accent-soft) 26%, transparent));
+  animation:
+    codeCardHalo 0.62s ease-out both,
+    codeCardSpotlightHalo 1.85s ease-in-out 0.72s infinite;
+}
+
+.code-card.ai-spotlight-card .code-card-run-dot::before {
+  border-color: color-mix(in srgb, var(--border-hover) 94%, transparent);
+  background: color-mix(in srgb, var(--accent-soft) 58%, transparent);
+}
+
+.code-card.ai-spotlight-card .code-card-run-dot {
+  color: var(--accent);
+}
+
+.code-card-run-dot,
+.tool-btn,
+.composer-slot-btn,
+.send-btn,
+.action-btn {
+  transition:
+    transform var(--duration-fast) var(--ease-spring),
+    box-shadow var(--duration-fast) ease,
+    background var(--duration-fast) ease,
+    border-color var(--duration-fast) ease,
+    color var(--duration-fast) ease;
+}
+
+.code-card-run-dot:hover,
+.code-card-run-dot:focus-visible,
+.tool-btn:hover,
+.tool-btn:focus-visible,
+.composer-slot-btn:hover,
+.composer-slot-btn:focus-visible,
+.action-btn:hover,
+.action-btn:focus-visible {
+  transform: translateY(-2px);
+}
+
+.chat-box:focus-within,
+.collection-search:focus-within {
+  transform: translateY(-1px);
+}
+
+.tool-event.preview,
+.active-preview-strip {
+  position: relative;
+  overflow: hidden;
+}
+
+.tool-event.preview::after,
+.active-preview-strip::after {
+  content: '';
+  position: absolute;
+  inset: -4px auto -4px -18%;
+  width: 28%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.14), transparent);
+  transform: translateX(-150%) skewX(-18deg);
+  pointer-events: none;
+  animation: shimmerSweep 2.8s ease-in-out infinite;
+}
+
+.send-btn.has-content {
+  animation: sendReadyPulse 2.4s ease-in-out infinite;
+  box-shadow: 0 6px 14px color-mix(in srgb, var(--accent-soft) 52%, transparent);
+}
+
+.send-btn.has-content:hover,
+.send-btn.has-content:focus-visible {
+  transform: translateY(-2px) scale(1.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .world-frame,
+  .world-frame.active {
+    transform: none;
+    filter: none;
+  }
+}

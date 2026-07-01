@@ -1,0 +1,23 @@
+.collaborator-sigil {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  color: var(--collaborator-sigil-color);
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.78), transparent 54%),
+    color-mix(in srgb, var(--collaborator-sigil-color) 12%, rgba(255, 255, 255, 0.66));
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--collaborator-sigil-color) 14%, rgba(255, 255, 255, 0.22)),
+    0 4px 12px color-mix(in srgb, var(--collaborator-sigil-color) 8%, transparent);
+  backdrop-filter: blur(6px) saturate(1.04);
+}
+
+.collaborator-sigil svg {
+  display: block;
+}
+
+.persona-indicator .collaborator-sigil {
+  margin-right: 2px;
+}

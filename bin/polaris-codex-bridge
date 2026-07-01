@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+resolve_bin() {
+  local name="$1"
+  shift
+
+  if command -v "$name" >/dev/null 2>&1; then
+    command -v "$name"
+    return 0
+  fi
+
+  for candidate in "$@"; do
+    if [ -x "$candidate" ]; then
+      printf '%s\n' "$candidate"
+      return 0
+    fi
+  done
+
+  return 1
+}
+
+resolve_file() {
+  for candidate in "$@"; do
+    if [ -f "$candidate" ]; then
+      printf '%s\n' "$candidate"
+      return 0
+    fi
+  done
+
+  return 1
+}
+
+SOURCE="${BASH_SOURCE[0]}"
+while [ -L "$SOURCE" ]; do
+  DIR="$(cd -P "$(dirname "$SOURCE")" && pwd)"
+  TARGET="$(readlink "$SOURCE")"
+  if [[ "$TARGET" != /* ]]; then
+    SOURCE="$DIR/$TARGET"
+  else
+    SOURCE="$TARGET"
+  fi
+done
+
+SCRIPT_DIR="$(cd -P "$(dirname "$SOURCE")" && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+NODE_BIN="$(resolve_bin node /opt/homebrew/bin/node /usr/local/bin/node)"
+TSX_CLI_JS="$REPO_ROOT/node_modules/tsx/dist/cli.mjs"
+BRIDGE_SCRIPT_TS="$REPO_ROOT/tools/codex-companion-bridge.ts"
+
+if [ -z "${NODE_BIN:-}" ]; then
+  echo "找不到 node，可先确认 Node 已安装。" >&2
+  exit 1
+fi
+
+if [ ! -f "$TSX_CLI_JS" ]; then
+  echo "找不到 tsx 运行入口：$TSX_CLI_JS" >&2
+  exit 1
+fi
+
+if [ ! -f "$BRIDGE_SCRIPT_TS" ]; then
+  echo "找不到 bridge 脚本：$BRIDGE_SCRIPT_TS" >&2
+  exit 1
+fi
+
+exec "$NODE_BIN" "$TSX_CLI_JS" "$BRIDGE_SCRIPT_TS" "$@"

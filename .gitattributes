@@ -1,0 +1,6 @@
+.claude/** export-ignore
+.vercel/** export-ignore
+dist/** export-ignore
+server-dist/** export-ignore
+tmp/** export-ignore
+tsconfig.tsbuildinfo export-ignore

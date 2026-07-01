@@ -1,0 +1,105 @@
+.persona-builder-sheet .pb-card-grid,
+.persona-builder-sheet .pb-card-grid.compact {
+  gap: 8px;
+}
+
+.persona-builder-sheet .pb-choice-card,
+.persona-builder-sheet .pb-starter-card {
+  min-height: 54px;
+  padding: 10px 12px;
+  border: 1px solid var(--builder-border-subtle);
+  border-radius: 18px;
+  background: linear-gradient(180deg, var(--builder-space-surface-elevated), var(--builder-space-surface));
+  box-shadow: none;
+  text-align: left;
+  overflow: hidden;
+  backdrop-filter: blur(16px) saturate(1.1);
+  transition: transform 160ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease, box-shadow 180ms ease;
+}
+
+.persona-builder-sheet .pb-option-prompt {
+  border-color: var(--builder-border-subtle);
+  background: linear-gradient(180deg, rgba(12, 14, 36, 0.95), rgba(8, 9, 26, 0.98));
+  box-shadow: none;
+}
+
+.persona-builder-sheet .pb-option-prompt span {
+  color: var(--builder-gold-muted);
+  letter-spacing: 0;
+}
+
+.persona-builder-sheet .pb-option-prompt p {
+  color: var(--builder-soft);
+}
+
+.persona-builder-sheet .pb-option-prompt p + p {
+  border-top-color: rgba(17, 17, 19, 0.08);
+}
+
+.persona-builder-sheet .pb-choice-card:active,
+.persona-builder-sheet .pb-starter-card:active,
+.persona-builder-sheet .pb-chip:active {
+  transform: translateY(1px);
+}
+
+.persona-builder-sheet .pb-choice-card.active,
+.persona-builder-sheet .pb-starter-card.active,
+.persona-builder-sheet .pb-choice-card-null.active {
+  border-color: var(--builder-border-active);
+  background: linear-gradient(180deg, var(--builder-space-surface-elevated), var(--builder-space-surface));
+  box-shadow: 0 10px 28px rgba(167, 139, 218, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transform: translateY(-1px);
+}
+
+.persona-builder-sheet .pb-choice-card strong,
+.persona-builder-sheet .pb-starter-card strong {
+  color: var(--builder-ink);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.persona-builder-sheet .pb-choice-card.active strong,
+.persona-builder-sheet .pb-starter-card.active strong {
+  background: var(--builder-gradient-accent);
+  background-clip: text;
+  color: transparent;
+}
+
+.persona-builder-sheet .pb-choice-card span,
+.persona-builder-sheet .pb-starter-card span {
+  color: var(--builder-muted);
+  line-height: 1.45;
+}
+
+.persona-builder-sheet .pb-choice-card.active span,
+.persona-builder-sheet .pb-starter-card.active span {
+  color: var(--builder-soft);
+}
+
+@media (max-width: 640px) {
+  .persona-builder-sheet .pb-card-grid,
+  .persona-builder-sheet .pb-card-grid.compact {
+    gap: 8px;
+  }
+
+  .persona-builder-sheet .pb-core-grid .pb-choice-card {
+    min-height: 54px;
+    padding: 10px;
+  }
+
+  .persona-builder-sheet .pb-option-prompt {
+    padding: 9px 10px;
+  }
+
+  .persona-builder-sheet .pb-choice-card strong,
+  .persona-builder-sheet .pb-starter-card strong {
+    font-size: 13px;
+  }
+
+  .persona-builder-sheet .pb-choice-card span,
+  .persona-builder-sheet .pb-starter-card span {
+    margin-top: 5px;
+    font-size: 11px;
+    line-height: 1.35;
+  }
+}

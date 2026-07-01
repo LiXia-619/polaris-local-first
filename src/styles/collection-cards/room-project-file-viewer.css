@@ -1,0 +1,172 @@
+.room-project-file-row {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-height: 54px;
+  padding: 10px 10px 10px 12px;
+  border-radius: 16px;
+  border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+  background: color-mix(in srgb, var(--surface-solid) 94%, rgba(255, 255, 255, 0.52));
+  box-shadow: 0 6px 14px rgba(100, 115, 160, 0.03);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  text-align: left;
+}
+
+.room-project-file-row--entry {
+  border-color: color-mix(in srgb, var(--accent) 30%, var(--border) 70%);
+  background: color-mix(in srgb, var(--surface-solid) 96%, rgba(255, 255, 255, 0.58));
+}
+
+.room-project-file-row-main {
+  min-width: 0;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.room-project-file-row-icon {
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  border-radius: 13px;
+  border: 1px solid color-mix(in srgb, var(--border) 62%, transparent);
+  background: color-mix(in srgb, var(--surface-solid) 86%, rgba(255, 255, 255, 0.44));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: color-mix(in srgb, var(--text-soft) 76%, var(--accent) 24%);
+}
+
+.room-project-file-row-copy {
+  min-width: 0;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.room-project-file-row-copy strong {
+  min-width: 0;
+  font-size: 12px;
+  line-height: 1.38;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.room-project-file-row-copy small {
+  min-width: 0;
+  font-size: 10px;
+  line-height: 1.35;
+  color: var(--text-soft);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.room-project-file-row-actions {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.room-project-file-row-action {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--border) 64%, transparent);
+  background: color-mix(in srgb, var(--surface-solid) 86%, rgba(255, 255, 255, 0.44));
+  color: color-mix(in srgb, var(--text-soft) 76%, var(--accent) 24%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.room-project-file-fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 420;
+  background: linear-gradient(180deg, #ffffff, #fbfbfb);
+  display: flex;
+  flex-direction: column;
+}
+
+.room-project-file-fullscreen-bar {
+  position: relative;
+  z-index: 4;
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) 48px;
+  align-items: center;
+  min-height: calc(54px + env(safe-area-inset-top, 0px));
+  padding: calc(8px + env(safe-area-inset-top, 0px)) 12px 8px;
+  border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(14px) saturate(1.08);
+  -webkit-backdrop-filter: blur(14px) saturate(1.08);
+}
+
+.room-project-file-fullscreen .room-project-fullscreen-back {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #313131;
+}
+
+.room-project-file-fullscreen-status {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  color: rgba(17, 17, 17, 0.48);
+  text-align: center;
+}
+
+.room-project-file-fullscreen-status span {
+  max-width: min(220px, 44vw);
+  overflow: hidden;
+  color: rgba(17, 17, 17, 0.28);
+  font-size: 9px;
+  line-height: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.room-project-file-fullscreen-status small {
+  color: rgba(17, 17, 17, 0.48);
+  font-size: 10px;
+  line-height: 1.2;
+}
+
+.room-project-file-fullscreen-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: 28px max(20px, calc((100vw - 820px) / 2)) calc(34px + env(safe-area-inset-bottom, 0px));
+}
+
+.room-project-file-fullscreen-body .create-code-workshop,
+.room-project-file-fullscreen-body .text-reading-workshop {
+  width: min(820px, 100%);
+  margin: 0 auto;
+}

@@ -1,0 +1,128 @@
+.collaborator-scope-drawer {
+  --collaborator-scope-drawer-panel-width: min(320px, calc(100% - 52px));
+  position: absolute;
+  inset: 0;
+  z-index: 32;
+  display: flex;
+  pointer-events: none;
+}
+
+.collaborator-scope-drawer-scrim {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0 var(--collaborator-scope-drawer-panel-width),
+      rgba(198, 202, 205, 0.46) var(--collaborator-scope-drawer-panel-width) 100%
+    );
+  backdrop-filter: blur(5px) saturate(0.76);
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.collaborator-scope-drawer-panel {
+  position: relative;
+  z-index: 1;
+  width: var(--collaborator-scope-drawer-panel-width);
+  height: 100%;
+  padding: max(18px, calc(env(safe-area-inset-top, 0px) + 14px)) 14px max(20px, calc(env(safe-area-inset-bottom, 0px) + 18px)) 18px;
+  border-right: 1px solid color-mix(in srgb, var(--border) 56%, transparent);
+  border-radius: 0 28px 28px 0;
+  background: color-mix(in srgb, var(--surface-solid) 96%, rgba(255,255,255,0.86));
+  box-shadow: 20px 0 38px rgba(28, 34, 48, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  pointer-events: auto;
+}
+
+.app-shell:not(.world-switching) .collaborator-scope-drawer--open .collaborator-scope-drawer-scrim {
+  animation: collaboratorScopeScrimIn 220ms var(--ease-out) both;
+}
+
+.app-shell:not(.world-switching) .collaborator-scope-drawer--open .collaborator-scope-drawer-panel {
+  animation: collaboratorScopeDrawerIn 260ms var(--ease-out) both;
+}
+
+.collaborator-scope-drawer-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.collaborator-scope-drawer-head-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  padding-top: 25px;
+}
+
+.collaborator-scope-drawer-head-copy span {
+  font-size: 11px;
+  line-height: 1.45;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.collaborator-scope-drawer-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+.collaborator-scope-drawer-edit {
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--border) 64%, transparent);
+  background: color-mix(in srgb, var(--surface) 90%, rgba(255,255,255,0.72));
+  color: var(--text-soft);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.collaborator-scope-drawer-settings {
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--border) 64%, transparent);
+  background: color-mix(in srgb, var(--surface) 90%, rgba(255,255,255,0.72));
+  color: var(--text-soft);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.collaborator-scope-drawer-settings:hover,
+.collaborator-scope-drawer-settings:focus-visible {
+  border-color: color-mix(in srgb, var(--border-hover) 76%, transparent);
+  color: var(--text);
+  outline: none;
+}
+
+.collaborator-scope-drawer-edit.active {
+  border-color: rgba(194, 92, 92, 0.34);
+  background: rgba(194, 92, 92, 0.08);
+  color: #b45f5f;
+}
+
+.collaborator-scope-drawer-list {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  gap: 8px;
+  min-height: 0;
+  padding: 2px 2px max(18px, calc(env(safe-area-inset-bottom, 0px) + 12px)) 0;
+}

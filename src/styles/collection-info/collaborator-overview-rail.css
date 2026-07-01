@@ -1,0 +1,302 @@
+.collaborator-overview-rail {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  width: min(720px, calc(100% - 28px));
+  margin: 2px auto 0;
+  padding: 0 0 8px;
+}
+
+.collaborator-overview-slot {
+  position: relative;
+  width: 100%;
+}
+
+.collaborator-overview-slot .persona-create-picker {
+  margin: 0;
+}
+
+.collaborator-overview-empty {
+  width: 100%;
+  min-height: clamp(260px, 42vh, 420px);
+  padding-inline: 18px;
+}
+
+.collaborator-overview-empty .empty-state-icon {
+  display: inline-grid;
+  place-items: center;
+}
+
+.collaborator-overview-empty-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.collaborator-overview-empty-actions .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  flex: 0 1 154px;
+  min-width: 0;
+  min-height: 42px;
+  padding: 0 14px;
+  border: 1px solid color-mix(in srgb, var(--border) 80%, rgba(255,255,255,0.18));
+  border-radius: 14px;
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, rgba(255,255,255,0.34) 24%, var(--surface) 76%),
+      color-mix(in srgb, var(--surface-solid) 88%, rgba(255,255,255,0.08))
+    );
+  color: var(--sheet-readable-soft);
+  font: inherit;
+  font-size: var(--type-small);
+  font-weight: 560;
+  line-height: 1.15;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.48),
+    0 8px 18px rgba(76, 88, 120, 0.06);
+  backdrop-filter: blur(12px) saturate(1.04);
+  -webkit-backdrop-filter: blur(12px) saturate(1.04);
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
+}
+
+.collaborator-overview-empty-actions .btn-secondary:first-child {
+  border-color: color-mix(in srgb, var(--accent) 28%, var(--border) 72%);
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--accent-soft) 48%, rgba(255,255,255,0.28)),
+      color-mix(in srgb, var(--surface-solid) 86%, var(--accent-soft) 14%)
+    );
+  color: color-mix(in srgb, var(--accent) 70%, var(--sheet-readable-text) 30%);
+}
+
+.collaborator-overview-empty-actions .btn-secondary span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.collaborator-overview-empty-actions .btn-secondary svg {
+  flex: 0 0 auto;
+}
+
+.collaborator-overview-empty-actions .btn-secondary:hover,
+.collaborator-overview-empty-actions .btn-secondary:focus-visible {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--accent) 34%, var(--border-hover) 66%);
+  color: var(--sheet-readable-text);
+  outline: none;
+}
+
+.collaborator-overview-empty-actions .btn-secondary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.collaborator-overview-card {
+  --collaborator-overview-avatar-size: 24px;
+  --collaborator-overview-title-indent: 32px;
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 0;
+  padding: 15px 17px;
+  border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--surface-solid) 94%, rgba(255, 255, 255, 0.52));
+  box-shadow: 0 6px 14px rgba(100, 115, 160, 0.03);
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.collaborator-overview-card:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--accent) 24%, var(--border) 76%);
+  box-shadow: 0 9px 18px rgba(100, 115, 160, 0.04);
+}
+
+.collaborator-overview-card.pinned {
+  border-color: color-mix(in srgb, var(--border) 72%, transparent);
+  background:
+    radial-gradient(circle at 16px 14px, color-mix(in srgb, var(--accent-soft) 58%, transparent), transparent 42px),
+    linear-gradient(135deg, color-mix(in srgb, var(--accent-soft) 24%, var(--surface-solid) 76%), color-mix(in srgb, var(--surface-solid) 94%, rgba(255,255,255,0.52)));
+  box-shadow: 0 10px 22px color-mix(in srgb, var(--accent) 6%, transparent);
+}
+
+.collaborator-overview-card.editing {
+  cursor: default;
+  padding-left: 22px;
+}
+
+.collaborator-overview-card.editing:hover {
+  transform: none;
+}
+
+.collaborator-overview-pin {
+  left: 5px;
+  top: 50%;
+  z-index: 5;
+  transform: translateY(-50%);
+}
+
+.collaborator-overview-pin:active {
+  transform: translateY(-50%) scale(0.92);
+}
+
+.collaborator-overview-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 4px;
+}
+
+.collaborator-overview-card-model,
+.collaborator-overview-card-metrics span {
+  font-size: 9px;
+  letter-spacing: 0.03em;
+}
+
+.collaborator-overview-card-model,
+.collaborator-overview-card-metrics span {
+  color: color-mix(in srgb, var(--text) 76%, var(--text-soft) 24%);
+}
+
+.collaborator-overview-card-model {
+  display: inline-flex;
+  align-items: center;
+  max-width: 108px;
+  padding: 2px 0;
+  border-radius: 999px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.collaborator-overview-card-main {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.collaborator-overview-card-avatar {
+  width: var(--collaborator-overview-avatar-size);
+  height: var(--collaborator-overview-avatar-size);
+  margin-top: -1px;
+  border: 0;
+  overflow: visible;
+  background:
+    radial-gradient(
+      circle at 50% 48%,
+      rgba(255,255,255,0.82) 0 38%,
+      color-mix(in srgb, var(--surface-solid) 52%, transparent) 54%,
+      transparent 76%
+    );
+  box-shadow: none;
+}
+
+.collaborator-overview-card-avatar .collaborator-sigil {
+  background:
+    radial-gradient(circle at 50% 46%, rgba(255,255,255,0.92), rgba(255,255,255,0.24) 58%, transparent 76%);
+  filter: drop-shadow(0 4px 9px color-mix(in srgb, currentColor 16%, transparent));
+}
+
+.collaborator-overview-card-avatar.persona-avatar--image {
+  overflow: hidden;
+  background: transparent;
+  box-shadow: 0 6px 16px rgba(100, 115, 160, 0.06);
+}
+
+.collaborator-overview-card-copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 0;
+}
+
+.collaborator-overview-card-title-row {
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.collaborator-overview-card-pin-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 13px;
+  height: 13px;
+  color: color-mix(in srgb, var(--accent) 72%, #d7b3ff 28%);
+  filter: drop-shadow(0 2px 5px color-mix(in srgb, var(--accent) 16%, transparent));
+  flex: 0 0 auto;
+}
+
+.collaborator-overview-card strong {
+  font-size: 15px;
+  line-height: 1.16;
+  color: var(--text);
+}
+
+.collaborator-overview-card strong.display-title--ornamental {
+  font-family: var(--font-display-latin);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.collaborator-overview-card strong.display-title--system {
+  font-family: var(--font-ui);
+  font-weight: 650;
+  letter-spacing: 0;
+}
+
+.collaborator-overview-card p {
+  margin: 0;
+  padding-left: var(--collaborator-overview-title-indent);
+  font-size: 10px;
+  line-height: 1.25;
+  color: var(--text-soft);
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.collaborator-overview-card-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 4px 8px;
+  max-width: none;
+  padding-left: var(--collaborator-overview-title-indent);
+}
+
+.collaborator-overview-card-metrics span {
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  border-radius: 999px;
+}
+
+.collaborator-info-shelf-empty {
+  min-height: 46vh;
+}
+
+.collaborator-info-shelf-empty .empty-state-floating {
+  width: min(420px, calc(100% - 28px));
+  margin: 18px auto 0;
+}

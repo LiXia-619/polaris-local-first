@@ -1,0 +1,76 @@
+.chat-flow-shell { position: relative; flex: 1; min-height: 0; }
+.chat-flow-shell::before { content: none; }
+.chat-flow {
+  --chat-generation-reserve-gap: clamp(220px, 34vh, 320px);
+  --chat-reply-stage-stage-gap: max(clamp(240px, 42vh, 360px), calc(100% - 56px));
+  flex: 1;
+  min-height: 0;
+  height: 100%;
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
+  scroll-padding: 14px 0 18px;
+  padding: 9px 20px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.chat-flow-window-row { min-width: 0; }
+.message-task-receipt-panel {
+  width: min(100%, 540px);
+  margin: 12px 0 2px;
+  animation: streamingCopyIn 180ms ease both;
+}
+.message-task-receipt-panel .task-runtime-card {
+  border-radius: 18px;
+  box-shadow:
+    0 18px 38px rgba(6, 10, 22, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+.chat-flow-spacer {
+  flex: 0 0 auto;
+  min-height: 0;
+  pointer-events: none;
+}
+.chat-flow::after { content: ''; flex-shrink: 0; min-height: 0; }
+.chat-flow.generation-active::after { min-height: var(--chat-generation-reserve-gap); }
+.chat-flow.generation-settled::after { min-height: 0; }
+.chat-flow.follow-reply-stage::after { min-height: var(--chat-reply-stage-stage-gap); }
+.chat-flow.follow-manual::after { min-height: 0; }
+.chat-flow.follow-manual.generation-active::after { min-height: var(--chat-generation-reserve-gap); }
+.chat-empty-state {
+  margin: auto 0;
+  min-height: clamp(220px, 42vh, 360px);
+  padding: clamp(36px, 8vh, 64px) 24px;
+  translate: 0 clamp(-34px, -4.2vh, -18px);
+  border: none;
+  background: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
+}
+.chat-empty-state .chat-empty-state-polaris {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  margin-bottom: 10px;
+  background: none;
+  color: var(--text-muted);
+  opacity: 0.72;
+  -webkit-text-fill-color: currentColor;
+}
+.chat-empty-state .chat-empty-state-polaris svg {
+  filter: drop-shadow(0 8px 18px color-mix(in srgb, var(--accent-soft) 18%, transparent));
+}
+.chat-empty-state .empty-state-title {
+  color: color-mix(in srgb, var(--text) 54%, transparent);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.chat-empty-state .empty-state-hint {
+  max-width: min(76vw, 360px);
+  color: color-mix(in srgb, var(--text-muted) 46%, transparent);
+  font-size: 12.5px;
+  line-height: 1.72;
+}

@@ -1,0 +1,325 @@
+.viewport-debug-overlay {
+  position: fixed;
+  top: max(10px, calc(env(safe-area-inset-top, 0px) + 4px));
+  left: 10px;
+  z-index: 90;
+  display: grid;
+  gap: 2px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: rgba(15, 18, 27, 0.84);
+  color: #f7f9ff;
+  font: 11px/1.35 'SF Mono', 'Fira Code', monospace;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+  pointer-events: none;
+}
+
+.viewport-debug-overlay strong {
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+
+.request-debug-overlay {
+  position: fixed;
+  top: max(10px, calc(env(safe-area-inset-top, 0px) + 4px));
+  right: 10px;
+  z-index: 90;
+  display: grid;
+  gap: 2px;
+  min-width: 192px;
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: rgba(15, 18, 27, 0.88);
+  color: #f7f9ff;
+  font: 11px/1.35 'SF Mono', 'Fira Code', monospace;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+}
+
+.request-debug-header,
+.request-debug-actions {
+  display: flex;
+  align-items: center;
+}
+
+.request-debug-header {
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.request-debug-actions {
+  gap: 8px;
+}
+
+.request-debug-header strong {
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+
+.request-debug-header button {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: rgba(247, 249, 255, 0.78);
+  font: inherit;
+  text-transform: lowercase;
+  cursor: pointer;
+}
+
+.request-debug-header .debug-overlay-close-button,
+.asset-governance-actions .debug-overlay-close-button {
+  display: inline-grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  margin-left: 2px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(247, 249, 255, 0.96);
+  font-size: 16px;
+  line-height: 1;
+  text-transform: none;
+}
+
+.request-debug-header .debug-overlay-close-button:active,
+.asset-governance-actions .debug-overlay-close-button:active {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.request-debug-shrink {
+  min-width: 0;
+  margin-top: 2px;
+  padding-top: 4px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.request-debug-shrink summary {
+  cursor: pointer;
+  color: rgba(247, 249, 255, 0.82);
+}
+
+.request-debug-shrink span {
+  display: block;
+  max-width: 440px;
+  margin-top: 3px;
+  color: rgba(247, 249, 255, 0.72);
+  overflow-wrap: anywhere;
+}
+
+.asset-governance-overlay {
+  position: fixed;
+  left: 10px;
+  bottom: max(10px, calc(env(safe-area-inset-bottom, 0px) + 4px));
+  z-index: 90;
+  display: grid;
+  gap: 2px;
+  min-width: 224px;
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: rgba(15, 18, 27, 0.88);
+  color: #f7f9ff;
+  font: 11px/1.35 'SF Mono', 'Fira Code', monospace;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+}
+
+.asset-governance-header,
+.asset-governance-actions {
+  display: flex;
+  align-items: center;
+}
+
+.asset-governance-header {
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.asset-governance-actions {
+  gap: 8px;
+}
+
+.asset-governance-header strong {
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+
+.asset-governance-actions button {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: rgba(247, 249, 255, 0.78);
+  font: inherit;
+  text-transform: lowercase;
+  cursor: pointer;
+}
+
+.asset-recovery {
+  display: grid;
+  gap: 4px;
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.asset-recovery-title {
+  margin: 0;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+
+.asset-recovery-hint {
+  margin: 0;
+  opacity: 0.6;
+}
+
+.asset-recovery-list {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.asset-recovery-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.asset-recovery-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.asset-recovery-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 140px;
+}
+
+.asset-recovery-state {
+  opacity: 0.82;
+}
+
+.asset-recovery-state--missing-body,
+.asset-recovery-state--quarantine {
+  color: #ffb4a8;
+}
+
+.asset-recovery-reason {
+  opacity: 0.55;
+}
+
+.asset-recovery-action {
+  flex: none;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  padding: 2px 8px;
+  background: transparent;
+  color: rgba(247, 249, 255, 0.82);
+  font: inherit;
+  cursor: pointer;
+}
+
+.asset-recovery-action:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.runtime-performance-overlay {
+  position: fixed;
+  right: 10px;
+  bottom: max(10px, calc(env(safe-area-inset-bottom, 0px) + 4px));
+  z-index: 90;
+  display: grid;
+  gap: 2px;
+  min-width: 208px;
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: rgba(15, 18, 27, 0.88);
+  color: #f7f9ff;
+  font: 11px/1.35 'SF Mono', 'Fira Code', monospace;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+}
+
+.runtime-performance-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.runtime-performance-header strong {
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+
+.runtime-performance-header button {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: rgba(247, 249, 255, 0.78);
+  font: inherit;
+  text-transform: lowercase;
+  cursor: pointer;
+}
+
+.runtime-surface-placeholder {
+  display: grid;
+  place-items: center;
+  min-height: 96px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(247, 249, 255, 0.64);
+  font: 12px/1.4 'IBM Plex Sans', 'SF Pro Text', sans-serif;
+}
+
+.screenshot-debug-overlay {
+  position: fixed;
+  top: max(10px, calc(env(safe-area-inset-top, 0px) + 8px));
+  left: 50%;
+  z-index: 95;
+  display: grid;
+  gap: 3px;
+  min-width: min(320px, calc(100vw - 28px));
+  max-width: min(420px, calc(100vw - 28px));
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  background: rgba(15, 18, 27, 0.9);
+  color: #f7f9ff;
+  font: 11px/1.35 'SF Mono', 'Fira Code', monospace;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.screenshot-debug-overlay__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.screenshot-debug-overlay__header strong {
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.72;
+}

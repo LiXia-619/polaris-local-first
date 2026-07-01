@@ -1,0 +1,27 @@
+@media (max-width: 640px) {
+  .conversation-card {
+    padding: var(--collection-dialogue-card-padding-mobile);
+  }
+
+  .conversation-card .card-meta-row,
+  .conversation-card .conversation-card-main,
+  .conversation-card .conversation-card-edit {
+    padding-left: var(--collection-dialogue-card-copy-padding-left-mobile);
+  }
+
+  .conversation-card .card-meta-row {
+    padding-right: 80px;
+  }
+
+  .conversation-card-main {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .conversation-card h3 {
+    font-size: 13.5px;
+    line-height: 1.22;
+  }
+
+  .conversation-card.collapsed h3 { font-size: 12.75px; }
+}
