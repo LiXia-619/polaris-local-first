@@ -1,0 +1,49 @@
+name: Windows desktop package
+
+on:
+  workflow_dispatch:
+    inputs:
+      api_origin:
+        description: Public Polaris API origin, for example https://api.example.com
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  package-windows:
+    runs-on: windows-latest
+    timeout-minutes: 45
+    env:
+      POLARIS_DESKTOP_API_ORIGIN: ${{ inputs.api_origin }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate desktop source
+        run: npm run typecheck
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build Windows installer
+        run: npm run desktop:package:windows
+
+      - name: Upload installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: Polaris-Windows-x64
+          path: desktop-dist/windows/*
+          if-no-files-found: error
+          retention-days: 14
