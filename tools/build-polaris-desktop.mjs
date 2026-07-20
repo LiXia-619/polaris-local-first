@@ -83,6 +83,33 @@ export function resolveDesktopApiOrigin(args = process.argv.slice(2), env = proc
   };
 }
 
+export function resolveNpmBuildInvocation(
+  env = process.env,
+  platform = process.platform,
+  nodeExecPath = process.execPath
+) {
+  const npmExecPath = env.npm_execpath?.trim();
+
+  if (npmExecPath) {
+    return {
+      command: nodeExecPath,
+      args: [npmExecPath, 'run', 'build']
+    };
+  }
+
+  if (platform === 'win32') {
+    return {
+      command: env.ComSpec?.trim() || 'cmd.exe',
+      args: ['/d', '/s', '/c', 'npm.cmd run build']
+    };
+  }
+
+  return {
+    command: 'npm',
+    args: ['run', 'build']
+  };
+}
+
 function writeDesktopBuildMarker(root, resolved) {
   const markerPath = path.join(root, 'dist', 'desktop-api-origin.json');
   fs.writeFileSync(markerPath, `${JSON.stringify({
@@ -102,8 +129,8 @@ function main() {
   }
 
   console.log(`Building Polaris desktop frontend with API origin: ${resolved.origin}`);
-  const npmCommand = process.platform === 'win32' ? 'npm.cmd' : 'npm';
-  const build = spawnSync(npmCommand, ['run', 'build'], {
+  const npmInvocation = resolveNpmBuildInvocation();
+  const build = spawnSync(npmInvocation.command, npmInvocation.args, {
     cwd: root,
     stdio: 'inherit',
     env: {
@@ -111,6 +138,10 @@ function main() {
       VITE_POLARIS_API_ORIGIN: resolved.origin
     }
   });
+
+  if (build.error) {
+    console.error(`Unable to start the desktop frontend build: ${build.error.message}`);
+  }
 
   if (build.status !== 0) {
     process.exit(build.status ?? 1);
