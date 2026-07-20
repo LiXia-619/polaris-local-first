@@ -1,6 +1,7 @@
 node_modules
 dist
 desktop-dist
+desktop-staging
 server-dist
 exports
 .claude/

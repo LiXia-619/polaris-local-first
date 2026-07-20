@@ -15,6 +15,9 @@
     "desktop:preview": "npm run build && node tools/open-polaris-desktop.mjs",
     "desktop:build": "node tools/build-polaris-desktop.mjs",
     "desktop:package": "npm run desktop:build && node tools/package-polaris-desktop.mjs",
+    "desktop:stage": "node tools/stage-polaris-desktop.mjs",
+    "desktop:package:windows": "npm run desktop:build && npm run desktop:stage && electron-builder --win nsis --x64",
+    "desktop:package:windows:dir": "npm run desktop:build && npm run desktop:stage && electron-builder --win dir --x64",
     "icons:polaris": "node tools/generate-polaris-icons.mjs",
     "selfhost:typecheck": "tsc --noEmit -p tsconfig.selfhost.json",
     "selfhost:build": "tsc -p tsconfig.selfhost.json",
@@ -87,6 +90,7 @@
     "@vercel/node": "^5.6.15",
     "@vitejs/plugin-react": "^4.3.1",
     "electron": "^41.3.0",
+    "electron-builder": "^26.15.3",
     "pixelmatch": "^7.1.0",
     "playwright": "^1.58.2",
     "pngjs": "^7.0.0",
@@ -94,5 +98,42 @@
     "typescript": "^5.6.2",
     "vite": "^5.4.8",
     "vitest": "^4.1.1"
+  },
+  "build": {
+    "appId": "app.polaris.desktop",
+    "productName": "Polaris",
+    "electronVersion": "41.3.0",
+    "asar": true,
+    "compression": "maximum",
+    "beforeBuild": "tools/electron-builder-before-build.cjs",
+    "directories": {
+      "app": "desktop-staging",
+      "output": "desktop-dist/windows",
+      "buildResources": "public/icons"
+    },
+    "files": [
+      "**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "public/icons/polaris-icon-512.png",
+      "artifactName": "Polaris-${version}-Windows-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": "always",
+      "createStartMenuShortcut": true,
+      "shortcutName": "Polaris",
+      "deleteAppDataOnUninstall": false
+    }
   }
 }
